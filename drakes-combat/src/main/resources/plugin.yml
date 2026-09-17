@@ -1,0 +1,7 @@
+name: DrakesCombat
+version: '${project.version}'
+main: com.drakescraft.suites.combat.DrakesCombatPlugin
+api-version: '1.21'
+author: DrakesCraft-Labs
+description: Mega-Suite de Arsenal Tactico, Armas de Energia, Armaduras y SlimefunWarfare.
+depend: [DrakesCore]

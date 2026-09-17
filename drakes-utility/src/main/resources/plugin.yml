@@ -1,0 +1,7 @@
+name: DrakesUtility
+version: '${project.version}'
+main: com.drakescraft.suites.utility.DrakesUtilityPlugin
+api-version: '1.21'
+author: DrakesCraft-Labs
+description: Mega-Suite de Utilidades, Mochilas Tintadas, EnderChests y Herramientas QoL.
+depend: [DrakesCore]

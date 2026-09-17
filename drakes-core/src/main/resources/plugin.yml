@@ -1,0 +1,6 @@
+name: DrakesCore
+version: '${project.version}'
+main: com.drakescraft.suites.core.DrakesCorePlugin
+api-version: '1.21'
+author: DrakesCraft-Labs
+description: Kernel del Ecosistema DrakesCraft: Core Engine, API y Ticker Centralizado.
