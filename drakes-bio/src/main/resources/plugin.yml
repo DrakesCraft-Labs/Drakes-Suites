@@ -1,7 +1,7 @@
 name: DrakesBio
 version: '${project.version}'
 main: com.drakescraft.suites.bio.DrakesBioPlugin
-api-version: '1.21'
+api-version: '26.2'
 author: DrakesCraft-Labs
 description: Mega-Suite de Biotecnologia, Genetica Avanzada (T0-T9), Clonacion y Botanica.
 depend: [DrakesCore]

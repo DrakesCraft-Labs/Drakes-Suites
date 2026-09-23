@@ -1,7 +1,7 @@
-# 🌌 StarSuites (Monorepo Drakes-Suites)
+# 🌌 StarSuites (Monorepo Drakes-Suites) — Rama 26.x
 
 > **Arquitectura Maestra de Suites concebida por JackStar para el ecosistema de software y Minecraft**  
-> Consolidación Oficial de 180+ Plugins en Suites Autónomas para Paper 1.21.11+ y Preparación para Minecraft 26.X
+> Consolidación Oficial de 180+ Plugins en Suites Autónomas portadas a **Purpur 26.2** (Versión Estable 2026)
 
 ---
 

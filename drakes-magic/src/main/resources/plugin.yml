@@ -1,7 +1,7 @@
 name: DrakesMagic
 version: '${project.version}'
 main: com.drakescraft.suites.magic.DrakesMagicPlugin
-api-version: '1.21'
+api-version: '26.2'
 author: DrakesCraft-Labs
 description: Mega-Suite de Artes Arcanas, Alquimia, Reliquias Antiguas y Misticismo.
 depend: [DrakesCore]
