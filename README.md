@@ -1,46 +1,34 @@
-# 🌌 Drakes-Suites (Monorepo del Ecosistema DrakesCraft)
+# 🌌 StarSuites (Monorepo Drakes-Suites)
 
-> **Consolidación Oficial de 160+ Plugins en 8 Mega-Suites Autónomas para Paper 1.21.11 y Preparación para Minecraft 26.X**
-
----
-
-## 🧭 Visión y Arquitectura
-
-En lugar de cargar más de 160 plugins individuales dispersos con 70+ tickers desincronizados y consumo desmedido de memoria por fragmentación de ClassLoaders, **Drakes-Suites** consolida el 100% de la red de DrakesCraft en **8 Mega-Suites modulares** bajo un monorepo Maven multi-módulo.
-
-```
-                    ┌─────────────────────────────────────────┐
-                    │      DrakesCore (Suite 0 - Kernel)      │
-                    │  Runtime Base, Dough, Ticker & Telemetry │
-                    └────────────────────┬────────────────────┘
-                                         │
-        ┌──────────────┬─────────────────┼────────────────┬──────────────┐
-        ▼              ▼                 ▼                ▼              ▼
-   DrakesTech      DrakesBio        DrakesMagic    DrakesGenerators DrakesUtility
-   (Suite 1)       (Suite 2)         (Suite 3)        (Suite 4)       (Suite 5)
-  Redes/Storage   Genética T0-T9    Alquimia/Arcano   Reactores/Red    Mochilas/QoL
-        │              │                                  │              │
-        └──────────────┴─────────────────┬────────────────┴──────────────┘
-                                         ▼
-                                   DrakesCombat & DrakesServer
-                                    (Suite 6)       (Suite 7)
-                                  Arsenal/Bélico  Odysseia/Standalone
-```
+> **Arquitectura Maestra de Suites concebida por JackStar para el ecosistema DrakesCraft**  
+> Consolidación Oficial de 180+ Plugins en Suites Autónomas para Paper 1.21.11+ y Preparación para Minecraft 26.X
 
 ---
 
-## 🏛️ Desglose Canónico de las 8 Mega-Suites
+### 🌟 Los Tres Pilares de Ingeniería
+Este monorepo es parte del ecosistema de software de **JackStar (Jack)**, estructurado en tres mundos separados:
+1. 🏫 **Colegio Castelgandolfo:** Ingeniería institucional real, redes de campus y portales escolares.
+2. ⭐ **Star / JackStar:** Arquitectura de sistemas, orquestador autónomo **SAORI** y autoría de **StarSuites**.
+3. 🐉 **DrakesCraft:** Servidor de Minecraft en producción (Dallas, TX), comunidad, economía y modalidades.
 
-| Suite | Artefacto JAR | Dominio | Repos Auditados | Componentes y Sistemas Absorbidos |
-| :--- | :--- | :--- | :---: | :--- |
-| **0** | `DrakesCore` | Kernel & Core | 6 | Slimefun4-Drake runtime, Dough-core, Ticker centralizado (`SuiteTickerEngine`), JNI Bindings nativos y telemetría de rendimiento. |
-| **1** | `DrakesTech` | Logística & Industria | 15 | Redes digitales (Networks), almacenamiento digital por celdas masivas, Infinity, DynaTech, FastMachines, Supreme, Nanotech, FluffyMachines. |
-| **2** | `DrakesBio` | Biotecnología & Campo | 13 | GeneticChickengineering (Tiers 0 a 9 con clonación y empalme genético), ExoticGarden, Cultivation, SlimyBees, MobCapturer. |
-| **3** | `DrakesMagic` | Arcano & Alquimia | 9 | AlchimiaVitae, Crystamae, RelicsOfCthonia, SoulJars, Netheopoiesis, transmutación, runas y rituales taumatúrgicos. |
-| **4** | `DrakesGenerators` | Matriz Energética | 7 | LiteXpansion, SMG, UltimateGenerators2, EcoPower, OreChunks, reactores nucleares y solares avanzados. |
-| **5** | `DrakesUtility` | Utilidades & QoL | 14 | DyedBackpacks, ColoredEnderChests, ChestTerminal, SFCalc, SlimeHUD, visualizadores holográficos y guías dinámicas. |
-| **6** | `DrakesCombat` | Arsenal & Equipamiento | 13 | ExtraTools, ExtraGear, SlimefunWarfare, LuckyBlocks, Galaxyfun, exoesqueletos y armaduras reactivas. |
-| **7** | `DrakesServer` | Servidor Standalone | 90 | Motor Odysseia (Rust/Java), InvSwitcher, PlayerVaultZ, AxGraves, BreweryX, Mercado Slimefun, economía y chat. |
+> ℹ️ **Reconocimiento Canónico Upstream (Slimefun):**  
+> Slimefun original es obra de **TheBusyBiscuit** y la comunidad open-source. **JackStar no es el creador original de Slimefun**, sino el arquitecto de modernización: rescate de rendimiento en Paper 1.21.11, erradicación de 70+ tickers asíncronos duplicados, aceleración off-heap en Rust ([`Slimefun-Rust`](https://github.com/DrakesCraft-Labs/Slimefun-Rust)) y consolidación masiva en suites desacopladas.
+
+---
+
+## 🏛️ Desglose Canónico de las Suites
+
+| Suite | Artefacto JAR | Dominio | Sistemas y Repositorios Consolidados |
+| :--- | :--- | :--- | :--- |
+| **Suite 0** | `drakes-core.jar` | Kernel & Core | Slimefun4-Drake runtime, Dough-core, Ticker centralizado (`SuiteTickerEngine`), JNI Bindings Rust (`NativeEngineBridge`), DB SQLite WAL y Logs de Auditoría. |
+| **Suite 1** | `drakes-tech.jar` | Logística & Industria | Redes digitales (Networks), almacenamiento digital por celdas masivas, Infinity, DynaTech, FastMachines, Supreme, Nanotech, FluffyMachines. |
+| **Suite 2** | `drakes-bio.jar` | Biotecnología & Campo | GeneticChickengineering (Tiers 0 a 9 con clonación y empalme genético), ExoticGarden, Cultivation, SlimyBees, MobCapturer. |
+| **Suite 3** | `drakes-magic.jar` | Arcano & Alquimia | AlchimiaVitae, Crystamae, RelicsOfCthonia, SoulJars, Netheopoiesis, transmutación, runas y rituales taumatúrgicos. |
+| **Suite 4** | `drakes-generators.jar` | Matriz Energética | LiteXpansion, SMG, UltimateGenerators2, EcoPower, OreChunks, reactores nucleares y solares avanzados. |
+| **Suite 5** | `drakes-utility.jar` | Utilidades & QoL | DyedBackpacks, ColoredEnderChests, ChestTerminal, SFCalc, SlimeHUD, visualizadores holográficos y guías dinámicas. |
+| **Suite 6** | `drakes-combat.jar` | Arsenal & Combate | DrakesBosses, SlimeTinker, SlimefunWarfare, ExtraGear, LuckyBlocks, Galaxyfun, exoesqueletos y armaduras reactivas. |
+| **Suite 7** | `drakes-server.jar` | Servidor Standalone | Motor Odysseia (Rust/Java), InvSwitcher (5 modalidades), PlayerVaultZ, AxGraves, BreweryX, Mercado Slimefun, economía y chat. |
+| **Suite Multiverse** | `drakes-multiverse.jar` | **Autoría: Chagui68** | Absorbe `MultiverseCreatures` (bosses, criaturas, dimensiones y rituales) y `MultiverseNets` (redes de logística standalone sin Slimefun). |
 
 ---
 
