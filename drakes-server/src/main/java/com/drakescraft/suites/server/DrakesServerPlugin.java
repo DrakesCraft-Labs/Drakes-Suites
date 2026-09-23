@@ -19,8 +19,9 @@ public class DrakesServerPlugin extends JavaPlugin {
         saveDefaultConfig();
 
         this.moduleManager = new SuiteModuleManager(this);
-        // Registro de módulos de servidor absorbidos (Odysseia, InvSwitcher, PlayerVaultZ, AxGraves, BreweryX, Market)
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "odysseia", "Odysseia Rust Native Engine & Mythics"));
+        // Registro de módulos de servidor absorbidos (Star/Odysseia, InvSwitcher, PlayerVaultZ, AxGraves, BreweryX, Market)
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "star", "Star Server Engine (Odysseia Evolution), Native Bridge & Tebex"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "odysseia", "Odysseia Rust Native Engine & Mythics (Legacy Alias)"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "invswitcher", "InvSwitcher 5-Modality Airtight Isolation"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "playervaultz", "PlayerVaultZ Anti-Dupe Vaults"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "axgraves", "AxGraves Zero-Item-Loss Graves"));

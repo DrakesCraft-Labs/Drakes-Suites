@@ -1,0 +1,23 @@
+# Star Engine (Evolución Canónica de Odysseia) - Boss Director, Redstone Guard, Tebex & Telemetría
+enabled: true
+engine:
+  name: "StarEngine"
+  legacy-alias: "Odysseia"
+performance:
+  rust-ffi-acceleration: true
+  clock-guard-check-rate: 1
+anti-dupe:
+  boss-drop-atomic-generation: true
+  redstone-loop-auto-break: true
+  modality-vault-isolation: true
+  tebex-idempotency: true
+logging:
+  log-file: "star-audit.log"
+features:
+  aura-evaluation-3d: true
+  discord-srv-integration: true
+  star-telemetry: true
+  death-messages: true
+  global-playtime: true
+  vip-expiry-alert: true
+  macro-economy-watchdog: true
