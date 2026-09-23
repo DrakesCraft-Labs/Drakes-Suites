@@ -1,0 +1,11 @@
+# DrakesCombat - MilitaryArsenal Heavy Weaponry & Turrets
+enabled: true
+performance:
+  turret-targeting-interval-ticks: 5
+anti-dupe:
+  barrel-overheat-lock: true
+logging:
+  audit-file: "military-arsenal-audit.log"
+features:
+  sentry-turrets: true
+  rocket-launchers: true

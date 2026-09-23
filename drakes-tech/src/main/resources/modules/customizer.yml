@@ -1,0 +1,11 @@
+# DrakesTech - SlimeCustomizer & Ryken Dynamic Engine
+enabled: true
+performance:
+  pre-compile-recipes: true
+anti-dupe:
+  strict-recipe-matching: true
+logging:
+  audit-file: "customizer-audit.log"
+features:
+  custom-recipes: true
+  item-replacements: true

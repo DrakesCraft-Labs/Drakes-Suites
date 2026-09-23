@@ -1,0 +1,11 @@
+# DrakesServer - Bump System & Network Loyalty Telemetry
+enabled: true
+performance:
+  async-http-telemetry: true
+anti-dupe:
+  vote-hash-idempotency: true
+logging:
+  audit-file: "bump-audit.log"
+features:
+  reward-crates: true
+  discord-announcements: true

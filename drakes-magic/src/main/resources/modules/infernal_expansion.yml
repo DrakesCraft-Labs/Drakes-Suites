@@ -1,0 +1,11 @@
+# DrakesMagic - InfernalExpansion Nether Arcana & Basalt Fusion
+enabled: true
+performance:
+  nether-fire-listener-throttled: true
+anti-dupe:
+  lava-infusion-integrity: true
+logging:
+  audit-file: "infernal-audit.log"
+features:
+  nether-infusers: true
+  basalt-alchemical-forge: true

@@ -1,0 +1,11 @@
+# DrakesMagic - SlimeChem Alchemical Chemistry & Transmutation
+enabled: true
+performance:
+  molecular-formula-cache: true
+anti-dupe:
+  atomic-mass-conservation-check: true
+logging:
+  audit-file: "slimechem-audit.log"
+features:
+  periodic-elements: true
+  molecular-recombinator: true

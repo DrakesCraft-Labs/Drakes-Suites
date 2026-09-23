@@ -1,0 +1,12 @@
+# DrakesCombat - SlimefunNukes Tactical Warheads & Deterrence
+enabled: true
+performance:
+  async-blast-radius-calculation: true
+anti-dupe:
+  warhead-arming-key-verification: true
+logging:
+  audit-file: "nukes-audit.log"
+features:
+  radiation-field: true
+  siren-alert-system: true
+  safe-zone-shielding: true

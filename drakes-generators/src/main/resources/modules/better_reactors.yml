@@ -1,0 +1,12 @@
+# DrakesGenerators - BetterNuclearReactor Fission & Cryocooling
+enabled: true
+performance:
+  reactor-core-thread-pool: 2
+anti-dupe:
+  fuel-rod-consumption-lock: true
+logging:
+  audit-file: "better-reactors-audit.log"
+features:
+  cryo-coolant-loops: true
+  uranium-enrichment: true
+  meltdown-containment-protocol: true

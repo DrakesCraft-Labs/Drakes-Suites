@@ -1,0 +1,11 @@
+# DrakesMagic - Coronalis Solar Radiance & Plasma Energy
+enabled: true
+performance:
+  plasma-render-distance: 24
+anti-dupe:
+  solar-flare-charge-lock: true
+logging:
+  audit-file: "coronalis-audit.log"
+features:
+  solar-spheres: true
+  coronal-disruptors: true

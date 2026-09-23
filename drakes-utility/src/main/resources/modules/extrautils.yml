@@ -1,0 +1,12 @@
+# DrakesUtility - ExtraUtils Compression & QoL Blocks
+enabled: true
+performance:
+  compressor-fast-path: true
+anti-dupe:
+  compressed-item-nbt-guard: true
+logging:
+  audit-file: "extrautils-audit.log"
+features:
+  compressed-cobble: true
+  trash-cans: true
+  spikes: true

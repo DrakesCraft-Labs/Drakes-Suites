@@ -1,0 +1,11 @@
+# DrakesMagic - DemonicExpansion Dark Arts & Pacts
+enabled: true
+performance:
+  altar-proximity-cache: true
+anti-dupe:
+  pact-transaction-seal: true
+logging:
+  audit-file: "demonic-audit.log"
+features:
+  soul-altar: true
+  abyssal-talismans: true

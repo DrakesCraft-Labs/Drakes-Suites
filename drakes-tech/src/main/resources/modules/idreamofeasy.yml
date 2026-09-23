@@ -1,0 +1,11 @@
+# DrakesTech - IDreamOfEasy Compact Automation
+enabled: true
+performance:
+  compact-ticker: true
+anti-dupe:
+  energy-sync-lock: true
+logging:
+  audit-file: "idreamofeasy-audit.log"
+features:
+  compact-generators: true
+  easy-alloy-smelter: true

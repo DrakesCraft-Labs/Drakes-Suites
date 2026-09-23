@@ -1,0 +1,12 @@
+# DrakesUtility - SFPortalGun Quantum Entanglement Teleporters
+enabled: true
+performance:
+  portal-mesh-spatial-hash: true
+anti-dupe:
+  velocity-conservation-sanity: true
+  anti-infinite-loop-teleport: true
+logging:
+  audit-file: "portalgun-audit.log"
+features:
+  dual-portals: true
+  cross-world-entanglement: false

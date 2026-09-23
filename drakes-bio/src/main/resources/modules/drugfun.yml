@@ -1,0 +1,11 @@
+# DrakesBio - Drugfun Phytochemical & Botanical Synthesis
+enabled: true
+performance:
+  async-extraction: true
+anti-dupe:
+  strict-flask-verification: true
+logging:
+  audit-file: "drugfun-audit.log"
+features:
+  phytochemical-extractor: true
+  distillation-vat: true

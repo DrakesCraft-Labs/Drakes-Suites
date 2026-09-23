@@ -1,0 +1,12 @@
+# DrakesTech - GlobiaMachines Industrial Automation
+enabled: true
+performance:
+  multi-thread-processing: true
+  batch-size: 32
+anti-dupe:
+  strict-inventory-validation: true
+logging:
+  audit-file: "globia-audit.log"
+features:
+  auto-assembly-line: true
+  heavy-industrial-crusher: true

@@ -1,0 +1,11 @@
+# DrakesUtility - GeyserHeads Bedrock Texture Mapping
+enabled: true
+performance:
+  cache-bedrock-skin-uuids: true
+anti-dupe:
+  enforce-vanilla-head-fallback: true
+logging:
+  audit-file: "geyser-heads-audit.log"
+features:
+  floodgate-skin-adapter: true
+  custom-skull-resolver: true

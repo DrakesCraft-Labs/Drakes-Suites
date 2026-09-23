@@ -28,6 +28,12 @@ public class DrakesCombatPlugin extends JavaPlugin {
         this.moduleManager.registerModule(new GenericSuiteModule(this, "missilewarfare", "MissileWarfare Ballistics"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "sfmobdrops", "SFMobDrops Loot Calibration"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "slimefundisc", "SlimefunDisc Acoustic Resonance"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "fn_amplifications", "FNAmplifications Ballistics & Tactical Scopes"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "military_arsenal", "MilitaryArsenal Heavy Weaponry & Turrets"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "slimefun_nukes", "SlimefunNukes Tactical Warheads & Deterrence"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "obsidian_expansion", "ObsidianExpansion & ObsidianArmor T10 Plating"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "hardcore_combat", "HardcoreSlimefun Lethality & Tactical Survival"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "cringle_bosses", "CringleBosses Seasonal & Nordic Mini-Encounters"));
 
         this.moduleManager.enableAll();
 

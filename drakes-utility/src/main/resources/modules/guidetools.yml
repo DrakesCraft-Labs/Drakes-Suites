@@ -1,0 +1,11 @@
+# DrakesUtility - JustEnoughGuide & SlimefunAdvancements Visuals
+enabled: true
+performance:
+  gui-page-caching: true
+anti-dupe:
+  immutable-guide-items: true
+logging:
+  audit-file: "guidetools-audit.log"
+features:
+  recipe-search-bar: true
+  advancement-tree-unlocks: true

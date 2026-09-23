@@ -1,0 +1,11 @@
+# DrakesCombat - ObsidianExpansion & ObsidianArmor T10 Plating
+enabled: true
+performance:
+  damage-reduction-memoization: true
+anti-dupe:
+  full-suit-set-bonus-check: true
+logging:
+  audit-file: "obsidian-combat-audit.log"
+features:
+  blast-absorption-plate: true
+  true-damage-resistance: 0.25

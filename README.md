@@ -49,16 +49,16 @@ Este monorepo forma parte del ecosistema unificado de ingeniería de software de
 
 El ecosistema StarSuites reemplaza más de 160 plugins individuales dispersos por **8 Mega-Suites oficiales** más la Suite soberana Multiverse:
 
-| Suite | Artefacto JAR | Dominio Técnico | Sistemas y Plugins Consolidados |
+| Suite | Artefacto JAR | Dominio Técnico | Sistemas y Addons Consolidados de la Organización |
 | :--- | :--- | :--- | :--- |
 | **Suite 0** | `drakes-core.jar` | Kernel & Motor Central | Slimefun4-Drake runtime, Dough-core shadeado, Ticker centralizado (`SuiteTickerEngine`), JNI Bindings Rust (`NativeEngineBridge`), DB SQLite WAL y Logs de Auditoría. |
-| **Suite 1** | `drakes-tech.jar` | Logística & Redes Digitales | Redes logísticas (Networks), almacenamiento cuántico por celdas masivas, InfinityExpansion, DynaTech, FastMachines, Supreme, Nanotech, FluffyMachines. |
-| **Suite 2** | `drakes-bio.jar` | Biogenética & Campo | GeneticChickengineering (Tiers 0 a 9 con clonación y empalme genético), ExoticGarden, Cultivation, SlimyBees, MobCapturer. |
-| **Suite 3** | `drakes-magic.jar` | Arcano & Alquimia | AlchimiaVitae, Crystamae, RelicsOfCthonia, SoulJars, Netheopoiesis, transmutación elemental, runas y rituales taumatúrgicos. |
-| **Suite 4** | `drakes-generators.jar` | Matriz Energética | LiteXpansion, SMG, UltimateGenerators2, EcoPower, OreChunks, reactores solares, reactores nucleares y celdas de vacío. |
-| **Suite 5** | `drakes-utility.jar` | Utilidades & QoL | DyedBackpacks, ColoredEnderChests, ChestTerminal, SFCalc, SlimeHUD, visualizadores holográficos y guías interactivas. |
-| **Suite 6** | `drakes-combat.jar` | Arsenal & Combate | DrakesBosses, SlimeTinker, SlimefunWarfare, ExtraGear, LuckyBlocks, Galaxyfun, exoesqueletos balísticos y mitigación cinética. |
-| **Suite 7** | `drakes-server.jar` | Servidor Standalone (Star) | **Evolución Odysseia -> Star**: Motor central de servidor, puente Rust/Java (`Star-Rust`), InvSwitcher (aislamiento de 5 modalidades), PlayerVaultZ, AxGraves, BreweryX, Mercado dinámico, economía y chat. |
+| **Suite 1** | `drakes-tech.jar` | Logística & Redes Digitales | Networks, InfinityExpansion, DynaTech, Supreme, FluffyMachines, DrakesNanotech, FoxyMachines, SensibleToolbox, EquivalencyTech (EMCTech), Quaptics, AdvancedTech, DankTech2, GlobiaMachines, Nexcavate, PrivateStorage, SlimeCustomizer / Ryken, IDreamOfEasy, SaneCrafting. |
+| **Suite 2** | `drakes-bio.jar` | Biogenética & Campo | GeneticChickengineering (Tiers 0 a 9 con clonación y empalme genético), ExoticGarden, Cultivation, SlimyBees, MobCapturer, SlimyTreeTaps, Gastronomicon, FlowerPower, Drugfun, GlobalWarming. |
+| **Suite 3** | `drakes-magic.jar` | Arcano & Alquimia | AlchimiaVitae, Crystamae, RelicsOfCthonia, SoulJars, Netheopoiesis, TranscEndence, SpiritsUnchained, DemonicExpansion, ElementManipulation, MagicXpansion, SlimeChem, Coronalis, InfernalExpansion. |
+| **Suite 4** | `drakes-generators.jar` | Matriz Energética | LiteXpansion, SMG (SimpleMaterialGenerators), UltimateGenerators2, EcoPower, SlimefunOreChunks, BetterNuclearReactor, Liquid (Combustibles e Hidrocarburos). |
+| **Suite 5** | `drakes-utility.jar` | Utilidades & QoL | DyedBackpacks, ColoredEnderChests, ChestTerminal, SFCalc, SlimeHUD, SoundMuffler, SimpleUtils, SlimeFrame, ExtraTools, ExtraUtils, SFPortalGun, SmallSpace, JustEnoughGuide & SlimefunAdvancements, WorldEditSlimefun, GeyserHeads. |
+| **Suite 6** | `drakes-combat.jar` | Arsenal & Combate | DrakesBosses, SlimeTinker, SlimefunWarfare, ExtraGear, LuckyBlocks, Galaxyfun, MissileWarfare, SFMobDrops, SlimefunDisc, FNAmplifications, MilitaryArsenal, SlimefunNukes, ObsidianExpansion & ObsidianArmor, HardcoreSlimefun, CringleBosses. |
+| **Suite 7** | `drakes-server.jar` | Servidor Standalone (Star) | **Evolución Odysseia -> Star**: Motor central de servidor, puente Rust/Java (`Star-Rust`), InvSwitcher (aislamiento de 5 modalidades), PlayerVaultZ, AxGraves, BreweryX, BreweryMenu, SlimeMarket, RandomExpansion, Bump. |
 | **Suite Multiverse** | `drakes-multiverse.jar` | **Autoría Soberana: Chagui68** | Absorbe `MultiverseCreatures` (criaturas mitológicas, bosses temáticos, rituales y dimensiones) y `MultiverseNets` (redes digitales standalone sin Slimefun). |
 
 ---

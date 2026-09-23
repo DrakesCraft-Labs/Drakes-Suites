@@ -1,0 +1,13 @@
+# DrakesTech - DankTech2 Quantum Storage Modular Configuration
+enabled: true
+performance:
+  cache-item-types: true
+  flush-interval-ticks: 20
+anti-dupe:
+  prevent-concurrent-withdraw: true
+  verify-pdc-signatures: true
+logging:
+  audit-file: "danktech-audit.log"
+features:
+  mass-condenser: true
+  infinite-fluid-tank: true

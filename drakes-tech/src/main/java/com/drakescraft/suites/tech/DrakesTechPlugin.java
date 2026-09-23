@@ -30,6 +30,14 @@ public class DrakesTechPlugin extends JavaPlugin {
         this.moduleManager.registerModule(new GenericSuiteModule(this, "sensibletoolbox", "SensibleToolbox Logistics"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "emctech", "EMCTech Matter Conversion"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "quaptics", "Quaptics Quantum Optics"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "advancedtech", "AdvancedTech Quantum Compressors & Accelerators"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "danktech", "DankTech2 Mass Condensers & Fluid Storage"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "globiamachines", "GlobiaMachines Industrial Processing Lines"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "nexcavate", "Nexcavate Autonomous Quarry & Mining"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "privatestorage", "PrivateStorage Biometric Secure Vaults"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "customizer", "SlimeCustomizer & Ryken Dynamic Engine"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "idreamofeasy", "IDreamOfEasy Compact Automation & Cells"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "sanecrafting", "SaneCrafting Balanced Workstations"));
 
         this.moduleManager.enableAll();
 

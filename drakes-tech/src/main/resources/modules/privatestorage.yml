@@ -1,0 +1,12 @@
+# DrakesTech - PrivateStorage Biometric Secure Storage
+enabled: true
+performance:
+  lazy-load-vaults: true
+anti-dupe:
+  uuid-owner-validation: true
+  lock-during-save: true
+logging:
+  audit-file: "privatestorage-audit.log"
+features:
+  biometric-lock: true
+  shared-access-list: true
