@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="m_goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEA"/>
+      <stop offset="35%" stop-color="#EAB308"/>
+      <stop offset="70%" stop-color="#CA8A04"/>
+      <stop offset="100%" stop-color="#854D0E"/>
+    </linearGradient>
+    <linearGradient id="m_crystalWing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F472B6"/>
+      <stop offset="30%" stop-color="#C084FC"/>
+      <stop offset="70%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="m_purpleBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2E1065"/>
+      <stop offset="50%" stop-color="#170638"/>
+      <stop offset="100%" stop-color="#080214"/>
+    </linearGradient>
+    <linearGradient id="m_marbleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#F1F5F9"/>
+      <stop offset="100%" stop-color="#CBD5E1"/>
+    </linearGradient>
+    <linearGradient id="m_cyanGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A5F3FC"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+    
+    <radialGradient id="m_multiverseAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E879F9" stop-opacity="0.85"/>
+      <stop offset="35%" stop-color="#A855F7" stop-opacity="0.6"/>
+      <stop offset="75%" stop-color="#3B82F6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Filters -->
+    <filter id="m_glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="m_shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.75"/>
+    </filter>
+
+    <clipPath id="m_iconClip">
+      <rect x="8" y="8" width="496" height="496" rx="105" ry="105"/>
+    </clipPath>
+
+    <!-- Animations -->
+    <style>
+      @keyframes m_spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      @keyframes m_spinRev { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+      @keyframes m_pulse { 0%, 100% { opacity: 0.65; transform: scale(0.97); } 50% { opacity: 1; transform: scale(1.03); } }
+      @keyframes m_float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+      @keyframes m_wingFlap { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(2.5deg); } }
+      @keyframes m_circuitFlow { 0%, 100% { stroke-opacity: 0.6; filter: drop-shadow(0 0 2px #06B6D4); } 50% { stroke-opacity: 1; filter: drop-shadow(0 0 7px #22D3EE); } }
+
+      .m_gear-tl { transform-origin: 55px 55px; animation: m_spin 25s linear infinite; }
+      .m_gear-tr { transform-origin: 457px 55px; animation: m_spinRev 25s linear infinite; }
+      .m_mahoraga { transform-origin: 256px 175px; animation: m_spin 50s linear infinite; }
+      .m_aura { transform-origin: 256px 175px; animation: m_pulse 4s ease-in-out infinite; }
+      .m_dragon-body { animation: m_float 5s ease-in-out infinite; }
+      .m_wing-l { transform-origin: 200px 180px; animation: m_wingFlap 4s ease-in-out infinite; }
+      .m_wing-r { transform-origin: 312px 180px; animation: m_wingFlap 4s ease-in-out infinite reverse; }
+      .m_circuit { animation: m_circuitFlow 2s ease-in-out infinite; }
+      .m_magic-ring { transform-origin: 256px 270px; animation: m_spin 20s linear infinite; }
+    </style>
+  </defs>
+
+  <g clip-path="url(#m_iconClip)">
+    <!-- Deep Cosmic Void -->
+    <rect x="0" y="0" width="512" height="512" fill="url(#m_purpleBg)"/>
+
+    <!-- Multiverse Cosmic Nebula Particles -->
+    <g opacity="0.6">
+      <circle cx="120" cy="90" r="1.5" fill="#FFFFFF"/>
+      <circle cx="390" cy="80" r="2" fill="#67E8F9"/>
+      <circle cx="80" cy="280" r="1" fill="#F472B6"/>
+      <circle cx="440" cy="310" r="1.5" fill="#FDE047"/>
+      <circle cx="256" cy="45" r="2.5" fill="#FFFFFF" filter="url(#m_glow)"/>
+    </g>
+
+    <!-- Corner Brass Gears -->
+    <g class="m_gear-tl" opacity="0.75" fill="none" stroke="url(#m_goldGrad)" stroke-width="2.5">
+      <circle cx="55" cy="55" r="34" stroke-dasharray="6,4" stroke-width="6"/>
+      <circle cx="55" cy="55" r="26" stroke-width="2"/>
+      <circle cx="55" cy="55" r="12" fill="url(#m_goldGrad)"/>
+      <line x1="55" y1="20" x2="55" y2="90"/>
+      <line x1="20" y1="55" x2="90" y2="55"/>
+    </g>
+    <g class="m_gear-tr" opacity="0.75" fill="none" stroke="url(#m_goldGrad)" stroke-width="2.5">
+      <circle cx="457" cy="55" r="34" stroke-dasharray="6,4" stroke-width="6"/>
+      <circle cx="457" cy="55" r="26" stroke-width="2"/>
+      <circle cx="457" cy="55" r="12" fill="url(#m_goldGrad)"/>
+      <line x1="457" y1="20" x2="457" y2="90"/>
+      <line x1="422" y1="55" x2="492" y2="55"/>
+    </g>
+
+    <!-- Circular Gold Frame & Greek Meander Ring -->
+    <circle cx="256" cy="230" r="205" fill="#1B0A33" stroke="url(#m_goldGrad)" stroke-width="8" filter="url(#m_shadow)"/>
+    <circle cx="256" cy="230" r="185" fill="#0D031A" stroke="url(#m_goldGrad)" stroke-width="3" stroke-dasharray="8,6,3,6" opacity="0.9"/>
+    <circle cx="256" cy="230" r="172" fill="none" stroke="url(#m_goldGrad)" stroke-width="5" stroke-dasharray="12,8,4,8" opacity="0.75"/>
+
+    <!-- Mahoraga Divine Wheel of Adaptation (Floating Halo) -->
+    <circle class="m_aura" cx="256" cy="175" r="135" fill="url(#m_multiverseAura)"/>
+
+    <g class="m_mahoraga" filter="url(#m_glow)">
+      <circle cx="256" cy="175" r="100" fill="none" stroke="url(#m_goldGrad)" stroke-width="5"/>
+      <circle cx="256" cy="175" r="90" fill="none" stroke="#F472B6" stroke-width="2" stroke-dasharray="6,4"/>
+      <circle cx="256" cy="175" r="34" fill="none" stroke="url(#m_goldGrad)" stroke-width="4"/>
+      <circle cx="256" cy="175" r="12" fill="url(#m_goldGrad)"/>
+      
+      <!-- 8 Divine Wheel Spikes -->
+      <path d="M256,75 L263,140 L256,145 L249,140 Z" fill="url(#m_goldGrad)"/>
+      <path d="M256,275 L263,210 L256,205 L249,210 Z" fill="url(#m_goldGrad)"/>
+      <path d="M156,175 L221,182 L226,175 L221,168 Z" fill="url(#m_goldGrad)"/>
+      <path d="M356,175 L291,182 L286,175 L291,168 Z" fill="url(#m_goldGrad)"/>
+      <path d="M185,104 L231,150 L228,155 L223,152 Z" fill="url(#m_goldGrad)"/>
+      <path d="M327,246 L281,200 L284,195 L289,198 Z" fill="url(#m_goldGrad)"/>
+      <path d="M185,246 L231,200 L228,195 L223,198 Z" fill="url(#m_goldGrad)"/>
+      <path d="M327,104 L281,150 L284,155 L289,152 Z" fill="url(#m_goldGrad)"/>
+    </g>
+
+    <!-- Classical Greek Marble Columns & Platform -->
+    <g id="temple_multiverse" filter="url(#m_shadow)">
+      <!-- Pediment Beam -->
+      <rect x="104" y="128" width="304" height="14" rx="2" fill="url(#m_marbleGrad)" stroke="url(#m_goldGrad)" stroke-width="2"/>
+      <!-- Left Column -->
+      <rect x="116" y="142" width="46" height="9" rx="2" fill="url(#m_marbleGrad)" stroke="url(#m_goldGrad)" stroke-width="1.5"/>
+      <rect x="122" y="151" width="34" height="195" fill="url(#m_marbleGrad)" stroke="url(#m_goldGrad)" stroke-width="1.5"/>
+      <line x1="130" y1="151" x2="130" y2="346" stroke="#94A3B8" stroke-width="1.5"/>
+      <line x1="139" y1="151" x2="139" y2="346" stroke="#FFFFFF" stroke-width="1.5"/>
+      <line x1="148" y1="151" x2="148" y2="346" stroke="#64748B" stroke-width="1.5"/>
+      <rect x="116" y="346" width="46" height="12" rx="2" fill="url(#m_marbleGrad)" stroke="url(#m_goldGrad)" stroke-width="2"/>
+      <!-- Right Column -->
+      <rect x="350" y="142" width="46" height="9" rx="2" fill="url(#m_marbleGrad)" stroke="url(#m_goldGrad)" stroke-width="1.5"/>
+      <rect x="356" y="151" width="34" height="195" fill="url(#m_marbleGrad)" stroke="url(#m_goldGrad)" stroke-width="1.5"/>
+      <line x1="364" y1="151" x2="364" y2="346" stroke="#94A3B8" stroke-width="1.5"/>
+      <line x1="373" y1="151" x2="373" y2="346" stroke="#FFFFFF" stroke-width="1.5"/>
+      <line x1="382" y1="151" x2="382" y2="346" stroke="#64748B" stroke-width="1.5"/>
+      <rect x="350" y="346" width="46" height="12" rx="2" fill="url(#m_marbleGrad)" stroke="url(#m_goldGrad)" stroke-width="2"/>
+      <!-- Base Steps -->
+      <rect x="94" y="358" width="324" height="14" rx="2" fill="url(#m_marbleGrad)" stroke="url(#m_goldGrad)" stroke-width="2"/>
+      <rect x="80" y="372" width="352" height="14" rx="2" fill="url(#m_marbleGrad)" stroke="url(#m_goldGrad)" stroke-width="2"/>
+    </g>
+
+    <!-- Prismatic Cyber-Crystal Wings (Multiverse Evolution) -->
+    <!-- Left Wing -->
+    <g class="m_wing-l" filter="url(#m_shadow)">
+      <path d="M205,180 C160,140 100,120 45,130 C75,160 110,185 145,200 C105,195 70,205 50,225 C80,240 120,245 160,240 C130,250 100,270 90,290 C125,285 160,265 190,245 Z" 
+            fill="url(#m_crystalWing)" opacity="0.9" stroke="url(#m_goldGrad)" stroke-width="2.5"/>
+      <polygon points="120,165 60,138 100,185" fill="#E0F2FE" opacity="0.6"/>
+      <polygon points="135,210 70,228 115,238" fill="#FBCFE8" opacity="0.6"/>
+    </g>
+    <!-- Right Wing -->
+    <g class="m_wing-r" filter="url(#m_shadow)">
+      <path d="M307,180 C352,140 412,120 467,130 C437,160 402,185 367,200 C407,195 442,205 462,225 C432,240 392,245 352,240 C382,250 412,270 422,290 C387,285 352,265 322,245 Z" 
+            fill="url(#m_crystalWing)" opacity="0.9" stroke="url(#m_goldGrad)" stroke-width="2.5"/>
+      <polygon points="392,165 452,138 412,185" fill="#E0F2FE" opacity="0.6"/>
+      <polygon points="377,210 442,228 397,238" fill="#FBCFE8" opacity="0.6"/>
+    </g>
+
+    <!-- Transcendent Dragon Body & Head -->
+    <g class="m_dragon-body" filter="url(#m_shadow)">
+      <!-- Serpentine Body -->
+      <path d="M265,130 C230,135 205,160 215,200 C225,240 290,260 305,300 C320,340 270,380 220,375 C185,370 170,335 185,305 C195,285 220,290 220,310 C220,325 205,335 220,345 C240,355 265,335 260,305 C255,275 195,245 180,205 C165,165 200,125 250,115 Z" 
+            fill="url(#m_goldGrad)" stroke="#451A03" stroke-width="3"/>
+
+      <!-- Scaled Inner Spine -->
+      <path d="M275,135 C245,140 225,165 235,195 C245,225 300,245 315,285 C330,325 285,365 235,360 C205,355 190,325 205,295 C212,280 230,285 230,300 C230,315 218,325 230,335 C245,345 268,325 262,300 C256,275 210,245 198,210 C185,175 215,135 260,125 Z" 
+            fill="#FEF08A" stroke="url(#m_goldGrad)" stroke-width="2"/>
+
+      <!-- Dragon Crown Horns & Head -->
+      <path d="M260,120 C250,90 270,60 305,50 C290,75 295,95 280,115 Z" fill="url(#m_goldGrad)" stroke="#451A03" stroke-width="2"/>
+      <path d="M275,115 C285,85 315,65 345,60 C325,85 320,105 295,120 Z" fill="url(#m_crystalWing)" stroke="#451A03" stroke-width="2"/>
+      <!-- Head Base -->
+      <path d="M255,125 C265,115 295,115 315,130 C335,145 350,140 365,145 C355,160 330,165 310,162 C295,175 270,175 255,155 Z" 
+            fill="url(#m_goldGrad)" stroke="#451A03" stroke-width="2.5"/>
+      <!-- Lower Jaw -->
+      <path d="M290,165 C315,168 335,178 345,170 C330,182 305,182 285,175 Z" fill="#CA8A04" stroke="#451A03" stroke-width="2"/>
+
+      <!-- Glowing Cyan Eye -->
+      <polygon points="308,135 324,138 316,145 304,142" fill="#FFFFFF" filter="url(#m_glow)"/>
+      <polygon points="310,136 322,139 315,144 306,142" fill="url(#m_cyanGlow)"/>
+
+      <!-- Glowing Cyan / Tachyon Circuits -->
+      <g class="m_circuit" fill="none" stroke="url(#m_cyanGlow)" stroke-width="3" stroke-linecap="round">
+        <polyline points="278,122 292,126 304,122"/>
+        <circle cx="304" cy="122" r="2.5" fill="#67E8F9"/>
+        <path d="M260,138 Q240,160 238,190"/>
+        <circle cx="238" cy="190" r="3" fill="#67E8F9"/>
+        <polyline points="238,190 250,205 250,225"/>
+        <circle cx="250" cy="225" r="3" fill="#67E8F9"/>
+        <path d="M250,225 Q285,245 295,275"/>
+        <circle cx="295" cy="275" r="3" fill="#67E8F9"/>
+      </g>
+
+      <!-- Anime Multiverse Energy Ring (Swirling Around Dragon) -->
+      <g class="m_magic-ring" filter="url(#m_glow)" opacity="0.85">
+        <ellipse cx="256" cy="270" rx="115" ry="38" fill="none" stroke="url(#m_crystalWing)" stroke-width="3" stroke-dasharray="14,8,4,8"/>
+        <circle cx="145" cy="270" r="3.5" fill="#F472B6"/>
+        <circle cx="367" cy="270" r="3.5" fill="#22D3EE"/>
+        <circle cx="256" cy="308" r="4" fill="#FDE047"/>
+      </g>
+    </g>
+
+    <!-- Monumental Curved Golden Ribbon & Typography 'DrakesCraft' -->
+    <g id="banner_multiverse" filter="url(#m_shadow)">
+      <polygon points="32,440 85,395 85,450 32,475" fill="#451A03" stroke="#260E01" stroke-width="2"/>
+      <polygon points="480,440 427,395 427,450 480,475" fill="#451A03" stroke="#260E01" stroke-width="2"/>
+
+      <!-- Ribbon Body -->
+      <path d="M60,405 C180,385 332,385 452,405 L442,460 C322,442 190,442 70,460 Z" 
+            fill="url(#m_goldGrad)" stroke="#FEF08A" stroke-width="2.5"/>
+      <path d="M75,414 C190,396 322,396 437,414" fill="none" stroke="#854D0E" stroke-width="1.5"/>
+      <path d="M82,450 C195,433 317,433 430,450" fill="none" stroke="#854D0E" stroke-width="1.5"/>
+
+      <text x="256" y="440" 
+            font-family="'Cinzel', 'Trajan Pro', 'Georgia', serif" 
+            font-size="44" 
+            font-weight="900" 
+            letter-spacing="3" 
+            text-anchor="middle" 
+            fill="#1E1B4B" 
+            filter="drop-shadow(0 2px 0px #FEF9C3)">
+        DRAKESCRAFT
+      </text>
+      <text x="256" y="438" 
+            font-family="'Cinzel', 'Trajan Pro', 'Georgia', serif" 
+            font-size="44" 
+            font-weight="900" 
+            letter-spacing="3" 
+            text-anchor="middle" 
+            fill="url(#m_purpleBg)">
+        DRAKESCRAFT
+      </text>
+    </g>
+
+    <!-- Bezel -->
+    <rect x="8" y="8" width="496" height="496" rx="105" ry="105" fill="none" stroke="url(#m_goldGrad)" stroke-width="14" filter="url(#m_shadow)"/>
+    <rect x="18" y="18" width="476" height="476" rx="95" ry="95" fill="none" stroke="#451A03" stroke-width="2"/>
+  </g>
+</svg>
