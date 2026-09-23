@@ -110,9 +110,30 @@ public final class SuiteDatabaseEngine {
                     "details TEXT" +
                     ");");
 
+            // Tabla de datos y preferencias de jugadores por suite
+            stmt.execute("CREATE TABLE IF NOT EXISTS suite_player_data (" +
+                    "uuid TEXT NOT NULL, " +
+                    "suite TEXT NOT NULL, " +
+                    "key TEXT NOT NULL, " +
+                    "value TEXT, " +
+                    "updated_at INTEGER NOT NULL, " +
+                    "PRIMARY KEY (uuid, suite, key)" +
+                    ");");
+
+            // Tabla de clave-valor persistente para modulos y configuraciones
+            stmt.execute("CREATE TABLE IF NOT EXISTS suite_key_value (" +
+                    "suite TEXT NOT NULL, " +
+                    "module TEXT NOT NULL, " +
+                    "key TEXT NOT NULL, " +
+                    "value TEXT, " +
+                    "updated_at INTEGER NOT NULL, " +
+                    "PRIMARY KEY (suite, module, key)" +
+                    ");");
+
             stmt.execute("CREATE INDEX IF NOT EXISTS idx_audit_player ON suite_audit_events(player_uuid);");
             stmt.execute("CREATE INDEX IF NOT EXISTS idx_audit_time ON suite_audit_events(timestamp);");
             stmt.execute("CREATE INDEX IF NOT EXISTS idx_block_suite ON suite_block_states(suite, module);");
+            stmt.execute("CREATE INDEX IF NOT EXISTS idx_player_suite ON suite_player_data(uuid, suite);");
         }
     }
 
@@ -180,6 +201,176 @@ public final class SuiteDatabaseEngine {
                 ps.executeUpdate();
             }
         });
+    }
+
+    /**
+     * Guarda el estado de una maquina o bloque tecnologico de forma asincrona.
+     */
+    public void setBlockStateAsync(String world, int x, int y, int z, String suite, String module, String sfId, String stateJson) {
+        executeAsync(conn -> {
+            try (PreparedStatement ps = conn.prepareStatement(
+                    "INSERT INTO suite_block_states (world, x, y, z, suite, module, slimefun_id, state_json, updated_at) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) " +
+                    "ON CONFLICT(world, x, y, z) DO UPDATE SET " +
+                    "suite = excluded.suite, module = excluded.module, slimefun_id = excluded.slimefun_id, " +
+                    "state_json = excluded.state_json, updated_at = excluded.updated_at")) {
+                ps.setString(1, world);
+                ps.setInt(2, x);
+                ps.setInt(3, y);
+                ps.setInt(4, z);
+                ps.setString(5, suite);
+                ps.setString(6, module);
+                ps.setString(7, sfId);
+                ps.setString(8, stateJson);
+                ps.setLong(9, System.currentTimeMillis());
+                ps.executeUpdate();
+            }
+        });
+    }
+
+    /**
+     * Obtiene el estado JSON de un bloque tecnologico.
+     */
+    public String getBlockState(String world, int x, int y, int z) {
+        if (connection == null) return null;
+        try (PreparedStatement ps = connection.prepareStatement(
+                "SELECT state_json FROM suite_block_states WHERE world = ? AND x = ? AND y = ? AND z = ?")) {
+            ps.setString(1, world);
+            ps.setInt(2, x);
+            ps.setInt(3, y);
+            ps.setInt(4, z);
+            try (var rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("state_json");
+                }
+            }
+        } catch (SQLException e) {
+            plugin.getLogger().log(Level.WARNING, "[DrakesDatabase] Error al leer estado de bloque", e);
+        }
+        return null;
+    }
+
+    /**
+     * Actualiza el almacenamiento masivo cuantico de forma asincrona.
+     */
+    public void setQuantumStorageAsync(String storageId, String ownerUuid, String itemId, long storedAmount, long capacity) {
+        executeAsync(conn -> {
+            try (PreparedStatement ps = conn.prepareStatement(
+                    "INSERT INTO suite_quantum_storage (storage_id, owner_uuid, item_id, stored_amount, capacity, updated_at) " +
+                    "VALUES (?, ?, ?, ?, ?, ?) " +
+                    "ON CONFLICT(storage_id) DO UPDATE SET " +
+                    "owner_uuid = excluded.owner_uuid, item_id = excluded.item_id, " +
+                    "stored_amount = excluded.stored_amount, capacity = excluded.capacity, updated_at = excluded.updated_at")) {
+                ps.setString(1, storageId);
+                ps.setString(2, ownerUuid);
+                ps.setString(3, itemId);
+                ps.setLong(4, storedAmount);
+                ps.setLong(5, capacity);
+                ps.setLong(6, System.currentTimeMillis());
+                ps.executeUpdate();
+            }
+        });
+    }
+
+    /**
+     * Obtiene la cantidad almacenada en una unidad cuantica.
+     */
+    public long getQuantumStorageAmount(String storageId) {
+        if (connection == null) return 0;
+        try (PreparedStatement ps = connection.prepareStatement(
+                "SELECT stored_amount FROM suite_quantum_storage WHERE storage_id = ?")) {
+            ps.setString(1, storageId);
+            try (var rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getLong("stored_amount");
+                }
+            }
+        } catch (SQLException e) {
+            plugin.getLogger().log(Level.WARNING, "[DrakesDatabase] Error al leer quantum storage", e);
+        }
+        return 0;
+    }
+
+    /**
+     * Persiste datos de jugador de forma asincrona.
+     */
+    public void setPlayerDataAsync(String uuid, String suite, String key, String value) {
+        executeAsync(conn -> {
+            try (PreparedStatement ps = conn.prepareStatement(
+                    "INSERT INTO suite_player_data (uuid, suite, key, value, updated_at) " +
+                    "VALUES (?, ?, ?, ?, ?) " +
+                    "ON CONFLICT(uuid, suite, key) DO UPDATE SET " +
+                    "value = excluded.value, updated_at = excluded.updated_at")) {
+                ps.setString(1, uuid);
+                ps.setString(2, suite);
+                ps.setString(3, key);
+                ps.setString(4, value);
+                ps.setLong(5, System.currentTimeMillis());
+                ps.executeUpdate();
+            }
+        });
+    }
+
+    /**
+     * Consulta datos de jugador.
+     */
+    public String getPlayerData(String uuid, String suite, String key) {
+        if (connection == null) return null;
+        try (PreparedStatement ps = connection.prepareStatement(
+                "SELECT value FROM suite_player_data WHERE uuid = ? AND suite = ? AND key = ?")) {
+            ps.setString(1, uuid);
+            ps.setString(2, suite);
+            ps.setString(3, key);
+            try (var rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("value");
+                }
+            }
+        } catch (SQLException e) {
+            plugin.getLogger().log(Level.WARNING, "[DrakesDatabase] Error al leer player data", e);
+        }
+        return null;
+    }
+
+    /**
+     * Persiste clave-valor de modulo de forma asincrona.
+     */
+    public void setKeyValueAsync(String suite, String module, String key, String value) {
+        executeAsync(conn -> {
+            try (PreparedStatement ps = conn.prepareStatement(
+                    "INSERT INTO suite_key_value (suite, module, key, value, updated_at) " +
+                    "VALUES (?, ?, ?, ?, ?) " +
+                    "ON CONFLICT(suite, module, key) DO UPDATE SET " +
+                    "value = excluded.value, updated_at = excluded.updated_at")) {
+                ps.setString(1, suite);
+                ps.setString(2, module);
+                ps.setString(3, key);
+                ps.setString(4, value);
+                ps.setLong(5, System.currentTimeMillis());
+                ps.executeUpdate();
+            }
+        });
+    }
+
+    /**
+     * Consulta clave-valor de modulo.
+     */
+    public String getKeyValue(String suite, String module, String key) {
+        if (connection == null) return null;
+        try (PreparedStatement ps = connection.prepareStatement(
+                "SELECT value FROM suite_key_value WHERE suite = ? AND module = ? AND key = ?")) {
+            ps.setString(1, suite);
+            ps.setString(2, module);
+            ps.setString(3, key);
+            try (var rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("value");
+                }
+            }
+        } catch (SQLException e) {
+            plugin.getLogger().log(Level.WARNING, "[DrakesDatabase] Error al leer key value", e);
+        }
+        return null;
     }
 
     public synchronized void stop() {

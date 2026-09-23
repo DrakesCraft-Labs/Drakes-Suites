@@ -1,0 +1,13 @@
+# ========================================================
+# Modulo Desacoplado: SoundMuffler
+# Suite Oficial: Utility
+# Descripcion: Amortiguador de ruido de reactores y motores ruidosos
+# ========================================================
+enabled: true
+auto-reload-ticks: 6000
+audit:
+  log-dupes: true
+  log-transfers: false
+performance:
+  chunk-guard: true
+  max-buffer: 1024

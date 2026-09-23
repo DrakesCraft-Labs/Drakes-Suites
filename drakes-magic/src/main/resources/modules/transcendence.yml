@@ -1,0 +1,13 @@
+# ========================================================
+# Modulo Desacoplado: TranscEndence
+# Suite Oficial: Magic
+# Descripcion: Magia dimensional, teletransportacion cuantizada y rituales del End
+# ========================================================
+enabled: true
+auto-reload-ticks: 6000
+audit:
+  log-dupes: true
+  log-transfers: false
+performance:
+  chunk-guard: true
+  max-buffer: 1024

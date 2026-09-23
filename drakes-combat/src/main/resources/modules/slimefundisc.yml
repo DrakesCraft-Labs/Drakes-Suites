@@ -1,0 +1,13 @@
+# ========================================================
+# Modulo Desacoplado: SlimefunDisc
+# Suite Oficial: Combat
+# Descripcion: Discos de musica sintetica y resonancia acustica
+# ========================================================
+enabled: true
+auto-reload-ticks: 6000
+audit:
+  log-dupes: true
+  log-transfers: false
+performance:
+  chunk-guard: true
+  max-buffer: 1024

@@ -1,0 +1,13 @@
+# ========================================================
+# Modulo Desacoplado: SpiritsUnchained
+# Suite Oficial: Magic
+# Descripcion: Evocacion de espiritus ancestrales y catalizadores animicos
+# ========================================================
+enabled: true
+auto-reload-ticks: 6000
+audit:
+  log-dupes: true
+  log-transfers: false
+performance:
+  chunk-guard: true
+  max-buffer: 1024

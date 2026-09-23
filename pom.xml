@@ -127,6 +127,26 @@
                 <artifactId>SimpleStorage-drake</artifactId>
                 <version>MODIFIED</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>FoxyMachines-drake</artifactId>
+                <version>MODIFIED</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SensibleToolbox-drake</artifactId>
+                <version>1.21-Drake-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>EMCTech-drake</artifactId>
+                <version>MODIFIED</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>Quaptics-drake</artifactId>
+                <version>0</version>
+            </dependency>
             <!-- Addons Bio -->
             <dependency>
                 <groupId>com.github.drakescraft_labs</groupId>
@@ -147,6 +167,21 @@
                 <groupId>com.github.drakescraft_labs</groupId>
                 <artifactId>MobCapturer-drake</artifactId>
                 <version>11.0-Drake-1.21.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SlimyTreeTaps-drake</artifactId>
+                <version>11.0-Drake-1.21.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>Gastronomicon-drake</artifactId>
+                <version>1.1.3</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>FlowerPower-drake</artifactId>
+                <version>1.0.0</version>
             </dependency>
             <!-- Addons Magic -->
             <dependency>
@@ -174,6 +209,16 @@
                 <artifactId>RelicsOfCthonia-drake</artifactId>
                 <version>Unofficial-2.0.0</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>TranscEndence-drake</artifactId>
+                <version>DevTest-33</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SpiritsUnchained-drake</artifactId>
+                <version>UNOFFICIAL</version>
+            </dependency>
             <!-- Addons Generators -->
             <dependency>
                 <groupId>com.github.drakescraft_labs</groupId>
@@ -193,6 +238,11 @@
             <dependency>
                 <groupId>com.github.drakescraft_labs</groupId>
                 <artifactId>EcoPower-drake</artifactId>
+                <version>1.20.6-Drake-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SlimefunOreChunks-drake</artifactId>
                 <version>1.20.6-Drake-SNAPSHOT</version>
             </dependency>
             <!-- Addons Utility -->
@@ -216,6 +266,21 @@
                 <artifactId>SFCalc-drake</artifactId>
                 <version>1.21-Drake-v1</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SoundMuffler-drake</artifactId>
+                <version>11.0-Drake</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SimpleUtils-drake</artifactId>
+                <version>MODIFIED</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SlimeFrame-drake</artifactId>
+                <version>1.7.0</version>
+            </dependency>
             <!-- Addons Combat -->
             <dependency>
                 <groupId>com.github.drakescraft_labs</groupId>
@@ -231,6 +296,21 @@
                 <groupId>com.github.drakescraft_labs</groupId>
                 <artifactId>SlimefunLuckyBlocks-drake</artifactId>
                 <version>11.0-Drake-1.21.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>MissileWarfare-drake</artifactId>
+                <version>1.13-SNAPSHOT.13</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SFMobDrops-drake</artifactId>
+                <version>1.20.6-Drake-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>Slimefun-Disc</artifactId>
+                <version>1.5.DEV</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>

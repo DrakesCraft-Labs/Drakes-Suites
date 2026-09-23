@@ -1,0 +1,13 @@
+# ========================================================
+# Modulo Desacoplado: SensibleToolbox
+# Suite Oficial: Tech
+# Descripcion: Herramientas de logistica y manipulacion inteligente de bloques
+# ========================================================
+enabled: true
+auto-reload-ticks: 6000
+audit:
+  log-dupes: true
+  log-transfers: false
+performance:
+  chunk-guard: true
+  max-buffer: 1024

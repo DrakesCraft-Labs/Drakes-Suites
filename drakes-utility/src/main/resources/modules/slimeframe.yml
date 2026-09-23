@@ -1,0 +1,13 @@
+# ========================================================
+# Modulo Desacoplado: SlimeFrame
+# Suite Oficial: Utility
+# Descripcion: Visualizadores de marcos interactivos y expositores de items
+# ========================================================
+enabled: true
+auto-reload-ticks: 6000
+audit:
+  log-dupes: true
+  log-transfers: false
+performance:
+  chunk-guard: true
+  max-buffer: 1024

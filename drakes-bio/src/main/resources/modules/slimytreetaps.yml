@@ -1,0 +1,13 @@
+# ========================================================
+# Modulo Desacoplado: SlimyTreeTaps
+# Suite Oficial: Bio
+# Descripcion: Extraccion automatizada de resina, savia y latex
+# ========================================================
+enabled: true
+auto-reload-ticks: 6000
+audit:
+  log-dupes: true
+  log-transfers: false
+performance:
+  chunk-guard: true
+  max-buffer: 1024

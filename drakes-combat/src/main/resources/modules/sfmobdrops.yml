@@ -1,0 +1,13 @@
+# ========================================================
+# Modulo Desacoplado: SFMobDrops
+# Suite Oficial: Combat
+# Descripcion: Ajuste dinamico de drops de mobs hostiles y jefes
+# ========================================================
+enabled: true
+auto-reload-ticks: 6000
+audit:
+  log-dupes: true
+  log-transfers: false
+performance:
+  chunk-guard: true
+  max-buffer: 1024
