@@ -1,0 +1,12 @@
+# DrakesCombat - Warfare (Guns, Turrets, Ammo)
+enabled: true
+performance:
+  bullet-raytrace-async: true
+anti-dupe:
+  ammo-consumption-atomic: true
+  reload-interrupt-guard: true
+logging:
+  log-file: "warfare-audit.log"
+features:
+  turret-auto-targeting: true
+  shield-penetration: false

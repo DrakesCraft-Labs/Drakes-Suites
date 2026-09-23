@@ -1,0 +1,11 @@
+# DrakesGenerators - OreChunks & Quarries
+enabled: true
+performance:
+  quarry-drill-speed: 5
+anti-dupe:
+  chunk-depletion-atomic: true
+logging:
+  log-file: "ore_chunks-audit.log"
+features:
+  auto-quarries: true
+  rich-ore-clusters: true

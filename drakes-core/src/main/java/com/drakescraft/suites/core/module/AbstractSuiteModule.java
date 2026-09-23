@@ -103,4 +103,39 @@ public abstract class AbstractSuiteModule implements SuiteModule {
         initConfiguration();
         plugin.getLogger().info("[" + plugin.getName() + " - " + name + "] Modulo recargado. Estado activo: " + enabled);
     }
+
+    public void logInfo(String message) {
+        com.drakescraft.suites.core.DrakesCorePlugin core = com.drakescraft.suites.core.DrakesCorePlugin.getInstance();
+        if (core != null && core.getAuditLogger() != null) {
+            core.getAuditLogger().info(plugin.getName(), id, message);
+        }
+    }
+
+    public void logWarn(String message) {
+        com.drakescraft.suites.core.DrakesCorePlugin core = com.drakescraft.suites.core.DrakesCorePlugin.getInstance();
+        if (core != null && core.getAuditLogger() != null) {
+            core.getAuditLogger().warn(plugin.getName(), id, message);
+        }
+    }
+
+    public void logError(String message, Throwable t) {
+        com.drakescraft.suites.core.DrakesCorePlugin core = com.drakescraft.suites.core.DrakesCorePlugin.getInstance();
+        if (core != null && core.getAuditLogger() != null) {
+            core.getAuditLogger().error(plugin.getName(), id, message, t);
+        }
+    }
+
+    public void logSecurity(String player, String action, String details) {
+        com.drakescraft.suites.core.DrakesCorePlugin core = com.drakescraft.suites.core.DrakesCorePlugin.getInstance();
+        if (core != null && core.getAuditLogger() != null) {
+            core.getAuditLogger().security(plugin.getName(), id, player, action, details);
+        }
+    }
+
+    public void logDupeAttempt(String player, String location, String item, int amount, String reason) {
+        com.drakescraft.suites.core.DrakesCorePlugin core = com.drakescraft.suites.core.DrakesCorePlugin.getInstance();
+        if (core != null && core.getAuditLogger() != null) {
+            core.getAuditLogger().dupeAttempt(plugin.getName(), id, player, location, item, amount, reason);
+        }
+    }
 }

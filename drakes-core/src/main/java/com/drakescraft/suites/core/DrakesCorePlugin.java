@@ -16,11 +16,20 @@ public class DrakesCorePlugin extends JavaPlugin {
     private SuiteTickerEngine tickerEngine;
     private SuiteModuleManager moduleManager;
     private SuiteRegistry suiteRegistry;
+    private com.drakescraft.suites.core.database.SuiteDatabaseEngine databaseEngine;
+    private com.drakescraft.suites.core.logging.SuiteAuditLogger auditLogger;
 
     @Override
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
+
+        // 1. Inicializar base de datos centralizada SQLite WAL
+        this.databaseEngine = new com.drakescraft.suites.core.database.SuiteDatabaseEngine(this);
+        this.databaseEngine.start();
+
+        // 2. Inicializar sistema de logs aislados por modulo y auditoria forense
+        this.auditLogger = new com.drakescraft.suites.core.logging.SuiteAuditLogger(this);
 
         this.suiteRegistry = new SuiteRegistry();
 
@@ -30,7 +39,7 @@ public class DrakesCorePlugin extends JavaPlugin {
         this.moduleManager = new SuiteModuleManager(this);
         this.moduleManager.enableAll();
 
-        // Inicializar aceleración nativa Rust FFM (Slimefun-Rust y Odysseia-Rust)
+        // Inicializar aceleracion nativa Rust (Slimefun-Rust y Odysseia-Rust)
         com.drakescraft.suites.core.nativeengine.NativeEngineBridge.initialize(getDataFolder().toPath());
 
         // Registrar Suite 0 en el registro global
@@ -44,7 +53,7 @@ public class DrakesCorePlugin extends JavaPlugin {
             cmd.setTabCompleter(executor);
         }
 
-        getLogger().info("DrakesCore v" + getPluginMeta().getVersion() + " (Kernel & Ticker Engine) inicializado con exito.");
+        getLogger().info("DrakesCore v" + getPluginMeta().getVersion() + " (Kernel, DB WAL, Audit Logs & Ticker Engine) inicializado con exito.");
     }
 
     @Override
@@ -57,6 +66,12 @@ public class DrakesCorePlugin extends JavaPlugin {
         }
         if (tickerEngine != null) {
             tickerEngine.stop();
+        }
+        if (auditLogger != null) {
+            auditLogger.close();
+        }
+        if (databaseEngine != null) {
+            databaseEngine.stop();
         }
         getLogger().info("DrakesCore deshabilitado limpiamente.");
         instance = null;
@@ -76,5 +91,13 @@ public class DrakesCorePlugin extends JavaPlugin {
 
     public SuiteRegistry getSuiteRegistry() {
         return suiteRegistry;
+    }
+
+    public com.drakescraft.suites.core.database.SuiteDatabaseEngine getDatabaseEngine() {
+        return databaseEngine;
+    }
+
+    public com.drakescraft.suites.core.logging.SuiteAuditLogger getAuditLogger() {
+        return auditLogger;
     }
 }

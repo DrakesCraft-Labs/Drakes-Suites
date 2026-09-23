@@ -1,0 +1,11 @@
+# DrakesTech - FluffyMachines Automation
+enabled: true
+performance:
+  auto-crafter-tick-delay: 2
+anti-dupe:
+  inventory-snapshot-validation: true
+logging:
+  log-file: "fluffymachines-audit.log"
+features:
+  wireless-transmitters: true
+  barrel-max-capacity: 2000000

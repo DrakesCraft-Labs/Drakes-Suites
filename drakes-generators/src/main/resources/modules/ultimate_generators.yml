@@ -1,0 +1,12 @@
+# DrakesGenerators - UltimateGenerators2
+enabled: true
+performance:
+  radiation-calc-interval: 20
+anti-dupe:
+  nuclear-waste-dupe-guard: true
+logging:
+  log-file: "ultimate_generators-audit.log"
+features:
+  nuclear-reactors: true
+  meltdown-explosion-enabled: false
+  clean-cooling: true

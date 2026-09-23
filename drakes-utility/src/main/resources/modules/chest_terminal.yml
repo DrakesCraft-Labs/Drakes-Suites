@@ -1,0 +1,12 @@
+# DrakesUtility - ChestTerminal
+enabled: true
+performance:
+  search-index-debounce-ms: 150
+anti-dupe:
+  rapid-click-throttle-ms: 100
+  item-ghost-clearing: true
+logging:
+  log-file: "chest_terminal-audit.log"
+features:
+  wireless-range: 128
+  sort-types: ["NAME", "AMOUNT", "ID"]

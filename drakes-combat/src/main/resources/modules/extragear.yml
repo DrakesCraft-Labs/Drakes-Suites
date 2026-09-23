@@ -1,0 +1,11 @@
+# DrakesCombat - ExtraGear
+enabled: true
+performance:
+  armor-tick-interval: 10
+anti-dupe:
+  equip-swap-throttle: true
+logging:
+  log-file: "extragear-audit.log"
+features:
+  obsidian-armor-set: true
+  potion-effects-on-hit: true

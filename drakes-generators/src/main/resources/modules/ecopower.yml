@@ -1,0 +1,11 @@
+# DrakesGenerators - EcoPower
+enabled: true
+performance:
+  weather-check-interval: 50
+anti-dupe:
+  turbine-energy-sync-guard: true
+logging:
+  log-file: "ecopower-audit.log"
+features:
+  wind-turbines: true
+  geothermal-vents: true

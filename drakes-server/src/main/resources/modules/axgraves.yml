@@ -1,0 +1,12 @@
+# DrakesServer - AxGraves
+enabled: true
+performance:
+  grave-hologram-async: true
+anti-dupe:
+  loot-once-guarantee: true
+  cross-world-dupe-prevention: true
+logging:
+  log-file: "axgraves-audit.log"
+features:
+  grave-compass: true
+  auto-reclaim-delay-seconds: 1800

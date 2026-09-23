@@ -1,0 +1,11 @@
+# DrakesUtility - SFCalc (Recipe Calculator)
+enabled: true
+performance:
+  in-memory-tree-cache: true
+anti-dupe:
+  read-only-calculator: true
+logging:
+  log-file: "sfcalc-audit.log"
+features:
+  depth-limit: 10
+  show-energy-cost: true

@@ -1,0 +1,12 @@
+# DrakesServer - PlayerVaultZ
+enabled: true
+performance:
+  sqlite-wal-storage: true
+anti-dupe:
+  vault-concurrent-open-lock: true
+  sanitize-on-close: true
+logging:
+  log-file: "playervaultz-audit.log"
+features:
+  modality-isolation: true
+  max-vaults-per-rank: 20

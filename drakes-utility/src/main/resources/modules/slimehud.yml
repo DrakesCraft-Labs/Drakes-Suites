@@ -1,0 +1,12 @@
+# DrakesUtility - SlimeHUD
+enabled: true
+performance:
+  raytrace-rate-ticks: 4
+anti-dupe:
+  client-display-only: true
+logging:
+  log-file: "slimehud-audit.log"
+features:
+  show-machine-energy: true
+  show-stored-items: true
+  bossbar-mode: true

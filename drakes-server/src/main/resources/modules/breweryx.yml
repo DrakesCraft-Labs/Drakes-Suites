@@ -1,0 +1,11 @@
+# DrakesServer - BreweryX
+enabled: true
+performance:
+  barrel-aging-tick: 20
+anti-dupe:
+  distill-potion-dupe-guard: true
+logging:
+  log-file: "breweryx-audit.log"
+features:
+  custom-drunkeness: true
+  secret-recipes: true

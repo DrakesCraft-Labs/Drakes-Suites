@@ -1,0 +1,11 @@
+# DrakesTech - Supreme Expansion
+enabled: true
+performance:
+  batch-size: 32
+anti-dupe:
+  strict-crafting-check: true
+logging:
+  log-file: "supreme-audit.log"
+features:
+  supreme-tier-limit: 10
+  quantum-reactor-multiplier: 4.0

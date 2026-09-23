@@ -1,0 +1,14 @@
+# DrakesTech - DynaTech Modular Configuration
+enabled: true
+performance:
+  async-processing: true
+  max-cables-per-tick: 128
+anti-dupe:
+  enable-transaction-lock: true
+  max-transfer-per-second: 64
+logging:
+  log-file: "dynatech-audit.log"
+  log-transfers: true
+features:
+  wireless-energy: true
+  tesseract-cap: 50000000

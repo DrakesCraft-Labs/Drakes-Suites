@@ -1,0 +1,11 @@
+# DrakesBio - Cultivation Greenhouses
+enabled: true
+performance:
+  batch-grow-checks: 50
+anti-dupe:
+  hydroponics-dupe-guard: true
+logging:
+  log-file: "cultivation-audit.log"
+features:
+  organic-synthesizer: true
+  automated-watering: true

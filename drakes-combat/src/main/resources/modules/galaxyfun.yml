@@ -1,0 +1,11 @@
+# DrakesCombat - Galaxyfun
+enabled: true
+performance:
+  space-gravity-task-ticks: 2
+anti-dupe:
+  space-suit-oxygen-lock: true
+logging:
+  log-file: "galaxyfun-audit.log"
+features:
+  planet-teleportation: false
+  space-combat-suit: true

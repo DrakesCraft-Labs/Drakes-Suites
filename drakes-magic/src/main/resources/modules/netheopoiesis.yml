@@ -1,0 +1,11 @@
+# DrakesMagic - Netheopoiesis
+enabled: true
+performance:
+  void-rift-check: 20
+anti-dupe:
+  transmutation-atomic-exchange: true
+logging:
+  log-file: "netheopoiesis-audit.log"
+features:
+  void-synthesizer: true
+  rift-teleportation: false

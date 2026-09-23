@@ -1,0 +1,11 @@
+# DrakesBio - SlimyBees
+enabled: true
+performance:
+  hive-tick-interval: 40
+anti-dupe:
+  comb-extraction-guard: true
+logging:
+  log-file: "slimy_bees-audit.log"
+features:
+  genetic-mutations: true
+  royal-jelly-boost: 1.5

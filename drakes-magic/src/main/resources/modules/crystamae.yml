@@ -1,0 +1,11 @@
+# DrakesMagic - Crystamae Historia
+enabled: true
+performance:
+  mana-particle-effects: true
+anti-dupe:
+  ritual-item-consumption-lock: true
+logging:
+  log-file: "crystamae-audit.log"
+features:
+  mana-network-range: 32
+  crystal-shrines: true

@@ -1,0 +1,11 @@
+# DrakesMagic - SoulJars
+enabled: true
+performance:
+  necromancy-delay: 10
+anti-dupe:
+  soul-duplication-check: true
+logging:
+  log-file: "soul_jars-audit.log"
+features:
+  max-souls-per-jar: 1000
+  soul-forge: true

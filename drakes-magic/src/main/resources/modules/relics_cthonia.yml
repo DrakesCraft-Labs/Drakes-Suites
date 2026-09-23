@@ -1,0 +1,11 @@
+# DrakesMagic - RelicsOfCthonia
+enabled: true
+performance:
+  blood-altar-tick: 5
+anti-dupe:
+  sacrifice-transaction-guard: true
+logging:
+  log-file: "relics_cthonia-audit.log"
+features:
+  underworld-relics: true
+  blood-binding-curse: true

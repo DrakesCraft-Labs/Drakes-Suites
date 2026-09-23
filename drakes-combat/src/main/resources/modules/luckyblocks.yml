@@ -1,0 +1,11 @@
+# DrakesCombat - LuckyBlocks
+enabled: true
+performance:
+  loot-table-cache: true
+anti-dupe:
+  break-event-atomic: true
+logging:
+  log-file: "luckyblocks-audit.log"
+features:
+  chaos-events: true
+  divine-drops: true

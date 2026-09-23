@@ -1,0 +1,11 @@
+# DrakesGenerators - Slimefun Modern Generators
+enabled: true
+performance:
+  fuel-check-interval: 10
+anti-dupe:
+  fuel-hopper-lock: true
+logging:
+  log-file: "smg-audit.log"
+features:
+  biofuel-generators: true
+  overclock-speed: 2.0

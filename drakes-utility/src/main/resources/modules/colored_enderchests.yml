@@ -1,0 +1,11 @@
+# DrakesUtility - ColoredEnderChests
+enabled: true
+performance:
+  cache-frequencies: true
+anti-dupe:
+  cross-player-chest-lock: true
+logging:
+  log-file: "colored_enderchests-audit.log"
+features:
+  max-frequency: 4096
+  security-key-lock: true

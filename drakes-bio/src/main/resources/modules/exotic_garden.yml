@@ -1,0 +1,11 @@
+# DrakesBio - ExoticGarden
+enabled: true
+performance:
+  growth-tick-delay: 20
+anti-dupe:
+  harvest-lock: true
+logging:
+  log-file: "exotic_garden-audit.log"
+features:
+  kitchen-recipes: true
+  custom-plants: true

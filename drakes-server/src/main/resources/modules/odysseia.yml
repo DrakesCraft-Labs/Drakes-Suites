@@ -1,0 +1,13 @@
+# DrakesServer - Odysseia Boss Director & Redstone Guard
+enabled: true
+performance:
+  rust-ffi-acceleration: true
+  clock-guard-check-rate: 1
+anti-dupe:
+  boss-drop-atomic-generation: true
+  redstone-loop-auto-break: true
+logging:
+  log-file: "odysseia-audit.log"
+features:
+  aura-evaluation-3d: true
+  discord-srv-integration: true

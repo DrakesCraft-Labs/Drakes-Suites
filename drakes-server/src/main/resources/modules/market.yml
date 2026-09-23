@@ -1,0 +1,13 @@
+# DrakesServer - Dynamic Market Engine
+enabled: true
+performance:
+  rust-market-simd-pricing: true
+anti-dupe:
+  transaction-balance-atomic: true
+  trade-flooding-throttle: true
+logging:
+  log-file: "market-audit.log"
+features:
+  inflation-dampening: true
+  min-price-factor: 0.5
+  max-price-factor: 3.0

@@ -1,0 +1,12 @@
+# DrakesBio - MobCapturer
+enabled: true
+performance:
+  capture-particle-density: 10
+anti-dupe:
+  prevent-boss-capture: true
+  prevent-named-npc-capture: true
+logging:
+  log-file: "mob_capturer-audit.log"
+features:
+  orbs-recyclable: false
+  max-spawner-tier: 5
