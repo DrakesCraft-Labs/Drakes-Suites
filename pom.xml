@@ -312,6 +312,12 @@
                 <artifactId>Slimefun-Disc</artifactId>
                 <version>1.5.DEV</version>
             </dependency>
+            <!-- Server Engine (Odysseia Evolution to Star) -->
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>Odysseia</artifactId>
+                <version>1.1.3</version>
+            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
