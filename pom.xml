@@ -32,6 +32,10 @@
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <paper.version>1.21.11-R0.1-SNAPSHOT</paper.version>
+        <slimefun.drake.version>11.0-Drake-1.21.11-SNAPSHOT</slimefun.drake.version>
+        <dough.version>1.3.1-DRAKE-v11-SNAPSHOT</dough.version>
+        <sefilib.version>0.3.1-DRAKE-SNAPSHOT</sefilib.version>
+        <infinitylib.version>1.3.11-DRAKE-SNAPSHOT</infinitylib.version>
         <lombok.version>1.18.46</lombok.version>
         <jsr305.version>3.0.2</jsr305.version>
         <junit.version>6.1.2</junit.version>
@@ -40,6 +44,18 @@
     </properties>
 
     <repositories>
+        <repository>
+            <id>local-drakescraft-maven</id>
+            <url>file:///home/jack/Documentos/Desarrollo/Repositorios/drakescraft/maven-repo</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+        <repository>
+            <id>drakescraft-labs-maven</id>
+            <url>https://drakescraft-labs.github.io/maven-repo/</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
         <repository>
             <id>papermc</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
@@ -57,6 +73,164 @@
                 <artifactId>paper-api</artifactId>
                 <version>${paper.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>slimefun-core</artifactId>
+                <version>${slimefun.drake.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>dough-core</artifactId>
+                <version>${dough.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>sefilib-drake</artifactId>
+                <version>${sefilib.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>infinitylib-drake</artifactId>
+                <version>${infinitylib.version}</version>
+            </dependency>
+            <!-- Addons Tech -->
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>NetworksV6-drake</artifactId>
+                <version>11-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>InfinityExpansion-drake</artifactId>
+                <version>1.20.6-Drake-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>DynaTech-drake</artifactId>
+                <version>1.21-Drake-v7</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>FluffyMachines-drake</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>Supreme-drake</artifactId>
+                <version>MODIFIED</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SimpleStorage-drake</artifactId>
+                <version>MODIFIED</version>
+            </dependency>
+            <!-- Addons Bio -->
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>GeneticChickengineering-Reborn-drake</artifactId>
+                <version>1.1.DEV</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>ExoticGarden-drake</artifactId>
+                <version>11.0-Drake-1.21.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>Cultivation-drake</artifactId>
+                <version>2.5</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>MobCapturer-drake</artifactId>
+                <version>11.0-Drake-1.21.1-SNAPSHOT</version>
+            </dependency>
+            <!-- Addons Magic -->
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>AlchimiaVitae-drake</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>CrystamaeHistoria-drake</artifactId>
+                <version>1.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>Netheopoiesis-drake</artifactId>
+                <version>MODIFIED</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SoulJars-drake</artifactId>
+                <version>1.21-Drake-v1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>RelicsOfCthonia-drake</artifactId>
+                <version>Unofficial-2.0.0</version>
+            </dependency>
+            <!-- Addons Generators -->
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>LiteXpansion-drake</artifactId>
+                <version>1.21-Drake-v2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SimpleMaterialGenerators-drake</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>BetterNuclearReactor-drake</artifactId>
+                <version>1.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>EcoPower-drake</artifactId>
+                <version>1.20.6-Drake-SNAPSHOT</version>
+            </dependency>
+            <!-- Addons Utility -->
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>DyedBackpacks-drake</artifactId>
+                <version>1.20.6-Drake-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>ColoredEnderChests-drake</artifactId>
+                <version>1.20.6-Drake-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>ChestTerminal-drake</artifactId>
+                <version>1.21-Drake-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SFCalc-drake</artifactId>
+                <version>1.21-Drake-v1</version>
+            </dependency>
+            <!-- Addons Combat -->
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SlimeTinker-drake</artifactId>
+                <version>1.2.DEV</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>ExtraGear-drake</artifactId>
+                <version>1.20.6-Drake-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>SlimefunLuckyBlocks-drake</artifactId>
+                <version>11.0-Drake-1.21.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
