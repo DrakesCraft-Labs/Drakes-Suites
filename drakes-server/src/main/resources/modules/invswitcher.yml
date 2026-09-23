@@ -1,0 +1,16 @@
+# Configuración modular: InvSwitcher 5-Modality Isolation
+enabled: true
+modalities:
+  - slimefun
+  - laboratorio
+  - clasico
+  - bskyblock_world
+  - oneblock_world
+strict-enderchest-separation: true
+strict-xp-separation: true
+strict-health-separation: true
+zero-data-components-loss: true
+blocked-commands-in-lab:
+  - "/trade"
+  - "/pay"
+  - "/ah"

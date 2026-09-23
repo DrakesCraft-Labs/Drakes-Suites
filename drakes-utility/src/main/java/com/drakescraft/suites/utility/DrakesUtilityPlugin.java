@@ -1,5 +1,7 @@
 package com.drakescraft.suites.utility;
 
+import com.drakescraft.suites.core.DrakesCorePlugin;
+import com.drakescraft.suites.core.module.GenericSuiteModule;
 import com.drakescraft.suites.core.module.SuiteModuleManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,14 +19,28 @@ public class DrakesUtilityPlugin extends JavaPlugin {
         saveDefaultConfig();
 
         this.moduleManager = new SuiteModuleManager(this);
-        // Registro de módulos de utilidad (DyedBackpacks, ColoredEnderChests, ChestTerminal, SFCalc, SlimeHUD)
+        // Registro de módulos de utilidad y almacenamiento absorbidos
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "backpacks", "DyedBackpacks & Filters"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "colored_enderchests", "Frequency Colored EnderChests"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "chest_terminal", "ChestTerminal Digital Access"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "sfcalc", "SFCalc Recipe Calculator"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "slimehud", "SlimeHUD Holographic Overlay"));
+
         this.moduleManager.enableAll();
+
+        // Registrar en DrakesCore
+        if (DrakesCorePlugin.getInstance() != null && DrakesCorePlugin.getInstance().getSuiteRegistry() != null) {
+            DrakesCorePlugin.getInstance().getSuiteRegistry().registerSuite("utility", this, this.moduleManager);
+        }
 
         getLogger().info("DrakesUtility v" + getPluginMeta().getVersion() + " inicializado con éxito.");
     }
 
     @Override
     public void onDisable() {
+        if (DrakesCorePlugin.getInstance() != null && DrakesCorePlugin.getInstance().getSuiteRegistry() != null) {
+            DrakesCorePlugin.getInstance().getSuiteRegistry().unregisterSuite("utility");
+        }
         if (moduleManager != null) {
             moduleManager.disableAll();
         }

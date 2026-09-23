@@ -1,0 +1,10 @@
+# Configuración modular: Infinity Expansion
+enabled: true
+singularities:
+  iron-required: 10000
+  gold-required: 8000
+  diamond-required: 4000
+  netherite-required: 1000
+infinity-armor:
+  damage-reduction: 0.95
+  anti-void: true

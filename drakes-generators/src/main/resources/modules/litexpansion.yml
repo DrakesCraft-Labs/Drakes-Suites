@@ -1,0 +1,6 @@
+# Configuración modular: LiteXpansion
+enabled: true
+reactor-joules-per-tick: 4096
+allow-void-quarry: true
+fuel-consumption-rate: 1.0
+laser-drill-depth-limit: -64

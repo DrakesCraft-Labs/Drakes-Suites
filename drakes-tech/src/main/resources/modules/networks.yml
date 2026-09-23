@@ -1,0 +1,6 @@
+# Configuración modular: Networks Digital Transport
+enabled: true
+tick-rate: 1
+max-items-per-node: 64
+quantum-storage-cap: 1000000000
+allow-wireless-terminals: true

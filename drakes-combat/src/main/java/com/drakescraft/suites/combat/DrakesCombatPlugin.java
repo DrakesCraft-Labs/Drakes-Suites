@@ -1,5 +1,7 @@
 package com.drakescraft.suites.combat;
 
+import com.drakescraft.suites.core.DrakesCorePlugin;
+import com.drakescraft.suites.core.module.GenericSuiteModule;
 import com.drakescraft.suites.core.module.SuiteModuleManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,14 +19,28 @@ public class DrakesCombatPlugin extends JavaPlugin {
         saveDefaultConfig();
 
         this.moduleManager = new SuiteModuleManager(this);
-        // Registro de módulos bélicos (SlimeTinker, SlimefunWarfare, ExtraGear, ExtraTools, LuckyBlocks)
+        // Registro de módulos bélicos y de combate absorbidos
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "slimetinker", "SlimeTinker Custom Tools & Traits"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "warfare", "SlimefunWarfare Ballistics & Exoskeletons"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "extragear", "ExtraGear & Modular Armors"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "luckyblocks", "LuckyBlocks SF Mechanics"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "galaxyfun", "Galaxyfun Exo-Space Combat"));
+
         this.moduleManager.enableAll();
+
+        // Registrar en DrakesCore
+        if (DrakesCorePlugin.getInstance() != null && DrakesCorePlugin.getInstance().getSuiteRegistry() != null) {
+            DrakesCorePlugin.getInstance().getSuiteRegistry().registerSuite("combat", this, this.moduleManager);
+        }
 
         getLogger().info("DrakesCombat v" + getPluginMeta().getVersion() + " inicializado con éxito.");
     }
 
     @Override
     public void onDisable() {
+        if (DrakesCorePlugin.getInstance() != null && DrakesCorePlugin.getInstance().getSuiteRegistry() != null) {
+            DrakesCorePlugin.getInstance().getSuiteRegistry().unregisterSuite("combat");
+        }
         if (moduleManager != null) {
             moduleManager.disableAll();
         }

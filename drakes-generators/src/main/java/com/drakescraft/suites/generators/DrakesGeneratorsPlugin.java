@@ -1,5 +1,7 @@
 package com.drakescraft.suites.generators;
 
+import com.drakescraft.suites.core.DrakesCorePlugin;
+import com.drakescraft.suites.core.module.GenericSuiteModule;
 import com.drakescraft.suites.core.module.SuiteModuleManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,14 +19,28 @@ public class DrakesGeneratorsPlugin extends JavaPlugin {
         saveDefaultConfig();
 
         this.moduleManager = new SuiteModuleManager(this);
-        // Registro de módulos de generación (LiteXpansion, SMG, UltimateGenerators, EcoPower, OreChunks)
+        // Registro de módulos de generación energética absorbidos
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "litexpansion", "LiteXpansion Void Reactors"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "smg", "SMG Material Generators"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "ultimate_generators", "UltimateGenerators2 Power Grids"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "ecopower", "EcoPower Clean Energy"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "ore_chunks", "Slimefun OreChunks Processing"));
+
         this.moduleManager.enableAll();
+
+        // Registrar en DrakesCore
+        if (DrakesCorePlugin.getInstance() != null && DrakesCorePlugin.getInstance().getSuiteRegistry() != null) {
+            DrakesCorePlugin.getInstance().getSuiteRegistry().registerSuite("generators", this, this.moduleManager);
+        }
 
         getLogger().info("DrakesGenerators v" + getPluginMeta().getVersion() + " inicializado con éxito.");
     }
 
     @Override
     public void onDisable() {
+        if (DrakesCorePlugin.getInstance() != null && DrakesCorePlugin.getInstance().getSuiteRegistry() != null) {
+            DrakesCorePlugin.getInstance().getSuiteRegistry().unregisterSuite("generators");
+        }
         if (moduleManager != null) {
             moduleManager.disableAll();
         }

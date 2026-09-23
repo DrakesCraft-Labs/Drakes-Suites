@@ -1,5 +1,7 @@
 package com.drakescraft.suites.bio;
 
+import com.drakescraft.suites.core.DrakesCorePlugin;
+import com.drakescraft.suites.core.module.GenericSuiteModule;
 import com.drakescraft.suites.core.module.SuiteModuleManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,14 +19,28 @@ public class DrakesBioPlugin extends JavaPlugin {
         saveDefaultConfig();
 
         this.moduleManager = new SuiteModuleManager(this);
-        // Registro de módulos biotecnológicos (GeneticChickens, ExoticGarden, Cultivation, SlimyBees, MobCapturer)
+        // Registro de módulos biológicos absorbidos
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "genetic_chickens", "GeneticChickengineering Tiers 0-9"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "exotic_garden", "Exotic Garden & Culinary Arts"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "cultivation", "Advanced Plant Cultivation"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "slimy_bees", "SlimyBees Genetic Apiary"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "mob_capturer", "Bio-Extraction & Mob Capturing"));
+
         this.moduleManager.enableAll();
+
+        // Registrar en DrakesCore
+        if (DrakesCorePlugin.getInstance() != null && DrakesCorePlugin.getInstance().getSuiteRegistry() != null) {
+            DrakesCorePlugin.getInstance().getSuiteRegistry().registerSuite("bio", this, this.moduleManager);
+        }
 
         getLogger().info("DrakesBio v" + getPluginMeta().getVersion() + " inicializado con éxito.");
     }
 
     @Override
     public void onDisable() {
+        if (DrakesCorePlugin.getInstance() != null && DrakesCorePlugin.getInstance().getSuiteRegistry() != null) {
+            DrakesCorePlugin.getInstance().getSuiteRegistry().unregisterSuite("bio");
+        }
         if (moduleManager != null) {
             moduleManager.disableAll();
         }

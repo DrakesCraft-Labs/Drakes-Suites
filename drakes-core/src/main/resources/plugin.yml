@@ -3,4 +3,10 @@ version: '${project.version}'
 main: com.drakescraft.suites.core.DrakesCorePlugin
 api-version: '1.21'
 author: DrakesCraft-Labs
-description: Kernel del Ecosistema DrakesCraft: Core Engine, API y Ticker Centralizado.
+description: Kernel del Ecosistema DrakesCraft: Core Engine, API, Modular Loader y Ticker Centralizado.
+
+commands:
+  drakessuites:
+    description: Administra las 8 Mega-Suites de DrakesCraft
+    permission: drakes.suites.admin
+    aliases: [drakes, suites, dsuite]

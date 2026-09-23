@@ -1,0 +1,6 @@
+# Configuración modular: DyedBackpacks & Utility Storage
+enabled: true
+dyeable-backpacks: true
+max-filter-slots: 18
+allow-auto-collect: true
+enable-sound-feedback: true

@@ -1,0 +1,6 @@
+# Configuración modular: AlchimiaVitae
+enabled: true
+potion-infusion-rate: 1.0
+allow-dark-transmutation: true
+elixir-duration-multiplier: 1.5
+sacrificial-altar-efficiency: 1.2

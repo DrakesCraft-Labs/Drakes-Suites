@@ -1,0 +1,6 @@
+# Configuración modular: SlimeTinker
+enabled: true
+max-modifiers-per-tool: 5
+trait-activation-chance: 0.85
+allow-infinity-materials: true
+anti-afk-decay-rate: 0.05
