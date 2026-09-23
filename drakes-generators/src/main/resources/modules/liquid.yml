@@ -1,0 +1,11 @@
+# DrakesGenerators - Liquid Hydrocarbons & Fluid Dynamics
+enabled: true
+performance:
+  fluid-flow-async-calc: true
+anti-dupe:
+  valve-transfer-lock: true
+logging:
+  audit-file: "liquid-generators-audit.log"
+features:
+  oil-distillery: true
+  hydrocarbon-turbines: true

@@ -1,0 +1,12 @@
+# DrakesTech - AdvancedTech Modular Configuration
+enabled: true
+performance:
+  async-ticking: true
+  max-operations-per-tick: 64
+anti-dupe:
+  transaction-lock: true
+logging:
+  audit-file: "advancedtech-audit.log"
+features:
+  quantum-compressor: true
+  particle-accelerator: true

@@ -1,0 +1,11 @@
+# DrakesTech - SaneCrafting Balanced Workstations
+enabled: true
+performance:
+  cache-recipe-results: true
+anti-dupe:
+  prevent-shift-click-overflow: true
+logging:
+  audit-file: "sanecrafting-audit.log"
+features:
+  overflow-guard: true
+  auto-balance-outputs: true

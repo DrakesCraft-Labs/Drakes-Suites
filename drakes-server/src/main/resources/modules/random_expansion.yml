@@ -1,0 +1,11 @@
+# DrakesServer - RandomExpansion Dynamic Server Events & Procedural Loot
+enabled: true
+performance:
+  event-timer-async: true
+anti-dupe:
+  loot-claim-nonce-verification: true
+logging:
+  audit-file: "random-expansion-audit.log"
+features:
+  hourly-meteor-showers: true
+  airdrop-crates: true

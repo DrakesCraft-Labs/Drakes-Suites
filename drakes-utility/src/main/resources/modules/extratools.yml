@@ -1,0 +1,12 @@
+# DrakesUtility - ExtraTools 3x3 Mining & Multi-Harvest Tools
+enabled: true
+performance:
+  batch-break-drops-merging: true
+anti-dupe:
+  validate-durability-loss: true
+logging:
+  audit-file: "extratools-audit.log"
+features:
+  hammer-3x3: true
+  excavator-3x3: true
+  lumber-axe: true

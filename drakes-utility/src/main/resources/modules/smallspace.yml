@@ -1,0 +1,11 @@
+# DrakesUtility - SmallSpace Compact Dimensional Pocket Capsules
+enabled: true
+performance:
+  pocket-dimension-tick-throttling: true
+anti-dupe:
+  safe-capsule-exit-checks: true
+logging:
+  audit-file: "smallspace-audit.log"
+features:
+  pocket-capsules: true
+  spatial-condensers: true

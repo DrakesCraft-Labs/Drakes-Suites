@@ -1,0 +1,11 @@
+# DrakesUtility - WorldEditSlimefun Schematic & Paste Engine
+enabled: true
+performance:
+  async-schematic-rebuilder: true
+anti-dupe:
+  permission-check-strict: true
+logging:
+  audit-file: "worldedit-sf-audit.log"
+features:
+  paste-machines-with-data: true
+  selection-inspector: true

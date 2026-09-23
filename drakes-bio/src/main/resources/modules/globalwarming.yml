@@ -1,0 +1,12 @@
+# DrakesBio - GlobalWarming Eco-Thermodynamics & Carbon Capture
+enabled: true
+performance:
+  biome-temperature-grid-async: true
+  update-interval-seconds: 30
+anti-dupe:
+  enforce-emission-limits: true
+logging:
+  audit-file: "globalwarming-audit.log"
+features:
+  carbon-scrubbers: true
+  photosynthetic-regeneration: true

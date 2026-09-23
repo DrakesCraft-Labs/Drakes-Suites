@@ -1,0 +1,11 @@
+# DrakesServer - BreweryMenu Interactive Beverage & Recipe UI
+enabled: true
+performance:
+  cache-recipe-guis: true
+anti-dupe:
+  prevent-item-insertion-in-gui: true
+logging:
+  audit-file: "brewery-menu-audit.log"
+features:
+  visual-aging-guide: true
+  ingredient-lookup: true

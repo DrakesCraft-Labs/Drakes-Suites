@@ -27,6 +27,12 @@ public class DrakesMagicPlugin extends JavaPlugin {
         this.moduleManager.registerModule(new GenericSuiteModule(this, "netheopoiesis", "Netheopoiesis Flora"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "transcendence", "TranscEndence Dimensional Arcana"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "spiritsunchained", "SpiritsUnchained Ancestral Evocation"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "demonic_expansion", "DemonicExpansion Dark Arts & Pacts"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "element_manipulation", "ElementManipulation Quad-Elemental Arts"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "magic_xpansion", "MagicXpansion Thaumaturgy & Grimoires"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "slimechem", "SlimeChem Alchemical Chemistry & Transmutation"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "coronalis", "Coronalis Solar Radiance & Plasma Energy"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "infernal_expansion", "InfernalExpansion Nether Arcana & Basalt Fusion"));
 
         this.moduleManager.enableAll();
 

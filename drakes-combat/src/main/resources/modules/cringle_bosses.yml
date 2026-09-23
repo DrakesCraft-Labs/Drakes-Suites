@@ -1,0 +1,11 @@
+# DrakesCombat - CringleBosses Seasonal & Nordic Mini-Encounters
+enabled: true
+performance:
+  boss-ai-throttled: true
+anti-dupe:
+  guaranteed-unique-drop-tagging: true
+logging:
+  audit-file: "cringle-bosses-audit.log"
+features:
+  seasonal-events: true
+  adaptive-frost-aura: true

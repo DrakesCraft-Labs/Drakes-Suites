@@ -1,0 +1,11 @@
+# DrakesMagic - MagicXpansion Thaumaturgy & Grimoires
+enabled: true
+performance:
+  wand-ticking-pool: 4
+anti-dupe:
+  charge-loss-prevention: true
+logging:
+  audit-file: "magicxpansion-audit.log"
+features:
+  thaumaturgy-wands: true
+  mystic-grimoires: true

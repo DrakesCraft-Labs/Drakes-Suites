@@ -1,0 +1,11 @@
+# DrakesCombat - FNAmplifications Ballistics & Tactical Scopes
+enabled: true
+performance:
+  bullet-raytrace-step-size: 0.5
+anti-dupe:
+  ammo-consumption-atomic: true
+logging:
+  audit-file: "fn-amplifications-audit.log"
+features:
+  sniper-optics: true
+  armor-piercing-rounds: true

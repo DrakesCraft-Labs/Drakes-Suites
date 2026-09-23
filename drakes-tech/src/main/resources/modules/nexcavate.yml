@@ -1,0 +1,12 @@
+# DrakesTech - Nexcavate Automated Quarry & Mining
+enabled: true
+performance:
+  async-block-break: true
+  blocks-per-tick-limit: 16
+anti-dupe:
+  secure-drop-collection: true
+logging:
+  audit-file: "nexcavate-audit.log"
+features:
+  depth-filtering: true
+  silk-touch-quarry: true

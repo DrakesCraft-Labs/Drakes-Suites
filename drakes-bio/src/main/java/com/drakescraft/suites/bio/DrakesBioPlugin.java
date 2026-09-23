@@ -28,6 +28,8 @@ public class DrakesBioPlugin extends JavaPlugin {
         this.moduleManager.registerModule(new GenericSuiteModule(this, "slimytreetaps", "SlimyTreeTaps Resin Harvesting"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "gastronomicon", "Gastronomicon Advanced Culinary"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "flowerpower", "FlowerPower Botanical Acceleration"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "drugfun", "Drugfun Phytochemical & Botanical Synthesis"));
+        this.moduleManager.registerModule(new GenericSuiteModule(this, "globalwarming", "GlobalWarming Eco-Thermodynamics & Carbon Capture"));
 
         this.moduleManager.enableAll();
 

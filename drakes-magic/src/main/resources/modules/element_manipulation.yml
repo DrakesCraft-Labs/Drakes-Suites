@@ -1,0 +1,13 @@
+# DrakesMagic - ElementManipulation Quad-Elemental Arts
+enabled: true
+performance:
+  particle-budget-per-player: 20
+anti-dupe:
+  spell-cooldown-enforcement: true
+logging:
+  audit-file: "element-audit.log"
+features:
+  pyrokinesis: true
+  hydrokinesis: true
+  geokinesis: true
+  aerokinesis: true

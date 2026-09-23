@@ -1,0 +1,11 @@
+# DrakesCombat - HardcoreSlimefun Lethality & Tactical Survival
+enabled: true
+performance:
+  player-vitality-tracker-low-overhead: true
+anti-dupe:
+  death-penalty-atomic-execution: true
+logging:
+  audit-file: "hardcore-audit.log"
+features:
+  bleeding-effects: false
+  custom-knockback-curve: true
