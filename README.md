@@ -1,13 +1,13 @@
 # 🌌 StarSuites (Monorepo Drakes-Suites)
 
-> **Arquitectura Maestra de Suites concebida por JackStar para el ecosistema DrakesCraft**  
+> **Arquitectura Maestra de Suites concebida por JackStar para el ecosistema de software y Minecraft**  
 > Consolidación Oficial de 180+ Plugins en Suites Autónomas para Paper 1.21.11+ y Preparación para Minecraft 26.X
 
 ---
 
-### 🌟 Los Tres Pilares de Ingeniería
-Este monorepo es parte del ecosistema de software de **JackStar (Jack)**, estructurado en tres mundos separados:
-1. 🏫 **Colegio Castelgandolfo:** Ingeniería institucional real, redes de campus y portales escolares.
+### 🌟 Los Pilares de Ingeniería Soberana
+Este monorepo es parte del ecosistema de software de **JackStar (Jack)**:
+1. 🏫 **Tecnología Educativa e Infraestructura Institucional:** Ingeniería de software y redes de campus privadas.
 2. ⭐ **Star / JackStar:** Arquitectura de sistemas, orquestador autónomo **SAORI** y autoría de **StarSuites**.
 3. 🐉 **DrakesCraft:** Servidor de Minecraft en producción (Dallas, TX), comunidad, economía y modalidades.
 
@@ -103,16 +103,27 @@ features:
 
 ---
 
-## 🔒 Plugins Propietarios y Binarios Cerrados en Dallas
+## 🔒 Clasificación Canónica de Plugins en Dallas (`/plugins`)
 
-Al ejecutar `/plugins` en la consola de producción de **DrakesCraft (Dallas)**, coexisten dos categorías de software claramente delimitadas:
+En el servidor de producción (**Dallas**), coexisten cuatro categorías de software que ningún agente ni desarrollador debe confundir:
 
-1. **Software Open-Source y Custom Drakes (160+ repos):**
-   - Absorbido al 100% dentro del monorepo **Drakes-Suites** (código fuente limpio, auditado, con compatibilidad PDC asegurada).
-2. **Plugins Comerciales / Closed-Source / Binarios de Terceros:**
-   - Ejemplos activos en Dallas: `BentoBox` (BSkyBlock/OneBlock), `UltimateClaims`, `ModelEngine`, `MythicMobs`, `DeluxeMenus`, `Castle`.
-   - **Directriz de Arquitectura:** Estos plugins **NO** se decompilan ni se versionan en Git abierto para evitar violaciones de licencias y corrupción binaria. Se cargan como JARs independientes en el directorio `/plugins` del servidor Paper.
-   - Si una Suite requiere interactuar con ellos (e.g. comprobar un reclamo de `UltimateClaims` o una isla de `BentoBox`), se utilizan **Soft-Dependencies** con invocaciones reflexivas o dependencias Maven con `<scope>provided</scope>` y `<systemPath>`.
+1. **Mega-Suites StarSuites (Monorepo `Drakes-Suites`):**
+   - Consolida los 160+ plugins y addons en las suites oficiales (`drakes-core` a `drakes-server`) más la suite `drakes-multiverse` de Chagui68.
+   - **Estrategia Operativa:** Durante la temporada actual en producción, se mantienen los JARs individuales para no perturbar a los jugadores ni arriesgar pérdida de inventarios en reinicios constantes. StarSuites se afina y valida para su despliegue en la nueva temporada.
+
+2. **Forks Soberanos de la Organización (`DrakesCraft-Labs` - Open Source):**
+   - Proyectos de código abierto que Jack mantiene, compila y parchea con lógica propietaria adaptada a Paper 1.21.11+:
+   - **`BentoBox-Drake`**: **NO es cerrado.** Es el fork oficial soberano del motor de islas (BSkyBlock, OneBlock, CaveBlock, AcidIsland) con el parche crítico anti-destrucción de ítems de Paper Data Components en `ItemStackTypeAdapter`.
+   - **`AxGraves-Drakes`**, **`WorldwideChat-Drake`**, **`PlayerVaultZ-Drake`**, **`BreweryX-Drake`**, **`Inventory-Rollback-Plus-Drake`**, etc.
+
+3. **Plugins Comerciales / Closed-Source / Binarios de Terceros:**
+   - Plugins comerciales adquiridos externamente o dependencias de terceros sin repositorio en la organización:
+   - **Ejemplos activos:** `UltimateClaims` (Songoda), `ModelEngine`, `MythicMobs`, `Castle`, `DeluxeMenus`, `nLogin`.
+   - **Directriz Canónica:** NO son código abierto ni deben ser descompilados. Viven como archivos JAR en `/plugins`. Las Suites interactúan con ellos mediante soft-dependencies y eventos Bukkit.
+
+4. **Componentes Nativos Híbridos en Rust (Off-Heap / FFM Java 21):**
+   - **`Slimefun-Rust` (`libslimefun_ffi.so`):** Grafos logísticos y matrices de energía sin pausas de GC.
+   - **`Odysseia-Rust` (`libodysseia_ffi.so`):** `RedstoneClockGuard`, `ChatFilterEngine` de alto rendimiento y evaluación de auras divinas.
 
 ---
 
