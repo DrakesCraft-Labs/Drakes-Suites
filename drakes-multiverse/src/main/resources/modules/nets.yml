@@ -1,0 +1,16 @@
+# DrakesMultiverse - Módulo MultiverseNets (Autor: Chagui68)
+enabled: true
+author: Chagui68
+performance:
+  async-routing: true
+  max-cables-per-tick: 64
+anti-dupe:
+  network-dupe-guard: true
+  inventory-sync-lock: true
+logging:
+  log-file: "nets-audit.log"
+  log-transfers: true
+features:
+  standalone-mode: true
+  quantum-multichets: true
+  digital-terminals: true

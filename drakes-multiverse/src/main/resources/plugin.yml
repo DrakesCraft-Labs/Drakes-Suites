@@ -1,0 +1,9 @@
+name: DrakesMultiverse
+version: '${project.version}'
+main: com.drakescraft.suites.multiverse.DrakesMultiversePlugin
+api-version: '1.21'
+author: Chagui68
+authors: [Chagui68, JackStar6677-1]
+description: Suite Multiverse oficial creada por Chagui68 (MultiverseCreatures y MultiverseNets).
+depend: [DrakesCore]
+softdepend: [DrakesCombat, DrakesTech, DrakesBosses]

@@ -1,0 +1,17 @@
+# DrakesMultiverse - Módulo MultiverseCreatures (Autor: Chagui68)
+enabled: true
+author: Chagui68
+performance:
+  async-targeting: true
+  boss-tick-rate: 1
+anti-dupe:
+  seal-duplication-check: true
+  boss-drop-atomic: true
+logging:
+  log-file: "creatures-audit.log"
+  track-boss-spawns: true
+features:
+  mahoraga-adaptation: true
+  jackstar-boss-enabled: true
+  boss-dimension-portals: true
+  ritual-altars: true

@@ -21,6 +21,7 @@
         <module>drakes-utility</module>
         <module>drakes-combat</module>
         <module>drakes-server</module>
+        <module>drakes-multiverse</module>
     </modules>
 
     <properties>
