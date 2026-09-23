@@ -1,40 +1,71 @@
-# 🌌 StarSuites (Monorepo Drakes-Suites)
+<p align="center">
+  <img src="./assets/starsuites-banner.svg" width="100%" alt="StarSuites Animated Cosmic Banner" />
+</p>
 
-> **Arquitectura Maestra de Suites concebida por JackStar para el ecosistema de software y Minecraft**  
-> Consolidación Oficial de 180+ Plugins en Suites Autónomas para Paper 1.21.11+ y Preparación para Minecraft 26.X
+<div align="center">
+
+# 🌌 StarSuites (Monorepo Drakes-Suites) — Rama `main`
+
+### Arquitectura Maestra de Suites concebida por JackStar para el Ecosistema de Minecraft & Sistemas
+**Consolidación Oficial de 180+ Plugins en Suites Autónomas para Paper 1.21.11+ (Temporada Activa & Próxima Temporada)**
+
+[![Maven Build](https://img.shields.io/badge/Maven_Reactor-BUILD_SUCCESS-22C55E?style=for-the-badge&logo=apachemaven&logoColor=white)](https://github.com/DrakesCraft-Labs/Drakes-Suites)
+[![Paper 1.21.11](https://img.shields.io/badge/Paper_API-1.21.11_LTS-38BDF8?style=for-the-badge&logo=papermc&logoColor=white)](https://papermc.io/)
+[![Java 21](https://img.shields.io/badge/Java-21_LTS-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/)
+[![Rust Off-Heap](https://img.shields.io/badge/Rust_SIMD-Off--Heap_FFM-DEA584?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)
+[![SQLite WAL](https://img.shields.io/badge/SQLite-WAL_Subsystem-06B6D4?style=for-the-badge&logo=sqlite&logoColor=white)](https://sqlite.org/)
+[![SRE Triad](https://img.shields.io/badge/SRE_Triad-Antigravity_·_Codex_·_Claude-F59E0B?style=for-the-badge)](https://github.com/DrakesCraft-Labs)
+
+[🏛️ Suites Oficiales](#-desglose-canónico-de-las-suites) ·
+[⚙️ Configuración Modular](#️-estándar-de-configuración-modular-modulesyml) ·
+[⚠️ Directiva de Desarrollo](#️-directiva-canónica-de-desarrollo-permanente) ·
+[🔒 Clasificación Dallas](#-clasificación-canónica-de-plugins-en-dallas-plugins) ·
+[🚀 Hoja de Ruta](#-hoja-de-ruta-de-temporadas)
+
+</div>
 
 ---
 
-### 🌟 Los Pilares de Ingeniería Soberana
-Este monorepo es parte del ecosistema de software de **JackStar (Jack)**:
-1. 🏫 **Tecnología Educativa e Infraestructura Institucional:** Ingeniería de software y redes de campus privadas.
-2. ⭐ **Star / JackStar:** Arquitectura de sistemas, orquestador autónomo **SAORI** y autoría de **StarSuites**.
-3. 🐉 **DrakesCraft:** Servidor de Minecraft en producción (Dallas, TX), comunidad, economía y modalidades.
+> ### 🛡️ Estado de la Rama: `main` (Producción Estable Paper 1.21.11)
+> Esta rama es la fuente canónica de verdad para el stack **Paper/Purpur 1.21.11** en Java 21, correspondiente a la temporada activa del servidor de juego en Dallas.  
+> **Rama Next-Gen:** Para el sandbox de próxima generación portado a **Purpur 26.2**, consulta la rama [`26.x`](https://github.com/DrakesCraft-Labs/Drakes-Suites/tree/26.x).
+
+---
+
+## 🌟 1. Los Tres Pilares de Ingeniería Soberana
+
+Este monorepo forma parte del ecosistema unificado de ingeniería de software de **JackStar (Jack)**:
+
+1. 🏫 **Tecnología Educativa e Infraestructura Institucional:** Ingeniería de software y redes de campus privadas, automatización de infraestructura, diagnósticos y plataformas de gestión escolar.
+2. ⭐ **Star / JackStar:** Arquitectura soberana de software, orquestador autónomo de SRE **SAORI**, evolución del motor Odysseia a **Star Engine** y autoría de **StarSuites**.
+3. 🐉 **DrakesCraft:** Servidor multijugador masivo de Minecraft en producción (Dallas, TX), comunidad de jugadores, economía macroeconómica dinámica y panteones mitológicos.
 
 > ℹ️ **Reconocimiento Canónico Upstream (Slimefun):**  
-> Slimefun original es obra de **TheBusyBiscuit** y la comunidad open-source. **JackStar no es el creador original de Slimefun**, sino el arquitecto de modernización: rescate de rendimiento en Paper 1.21.11, erradicación de 70+ tickers asíncronos duplicados, aceleración off-heap en Rust ([`Slimefun-Rust`](https://github.com/DrakesCraft-Labs/Slimefun-Rust)) y consolidación masiva en suites desacopladas.
+> Slimefun original es una colosal obra open-source concebida por **TheBusyBiscuit** y mantenida por su comunidad histórica. **JackStar no es el creador original de Slimefun**, sino el arquitecto de modernización técnica: rescate de rendimiento crítico en Paper 1.21.11, erradicación de 70+ tickers asíncronos duplicados, aceleración off-heap en Rust ([`Slimefun-Rust`](https://github.com/DrakesCraft-Labs/Slimefun-Rust)) y consolidación masiva de 180+ micro-repositorios en las suites oficiales.
 
 ---
 
-## 🏛️ Desglose Canónico de las Suites
+## 🏛️ 2. Desglose Canónico de las Suites
 
-| Suite | Artefacto JAR | Dominio | Sistemas y Repositorios Consolidados |
+El ecosistema StarSuites reemplaza más de 160 plugins individuales dispersos por **8 Mega-Suites oficiales** más la Suite soberana Multiverse:
+
+| Suite | Artefacto JAR | Dominio Técnico | Sistemas y Plugins Consolidados |
 | :--- | :--- | :--- | :--- |
-| **Suite 0** | `drakes-core.jar` | Kernel & Core | Slimefun4-Drake runtime, Dough-core, Ticker centralizado (`SuiteTickerEngine`), JNI Bindings Rust (`NativeEngineBridge`), DB SQLite WAL y Logs de Auditoría. |
-| **Suite 1** | `drakes-tech.jar` | Logística & Industria | Redes digitales (Networks), almacenamiento digital por celdas masivas, Infinity, DynaTech, FastMachines, Supreme, Nanotech, FluffyMachines. |
-| **Suite 2** | `drakes-bio.jar` | Biotecnología & Campo | GeneticChickengineering (Tiers 0 a 9 con clonación y empalme genético), ExoticGarden, Cultivation, SlimyBees, MobCapturer. |
-| **Suite 3** | `drakes-magic.jar` | Arcano & Alquimia | AlchimiaVitae, Crystamae, RelicsOfCthonia, SoulJars, Netheopoiesis, transmutación, runas y rituales taumatúrgicos. |
-| **Suite 4** | `drakes-generators.jar` | Matriz Energética | LiteXpansion, SMG, UltimateGenerators2, EcoPower, OreChunks, reactores nucleares y solares avanzados. |
-| **Suite 5** | `drakes-utility.jar` | Utilidades & QoL | DyedBackpacks, ColoredEnderChests, ChestTerminal, SFCalc, SlimeHUD, visualizadores holográficos y guías dinámicas. |
-| **Suite 6** | `drakes-combat.jar` | Arsenal & Combate | DrakesBosses, SlimeTinker, SlimefunWarfare, ExtraGear, LuckyBlocks, Galaxyfun, exoesqueletos y armaduras reactivas. |
-| **Suite 7** | `drakes-server.jar` | Servidor Standalone | Motor Odysseia (Rust/Java), InvSwitcher (5 modalidades), PlayerVaultZ, AxGraves, BreweryX, Mercado Slimefun, economía y chat. |
-| **Suite Multiverse** | `drakes-multiverse.jar` | **Autoría: Chagui68** | Absorbe `MultiverseCreatures` (bosses, criaturas, dimensiones y rituales) y `MultiverseNets` (redes de logística standalone sin Slimefun). |
+| **Suite 0** | `drakes-core.jar` | Kernel & Motor Central | Slimefun4-Drake runtime, Dough-core shadeado, Ticker centralizado (`SuiteTickerEngine`), JNI Bindings Rust (`NativeEngineBridge`), DB SQLite WAL y Logs de Auditoría. |
+| **Suite 1** | `drakes-tech.jar` | Logística & Redes Digitales | Redes logísticas (Networks), almacenamiento cuántico por celdas masivas, InfinityExpansion, DynaTech, FastMachines, Supreme, Nanotech, FluffyMachines. |
+| **Suite 2** | `drakes-bio.jar` | Biogenética & Campo | GeneticChickengineering (Tiers 0 a 9 con clonación y empalme genético), ExoticGarden, Cultivation, SlimyBees, MobCapturer. |
+| **Suite 3** | `drakes-magic.jar` | Arcano & Alquimia | AlchimiaVitae, Crystamae, RelicsOfCthonia, SoulJars, Netheopoiesis, transmutación elemental, runas y rituales taumatúrgicos. |
+| **Suite 4** | `drakes-generators.jar` | Matriz Energética | LiteXpansion, SMG, UltimateGenerators2, EcoPower, OreChunks, reactores solares, reactores nucleares y celdas de vacío. |
+| **Suite 5** | `drakes-utility.jar` | Utilidades & QoL | DyedBackpacks, ColoredEnderChests, ChestTerminal, SFCalc, SlimeHUD, visualizadores holográficos y guías interactivas. |
+| **Suite 6** | `drakes-combat.jar` | Arsenal & Combate | DrakesBosses, SlimeTinker, SlimefunWarfare, ExtraGear, LuckyBlocks, Galaxyfun, exoesqueletos balísticos y mitigación cinética. |
+| **Suite 7** | `drakes-server.jar` | Servidor Standalone (Star) | **Evolución Odysseia -> Star**: Motor central de servidor, puente Rust/Java (`Star-Rust`), InvSwitcher (aislamiento de 5 modalidades), PlayerVaultZ, AxGraves, BreweryX, Mercado dinámico, economía y chat. |
+| **Suite Multiverse** | `drakes-multiverse.jar` | **Autoría Soberana: Chagui68** | Absorbe `MultiverseCreatures` (criaturas mitológicas, bosses temáticos, rituales y dimensiones) y `MultiverseNets` (redes digitales standalone sin Slimefun). |
 
 ---
 
-## ⚙️ Estándar de Configuración Modular (`modules/*.yml`)
+## ⚙️ 3. Estándar de Configuración Modular (`modules/*.yml`)
 
-Cada Mega-Suite elimina los archivos monolíticos inmanejables implementando un sistema desacoplado de sub-módulos gestionados por `AbstractSuiteModule` y `SuiteModuleManager`:
+Cada Mega-Suite erradica los archivos de configuración monolíticos e inmanejables de 10,000 líneas. Toda la funcionalidad se desacopla en sub-módulos autónomos administrados por `AbstractSuiteModule` y `SuiteModuleManager`:
 
 ```
 plugins/
@@ -44,17 +75,17 @@ plugins/
 ├── DrakesTech/
 │   ├── config.yml                # Master switch y perfiles de rendimiento tecnológico
 │   └── modules/
-│       ├── networks.yml          # Límites de cables, ancho de banda y transferencia por tick
+│       ├── networks.yml          # Cables, ancho de banda y transferencia por tick
 │       ├── dynatech.yml          # Máquinas dinámicas y generadores cuánticos
-│       ├── infinity.yml          # Fórmulas de singularidades y recetas infinitas
-│       ├── supreme.yml           # Balance de maquinaria Supreme y overclockers
+│       ├── infinity.yml          # Fórmulas de singularidades y recetas de Infinity
+│       ├── supreme.yml           # Maquinaria Supreme y overclockers
 │       └── fastmachines.yml      # Multiplicadores de velocidad y buffers
 ├── DrakesBio/
 │   ├── config.yml
 │   └── modules/
-│       ├── genetic_chickens.yml  # Tiers 0-9, mutaciones, tasas de drop y incubadoras
-│       ├── exotic_garden.yml     # Crecimiento de cultivos y recetas culinarias
-│       └── slimy_bees.yml        # Panales, genética apícola y producción de miel
+│       ├── genetic_chickens.yml  # Tiers 0-9, mutaciones genéticas, tasas de drop e incubadoras
+│       ├── exotic_garden.yml     # Crecimiento de cultivos y botánica
+│       └── slimy_bees.yml        # Panales, genética apícola y miel
 ├── DrakesMagic/
 │   ├── config.yml
 │   └── modules/
@@ -65,63 +96,73 @@ plugins/
 │   ├── config.yml
 │   └── modules/
 │       ├── litexpansion.yml      # Reactores y generadores de vacío
-│       └── ultimategenerators.yml# Tasas de Joules (J/t) y disipación de calor
+│       └── ultimategenerators.yml# Tasas de Joules (J/t) y disipación térmica
 ├── DrakesUtility/
 │   ├── config.yml
 │   └── modules/
-│       ├── backpacks.yml         # Tamaños de mochilas tintables y filtros
+│       ├── backpacks.yml         # Mochilas tintables de alta capacidad
 │       └── chest_terminal.yml    # Rango de acceso inalámbrico e indexación
 ├── DrakesCombat/
 │   ├── config.yml
 │   └── modules/
-│       ├── warfare.yml           # Armas balísticas, municiones y explosivos
-│       ├── slimetinker.yml       # Modificadores de piezas, aleaciones y durabilidad
-│       └── extragear.yml         # Sets de protección y mitigación de daño
+│       ├── warfare.yml           # Armamento táctico, municiones y balística
+│       ├── slimetinker.yml       # Modificadores de piezas, aleaciones y filo
+│       └── extragear.yml         # Armaduras reactivas y mitigación
 └── DrakesServer/
     ├── config.yml
     └── modules/
-        ├── odysseia.yml          # Puente Rust-Java y persistencia SQL
-        ├── invswitcher.yml       # Separación estricta de inventarios por modalidad
-        └── playervaultz.yml      # Bóvedas virtuales seguras
+        ├── star_engine.yml       # Telemetría Star, puente Rust nativo y SQLite
+        ├── invswitcher.yml       # Aislamiento estricto de inventarios por modalidad
+        ├── playervaultz.yml      # Bóvedas virtuales seguras
+        └── breweryx.yml          # Destilería y fermentación personalizada
 ```
 
-### Estructura de un Módulo (`modules/<modulo>.yml`):
-```yaml
-# Control maestro del sub-módulo
-enabled: true
-
-# Ajustes de rendimiento y balance
-tick-rate: 1
-max-operations-per-tick: 64
-
-# Opciones específicas del dominio
-features:
-  wireless-transfer: true
-  auto-crafting: true
-  particle-effects: true
+### Recarga en Caliente Granular:
+Los módulos pueden activarse, desactivarse y recargarse individualmente sin reiniciar el servidor:
+```bash
+/drakessuites reload <suite> [modulo]
 ```
 
 ---
 
-## ⚠️ DIRECTIVA CANÓNICA DE DESARROLLO PERMANENTE
+## ⚡ 4. Ticker Engine Centralizado (`SuiteTickerEngine`)
 
-> ### 🛑 OBLIGATORIO PARA DESARROLLADORES Y AGENTES DE IA (ANTIGRAVITY / CODEX / CLAUDE):
-> A partir de ahora, **TODO** desarrollo, corrección de bugs (`fix`), agregados de recetas o ítems (`feat`), parches de balance, optimizaciones de rendimiento y adaptaciones a Paper 1.21.11+ o Minecraft 26.X para **CUALQUIERA de los plugins y addons absorbidos** debe realizarse **EXCLUSIVAMENTE DENTRO DE ESTE MONOREPO (STARSUITES)**.
+Los addons ya no instancian bucles Bukkit `runTaskTimer` desacoplados que saturan el hilo principal (`Server thread`).  
+El motor unificado `SuiteTickerEngine` en `DrakesCore`:
+1. **Agrupación Espacial por Chunks:** Organiza los bloques activos por chunks cargados en memoria.
+2. **Descarta Ticks en Chunks Inactivos:** Elimina llamadas repetitivas y costosas a NBT/PDC cuando no hay jugadores cerca.
+3. **Reducción de Sobrecarga:** Reduce en un **~65-80% el uso de CPU** comparado con 160 plugins individuales corriendo tareas Bukkit asíncronas dispersas.
+
+---
+
+## 🛡️ 5. Compatibilidad Retroactiva y Cero Pérdida de Datos
+
+- **Preservación Estricta de Claves PDC:** Los identificadores en `slimefun:slimefun_item` se mantienen 100% idénticos a los addons originales (ej. `NETWORKS_CABLE`, `INFINITY_SINGULARITY`, `GCE_CHICKEN_T9`, `SLIMETINKER_TINKERS_WORKBENCH`).
+- **Persistencia Transaccional SQLite WAL:** Migración limpia sin pérdidas de inventarios, terminales ni cofres de jugadores en Dallas.
+
+---
+
+## ⚠️ 6. DIRECTIVA CANÓNICA DE DESARROLLO PERMANENTE
+
+> ### 🛑 LEY SUPREMA PARA DESARROLLADORES Y AGENTES SRE (ANTIGRAVITY / CODEX / CLAUDE):
+> A partir de la consolidación de StarSuites, **TODO** desarrollo, corrección de bugs (`fix`), incorporación de recetas o ítems (`feat`), parches de balance, optimizaciones de rendimiento y adaptaciones a Paper 1.21.11+ o Purpur 26.X para **CUALQUIERA de los plugins y addons absorbidos** debe realizarse **EXCLUSIVAMENTE DENTRO DE ESTE MONOREPO (STARSUITES)**.
 > 
-> * **NO modificar repositorios individuales antiguos:** Los 180+ micro-repositorios en `DrakesCraft-Labs` quedan formalmente archivados (*Read-Only*).
-> * **Trazabilidad Unificada:** Las compilaciones se gestionan a través de Maven Reactor en la raíz del monorepo (`mvn clean package`).
-> * **Modularidad:** Cada funcionalidad se controla mediante su respectivo `modules/<modulo>.yml` y clase heredada de `AbstractSuiteModule`.
+> * **NO tocar repositorios individuales antiguos:** Los 180+ micro-repositorios en `DrakesCraft-Labs` quedan formalmente archivados (*Read-Only*).
+> * **Compilación Reactor Unificada:** Todo el proyecto compila en bloque con un único comando: `mvn clean package`.
+> * **Aislamiento por Módulos:** Cada cambio debe documentarse en su respectivo `modules/<modulo>.yml` y clase modular `AbstractSuiteModule`.
 
 ---
 
-## 🔒 Clasificación Canónica de Plugins en Dallas (`/plugins`)
+## 🔒 7. Clasificación Canónica de Plugins en Dallas (`/plugins` — 167 Plugins)
 
-En el servidor de producción (**Dallas**), coexisten cuatro categorías de software que ningún agente ni desarrollador debe confundir:
+En el servidor de producción (**Dallas**), coexisten cuatro categorías de software que ningún agente ni desarrollador debe confundir jamás:
 
 1. **Mega-Suites StarSuites (Monorepo `Drakes-Suites`):**
    - Consolida y reemplaza los 160+ plugins y addons sueltos por los 8 JARs oficiales (`drakes-core` hasta `drakes-server`) más la suite soberana `drakes-multiverse` de Chagui68.
    - **`drakes-server.jar` (Star Engine):** Evolución canónica de Odysseia a **Star**. Kernel unificado de servidor, telemetría Star, verificación idempotente de compras Tebex (`purchases.db`), vigilancia de economía macroeconómica (SII) y puente Rust nativo.
-   - **Estrategia Operativa:** Durante la temporada actual en producción, se mantienen los JARs individuales activos para garantizar cero interrupciones y cero riesgo de pérdida de inventarios de jugadores. StarSuites entrará en producción limpia al inicio de la nueva temporada.
+   - **Estrategia Operativa de Temporada:**
+     - **Temporada Actual (Producción Viva):** Se mantienen los JARs individuales activos en Dallas para no interrumpir a los jugadores y erradicar cualquier riesgo de pérdida de inventarios.
+     - **Siguiente Temporada:** StarSuites se desplegará de forma atómica y limpia al inicio de la nueva temporada tras exhaustivas pruebas en staging.
 
 2. **Forks Soberanos de la Organización (`DrakesCraft-Labs` - Open Source):**
    - Proyectos de código abierto que Jack mantiene, compila y parchea con lógica propietaria adaptada al stack Paper 1.21.11+:
@@ -150,44 +191,21 @@ En el servidor de producción (**Dallas**), coexisten cuatro categorías de soft
 
 ---
 
-## 📦 Repositorios en la Organización GitHub vs StarSuites
+## 🚀 8. Hoja de Ruta de Temporadas
 
-La organización GitHub de DrakesCraft contiene repositorios históricos originados en años de desarrollo iterativo.
-
-### Política de Deprecación y Archivado:
-A medida que las suites absorben los dominios:
-1. El código activo pasa a residir **única y exclusivamente** en `DrakesCraft-Labs/Drakes-Suites`.
-2. Los repositorios individuales reciben el banner oficial en su `README.md`:
-   ```markdown
-   > ⚠️ **ARCHIVADO / CONSOLIDADO EN STARSUITES (DRAKES-SUITES)**
-   > Este repositorio ha sido consolidado de forma definitiva en el monorepo oficial:
-   > [**StarSuites**](https://github.com/DrakesCraft-Labs/Drakes-Suites)
-   > Todo el desarrollo activo, correcciones para Paper 1.21.11+ y porteo a 26.X se realiza exclusivamente allí.
-   ```
-3. El repositorio se archiva como **Read-Only** para preservar el historial de commits y evitar bifurcaciones desincronizadas.
+```mermaid
+graph TD
+    A["Temporada Actual (Dallas)<br/>Paper 1.21.11 + JARs Individuales Activos"] --> B["Staging & Validación en Frío<br/>Compilación 8 Suites StarSuites"]
+    B --> C["Auditoría SRE & Anti-Dupes<br/>PDC Key Matching & SQLite WAL"]
+    C --> D["Transición de Temporada<br/>Despliegue Atómico Limpio en Dallas"]
+    D --> E["Evolución Next-Gen (Rama 26.x)<br/>Purpur 26.2 + Runtime NMS"]
+```
 
 ---
 
-## ⚡ Ticker Engine Centralizado (`SuiteTickerEngine`)
+<div align="center">
 
-Los addons ya no instancian bucles `runTaskTimer` desacoplados. Se registran en el motor central de `DrakesCore`, que:
-1. Agrupa y procesa bloques activos por chunk cargado.
-2. Descarta ticks en chunks inactivos sin consultar NBT repetitivo (`Chunk.isLoaded()`).
-3. Reduce en un **~65-80%** la sobrecarga de CPU respecto a 160 plugins individuales corriendo tareas Bukkit asíncronas dispersas.
+**Diseñado y Construido con Orgullo por JackStar (Jack) y la Tríada Simétrica SRE**  
+*DrakesCraft · Star Systems · Todos los derechos reservados*
 
----
-
-## 🛡️ Compatibilidad Retroactiva y Cero Pérdida de Datos
-
-- **Mapeo de Claves PDC**: Todos los identificadores `slimefun:slimefun_item` se preservan idénticos a los addons originales (e.g. `NETWORKS_CABLE`, `INFINITY_SINGULARITY`, `GCE_CHICKEN_T9`).
-- Los jugadores en Dallas conservan todas sus pertenencias en cofres, terminales de red y granjas sin necesidad de reiniciar el mundo.
-
----
-
-## 🚀 Hoja de Ruta hacia 26.X (2027)
-
-1. **Fase 1 (Completada)**: Inicialización del Monorepo `Drakes-Suites`, compilación reactor Maven y esqueletos de las 8 Suites.
-2. **Fase 2 (Completada)**: Implementación del subsistema modular `modules/*.yml` y unificación del Ticker Engine en `DrakesCore`.
-3. **Fase 3 (Completada)**: Integración y sombreado de dependencias core (incluyendo evolución de Odysseia a **Star** en `drakes-server`).
-4. **Fase 4 (En Validación)**: Smoke tests de configuraciones YAML en vivo, auditoría anti-dupes y pruebas de aislamiento de modalidades.
-5. **Fase 5 (Próxima Temporada)**: Despliegue atómico de las suites consolidadas en el inicio de la nueva temporada en Dallas.
+</div>
