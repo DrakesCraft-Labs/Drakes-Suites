@@ -1,5 +1,45 @@
-# DrakesServer - Dynamic Market Engine
+# ==============================================================================
+# 🇨🇱 DRAKESSERVER — MERCADO DINÁMICO, SII & ECONOMÍA CHILENA (26.X)
+# ==============================================================================
 enabled: true
+
+# Escala Monetaria Chilena (1 Peso tradicional = 1.000 CLP / "Lucas")
+economy:
+  currency-symbol: "₯"
+  currency-name: "Pesos Chilenos / Dragmas"
+  scale-multiplier: 1000
+  newbie-grant:
+    min-clp: 50000
+    max-clp: 250000
+    random-jitter: true
+
+# Servicio de Impuestos Internos (S.I.I.) de Star
+sii:
+  iva-rate: 0.19            # 19% IVA en compras de mercado/tienda
+  transfer-tax-rate: 0.03   # 3% impuesto a transferencias (/pay)
+  wealth-tax-enabled: true  # Contribución a grandes patrimonios
+  wealth-tiers:
+    tier1:
+      max: 1000000
+      rate: 0.00            # Exento
+    tier2:
+      max: 10000000
+      rate: 0.005           # 0.5%
+    tier3:
+      max: 100000000
+      rate: 0.015           # 1.5%
+    tier4:
+      min: 100000001
+      rate: 0.030           # 3.0%
+
+# Sistema de Empresas & Sociedades Comerciales (SpA / Ltda)
+companies:
+  enabled: true
+  constitution-fee: 500000  # $500.000 CLP por fundar una sociedad
+  rut-prefix: 76
+  allow-dividend-distribution: true
+
+# Rendimiento y Anti-Dupe
 performance:
   rust-market-simd-pricing: true
 anti-dupe:

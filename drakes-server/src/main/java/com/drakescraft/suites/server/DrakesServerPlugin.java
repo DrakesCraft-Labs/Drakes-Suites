@@ -26,7 +26,7 @@ public class DrakesServerPlugin extends JavaPlugin {
         this.moduleManager.registerModule(new GenericSuiteModule(this, "playervaultz", "PlayerVaultZ Anti-Dupe Vaults"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "axgraves", "AxGraves Zero-Item-Loss Graves"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "breweryx", "BreweryX Custom Beverage Engine"));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "market", "Drakes SlimeMarket & Global Economy"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.server.economy.DrakesEconomyModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "display", "DrakesDisplayEngine Native Embedded TAB & Scoreboard"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "brewery_menu", "BreweryMenu Interactive Beverage & Recipe UI"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "random_expansion", "RandomExpansion Dynamic Server Events & Procedural Loot"));
