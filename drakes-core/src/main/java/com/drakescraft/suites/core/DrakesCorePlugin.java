@@ -53,6 +53,9 @@ public class DrakesCorePlugin extends JavaPlugin {
             cmd.setTabCompleter(executor);
         }
 
+        // Diagnostico de plataforma (Purpur 26.2 vs Paper)
+        com.drakescraft.suites.core.runtime.PurpurRuntimeProvider.logRuntimeDiagnostics(getLogger());
+
         getLogger().info("DrakesCore v" + getPluginMeta().getVersion() + " (Kernel, DB WAL, Audit Logs & Ticker Engine) inicializado con exito.");
     }
 

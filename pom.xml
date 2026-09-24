@@ -387,4 +387,30 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <profiles>
+        <profile>
+            <id>paper-21</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <server.target>Paper-1.21.11</server.target>
+                <java.version>21</java.version>
+                <mc.version>1.21.11</mc.version>
+                <paper.version>1.21.11-R0.1-SNAPSHOT</paper.version>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>purpur-26</id>
+            <properties>
+                <server.target>Purpur-26.2</server.target>
+                <java.version>21</java.version>
+                <mc.version>26.2</mc.version>
+                <purpur.version>26.2.build.+</purpur.version>
+                <paper.version>1.21.11-R0.1-SNAPSHOT</paper.version>
+            </properties>
+        </profile>
+    </profiles>
 </project>
