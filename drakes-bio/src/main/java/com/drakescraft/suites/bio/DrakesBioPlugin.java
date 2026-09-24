@@ -20,9 +20,9 @@ public class DrakesBioPlugin extends JavaPlugin {
 
         this.moduleManager = new SuiteModuleManager(this);
         // Registro de módulos biológicos absorbidos
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "genetic_chickens", "GeneticChickengineering Tiers 0-9"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.bio.geneticchickens.GeneticChickensModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.bio.exoticgarden.ExoticGardenModule(this));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "cultivation", "Advanced Plant Cultivation"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.bio.cultivation.CultivationModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "slimy_bees", "SlimyBees Genetic Apiary"));
         this.moduleManager.registerModule(new com.drakescraft.suites.bio.mobcapturer.MobCapturerModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.bio.treetaps.TreeTapsModule(this));
