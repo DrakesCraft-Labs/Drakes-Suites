@@ -1,0 +1,44 @@
+# DrakesCore - Configuración Maestra del Kernel y Aislamiento de Modalidades
+
+# 1. Filtro de Mundos para Slimefun (Exclusión estricta de Slimefun en modalidades como Survival Clásico)
+slimefun:
+  disabled-worlds:
+    - "world_clasico"
+    - "world_clasico_nether"
+    - "world_clasico_the_end"
+  restriction-message: "<red>❌ La tecnología y magia de Slimefun está estrictamente deshabilitada en el Survival Clásico.</red>"
+
+# 2. Command Modality Gate (Separación de comandos por modalidad)
+command-gate:
+  enabled: true
+  rules:
+    clasico:
+      world-patterns:
+        - "^world_clasico.*"
+      blocked-commands:
+        - "/sf"
+        - "/slimefun"
+        - "/guide"
+        - "/researches"
+        - "/sfcalc"
+        - "/slimehud"
+        - "/bosswarp"
+      blocked-message: "<red>❌ El comando <yellow>{command}</yellow> no está disponible en la modalidad <white>Survival Clásico</white>.</red>"
+    oneblock:
+      world-patterns:
+        - "^world_oneblock.*"
+      blocked-commands:
+        - "/is"
+      blocked-message: "<red>❌ En OneBlock utiliza <yellow>/ob</yellow> en lugar de <yellow>/is</yellow>.</red>"
+    skyblock:
+      world-patterns:
+        - "^world_skyblock.*"
+      blocked-commands:
+        - "/ob"
+      blocked-message: "<red>❌ En SkyBlock utiliza <yellow>/is</yellow> en lugar de <yellow>/ob</yellow>.</red>"
+
+# 3. Límites de Generación de Mundo (Chunky & Bedrock Guard)
+world-limits:
+  overworld-max-radius: 1000000
+  nether-max-radius: 500000
+  bedrock-warning-radius: 140000

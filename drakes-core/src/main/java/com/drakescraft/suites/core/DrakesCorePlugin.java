@@ -18,6 +18,8 @@ public class DrakesCorePlugin extends JavaPlugin {
     private SuiteRegistry suiteRegistry;
     private com.drakescraft.suites.core.database.SuiteDatabaseEngine databaseEngine;
     private com.drakescraft.suites.core.logging.SuiteAuditLogger auditLogger;
+    private com.drakescraft.suites.core.world.SlimefunWorldFilter worldFilter;
+    private com.drakescraft.suites.core.command.CommandModalityGate commandGate;
 
     @Override
     public void onEnable() {
@@ -31,9 +33,20 @@ public class DrakesCorePlugin extends JavaPlugin {
         // 2. Inicializar sistema de logs aislados por modulo y auditoria forense
         this.auditLogger = new com.drakescraft.suites.core.logging.SuiteAuditLogger(this);
 
+        // 3. Inicializar filtro de restricción de mundos para Slimefun (ej. Survival Clásico)
+        this.worldFilter = new com.drakescraft.suites.core.world.SlimefunWorldFilter();
+        this.worldFilter.reload(getConfig());
+        getServer().getPluginManager().registerEvents(new com.drakescraft.suites.core.world.SlimefunWorldRestrictionListener(this.worldFilter), this);
+
+        // 4. Inicializar Gateway de filtrado de comandos por modalidad
+        this.commandGate = new com.drakescraft.suites.core.command.CommandModalityGate();
+        this.commandGate.reload(getConfig());
+        getServer().getPluginManager().registerEvents(this.commandGate, this);
+
         this.suiteRegistry = new SuiteRegistry();
 
         this.tickerEngine = new SuiteTickerEngine(this);
+        this.tickerEngine.setWorldFilter(this.worldFilter);
         this.tickerEngine.start();
 
         this.moduleManager = new SuiteModuleManager(this);
@@ -56,7 +69,7 @@ public class DrakesCorePlugin extends JavaPlugin {
         // Diagnostico de plataforma (Purpur 26.2 vs Paper)
         com.drakescraft.suites.core.runtime.PurpurRuntimeProvider.logRuntimeDiagnostics(getLogger());
 
-        getLogger().info("DrakesCore v" + getPluginMeta().getVersion() + " (Kernel, DB WAL, Audit Logs & Ticker Engine) inicializado con exito.");
+        getLogger().info("DrakesCore v" + getPluginMeta().getVersion() + " (Kernel, DB WAL, Audit Logs, WorldFilter & CommandGate) inicializado con exito.");
     }
 
     @Override
@@ -102,5 +115,13 @@ public class DrakesCorePlugin extends JavaPlugin {
 
     public com.drakescraft.suites.core.logging.SuiteAuditLogger getAuditLogger() {
         return auditLogger;
+    }
+
+    public com.drakescraft.suites.core.world.SlimefunWorldFilter getWorldFilter() {
+        return worldFilter;
+    }
+
+    public com.drakescraft.suites.core.command.CommandModalityGate getCommandGate() {
+        return commandGate;
     }
 }

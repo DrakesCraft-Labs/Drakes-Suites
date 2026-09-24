@@ -21,11 +21,16 @@ public class SuiteTickerEngine {
     private final JavaPlugin plugin;
     private final Map<String, Consumer<Long>> tickListeners = new ConcurrentHashMap<>();
     private final Map<Location, Consumer<Location>> blockTickers = new ConcurrentHashMap<>();
+    private com.drakescraft.suites.core.world.SlimefunWorldFilter worldFilter;
     private BukkitTask mainTask;
     private long currentTick = 0;
 
     public SuiteTickerEngine(JavaPlugin plugin) {
         this.plugin = plugin;
+    }
+
+    public void setWorldFilter(com.drakescraft.suites.core.world.SlimefunWorldFilter worldFilter) {
+        this.worldFilter = worldFilter;
     }
 
     public synchronized void start() {
@@ -82,6 +87,9 @@ public class SuiteTickerEngine {
                 Location loc = entry.getKey();
                 if (loc == null || loc.getWorld() == null) {
                     continue;
+                }
+                if (worldFilter != null && !worldFilter.isSlimefunAllowed(loc.getWorld())) {
+                    continue; // Skip bloques de Slimefun en mundos deshabilitados (ej. Survival Clásico)
                 }
                 int chunkX = loc.getBlockX() >> 4;
                 int chunkZ = loc.getBlockZ() >> 4;
