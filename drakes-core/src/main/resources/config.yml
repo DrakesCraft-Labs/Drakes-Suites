@@ -36,6 +36,44 @@ command-gate:
       blocked-commands:
         - "/ob"
       blocked-message: "<red>❌ En SkyBlock utiliza <yellow>/is</yellow> en lugar de <yellow>/ob</yellow>.</red>"
+    laboratorio:
+      world-patterns:
+        - "^laboratorio.*"
+        - "^world_lab.*"
+      whitelist-mode: true
+      allowed-commands:
+        - "/spawn"
+        - "/modalidades"
+        - "/tpa"
+        - "/tpaccept"
+        - "/tpdeny"
+        - "/plot"
+        - "/p"
+        - "/drakessuites"
+        - "/sf"
+        - "/help"
+      blocked-commands:
+        - "/shop"
+        - "/tienda"
+        - "/ah"
+        - "/auction"
+        - "/auctionhouse"
+        - "/sm"
+        - "/slimemarket"
+        - "/sell"
+        - "/pay"
+        - "/bal"
+        - "/balance"
+        - "/trade"
+        - "/pv"
+        - "/vault"
+        - "/chest"
+        - "/ec"
+        - "/enderchest"
+        - "/warp minas"
+        - "/sf cheat"
+        - "/sf give"
+      blocked-message: "<red>✦ Star Guard ✦</red> <gray>El comando <yellow>{command}</yellow> está bloqueado en <gold>Laboratorio</gold> para prevenir fugas de economía.</gray>"
 
 # 3. Límites de Generación de Mundo (Chunky & Bedrock Guard)
 world-limits:

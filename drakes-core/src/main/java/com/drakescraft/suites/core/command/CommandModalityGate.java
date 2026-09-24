@@ -25,10 +25,13 @@ public class CommandModalityGate implements Listener {
         private final String name;
         private final List<Pattern> worldPatterns = new ArrayList<>();
         private final List<String> blockedCommands = new ArrayList<>();
+        private final List<String> allowedCommands = new ArrayList<>();
+        private final boolean whitelistMode;
         private final String blockedMessage;
 
-        public ModalityRule(String name, List<String> regexes, List<String> blockedCommands, String blockedMessage) {
+        public ModalityRule(String name, List<String> regexes, List<String> blockedCommands, List<String> allowedCommands, boolean whitelistMode, String blockedMessage) {
             this.name = name;
+            this.whitelistMode = whitelistMode;
             if (regexes != null) {
                 for (String regex : regexes) {
                     try {
@@ -40,11 +43,14 @@ public class CommandModalityGate implements Listener {
             if (blockedCommands != null) {
                 for (String cmd : blockedCommands) {
                     if (cmd != null && !cmd.trim().isEmpty()) {
-                        String clean = cmd.trim().toLowerCase(Locale.ROOT);
-                        if (!clean.startsWith("/")) {
-                            clean = "/" + clean;
-                        }
-                        this.blockedCommands.add(clean);
+                        this.blockedCommands.add(normalizeCommandLabel(cmd));
+                    }
+                }
+            }
+            if (allowedCommands != null) {
+                for (String cmd : allowedCommands) {
+                    if (cmd != null && !cmd.trim().isEmpty()) {
+                        this.allowedCommands.add(normalizeCommandLabel(cmd));
                     }
                 }
             }
@@ -63,13 +69,46 @@ public class CommandModalityGate implements Listener {
 
         public boolean isCommandBlocked(String commandLine) {
             if (commandLine == null) return false;
-            String lower = commandLine.trim().toLowerCase(Locale.ROOT);
+            String trimmed = commandLine.trim();
+            if (trimmed.isEmpty()) return false;
+
+            String[] parts = trimmed.split("\\s+");
+            String normalizedLabel = normalizeCommandLabel(parts[0]);
+
+            // En modo lista blanca, TODO comando no permitido explícitamente se bloquea
+            if (whitelistMode) {
+                boolean isAllowed = false;
+                for (String allowed : allowedCommands) {
+                    if (normalizedLabel.equalsIgnoreCase(allowed)) {
+                        isAllowed = true;
+                        break;
+                    }
+                }
+                if (!isAllowed) {
+                    return true;
+                }
+            }
+
+            // Comprobación de lista negra (funciona con y sin prefijo de plugin)
             for (String blocked : blockedCommands) {
-                if (lower.equals(blocked) || lower.startsWith(blocked + " ")) {
+                if (normalizedLabel.equalsIgnoreCase(blocked)) {
                     return true;
                 }
             }
             return false;
+        }
+
+        public static String normalizeCommandLabel(String token) {
+            if (token == null) return "";
+            String clean = token.trim().toLowerCase(Locale.ROOT);
+            while (clean.startsWith("/")) {
+                clean = clean.substring(1).trim();
+            }
+            int colonIdx = clean.lastIndexOf(':');
+            if (colonIdx >= 0) {
+                clean = clean.substring(colonIdx + 1).trim();
+            }
+            return "/" + clean;
         }
 
         public String getName() {
@@ -82,6 +121,14 @@ public class CommandModalityGate implements Listener {
 
         public List<String> getBlockedCommands() {
             return Collections.unmodifiableList(blockedCommands);
+        }
+
+        public List<String> getAllowedCommands() {
+            return Collections.unmodifiableList(allowedCommands);
+        }
+
+        public boolean isWhitelistMode() {
+            return whitelistMode;
         }
     }
 
@@ -105,8 +152,10 @@ public class CommandModalityGate implements Listener {
                 if (ruleSec != null) {
                     List<String> patterns = ruleSec.getStringList("world-patterns");
                     List<String> blocked = ruleSec.getStringList("blocked-commands");
+                    List<String> allowed = ruleSec.getStringList("allowed-commands");
+                    boolean whitelist = ruleSec.getBoolean("whitelist-mode", false);
                     String msg = ruleSec.getString("blocked-message");
-                    rules.add(new ModalityRule(key, patterns, blocked, msg));
+                    rules.add(new ModalityRule(key, patterns, blocked, allowed, whitelist, msg));
                 }
             }
         }

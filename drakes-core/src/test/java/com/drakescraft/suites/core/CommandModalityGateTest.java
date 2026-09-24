@@ -80,4 +80,61 @@ class CommandModalityGateTest {
 
         assertFalse(event.isCancelled(), "Admin con bypass no debe tener comandos bloqueados");
     }
+
+    @Test
+    @DisplayName("Prefijo de plugin /slimefun:sf es bloqueado igual que /sf para evitar evasión")
+    void testPrefixBypassBlockedInClasico() {
+        WorldMock clasicoWorld = server.addSimpleWorld("world_clasico");
+        PlayerMock player = server.addPlayer();
+        player.teleport(clasicoWorld.getSpawnLocation());
+
+        PlayerCommandPreprocessEvent event = new PlayerCommandPreprocessEvent(player, "/slimefun:sf");
+        server.getPluginManager().callEvent(event);
+
+        assertTrue(event.isCancelled(), "Comando /slimefun:sf con prefijo de plugin debe ser cancelado");
+    }
+
+    @Test
+    @DisplayName("En Laboratorio los comandos de economía, subastas y bóvedas son bloqueados")
+    void testLaboratorioEconomyCommandsBlocked() {
+        WorldMock labWorld = server.addSimpleWorld("laboratorio");
+        PlayerMock player = server.addPlayer();
+        player.teleport(labWorld.getSpawnLocation());
+
+        PlayerCommandPreprocessEvent eventShop = new PlayerCommandPreprocessEvent(player, "/shop");
+        server.getPluginManager().callEvent(eventShop);
+        assertTrue(eventShop.isCancelled(), "/shop debe estar bloqueado en Laboratorio");
+
+        PlayerCommandPreprocessEvent eventPay = new PlayerCommandPreprocessEvent(player, "/essentials:pay fulano 100");
+        server.getPluginManager().callEvent(eventPay);
+        assertTrue(eventPay.isCancelled(), "/essentials:pay debe estar bloqueado en Laboratorio");
+
+        PlayerCommandPreprocessEvent eventAh = new PlayerCommandPreprocessEvent(player, "/ah");
+        server.getPluginManager().callEvent(eventAh);
+        assertTrue(eventAh.isCancelled(), "/ah debe estar bloqueado en Laboratorio");
+
+        PlayerCommandPreprocessEvent eventPv = new PlayerCommandPreprocessEvent(player, "/pv 1");
+        server.getPluginManager().callEvent(eventPv);
+        assertTrue(eventPv.isCancelled(), "/pv debe estar bloqueado en Laboratorio");
+    }
+
+    @Test
+    @DisplayName("En Laboratorio los comandos permitidos en lista blanca pasan y comandos no autorizados son bloqueados")
+    void testLaboratorioWhitelistMode() {
+        WorldMock labWorld = server.addSimpleWorld("laboratorio");
+        PlayerMock player = server.addPlayer();
+        player.teleport(labWorld.getSpawnLocation());
+
+        PlayerCommandPreprocessEvent eventPlot = new PlayerCommandPreprocessEvent(player, "/plot auto");
+        server.getPluginManager().callEvent(eventPlot);
+        assertFalse(eventPlot.isCancelled(), "/plot auto debe estar permitido por lista blanca");
+
+        PlayerCommandPreprocessEvent eventSpawn = new PlayerCommandPreprocessEvent(player, "/spawn");
+        server.getPluginManager().callEvent(eventSpawn);
+        assertFalse(eventSpawn.isCancelled(), "/spawn debe estar permitido por lista blanca");
+
+        PlayerCommandPreprocessEvent eventUnknown = new PlayerCommandPreprocessEvent(player, "/randomunknowncommand");
+        server.getPluginManager().callEvent(eventUnknown);
+        assertTrue(eventUnknown.isCancelled(), "Comando no autorizado debe ser cancelado por modo lista blanca");
+    }
 }
