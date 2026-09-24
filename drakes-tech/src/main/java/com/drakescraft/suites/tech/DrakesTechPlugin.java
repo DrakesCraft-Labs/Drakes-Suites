@@ -21,7 +21,7 @@ public class DrakesTechPlugin extends JavaPlugin {
         this.moduleManager = new SuiteModuleManager(this);
         // Registro de módulos técnicos absorbidos
         this.moduleManager.registerModule(new GenericSuiteModule(this, "networks", "Networks Digital Transport"));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "infinity", "Infinity Expansion & Singularities"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.tech.infinity.InfinityExpansionModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "dynatech", "DynaTech Machines & Generators"));
         this.moduleManager.registerModule(new com.drakescraft.suites.tech.supreme.SupremeModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.tech.fluffymachines.FluffyMachinesModule(this));
