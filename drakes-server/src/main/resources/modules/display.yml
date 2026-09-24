@@ -1,0 +1,93 @@
+# ==============================================================================
+# 🏛️ DRAKES-SERVER: DISPLAY ENGINE (TAB & SCOREBOARD EMBEBIDOS)
+# ==============================================================================
+# Motor nativo de Adventure API embebido en Star Server.
+# Modos de conmutación atómica según modalidad sin fugas ni sobrecarga de plugins externos.
+# Recargable en caliente vía: /drakessuites reload server display
+
+enabled: true
+
+# Configuración del TAB (Header & Footer dinámicos)
+tab:
+  update-interval-ticks: 20 # 1 segundo
+  header:
+    - "<gradient:#f4c95d:#e1a120><bold>⚡ DRAKESCRAFT · STAR NETWORK ⚡</bold></gradient>"
+    - "<gray>Cinco Modalidades · Engine 26.x Rust · Zero-Lag</gray>"
+    - "<dark_gray>────────────────────────────────────────────</dark_gray>"
+    - "<yellow>Modalidad Activa:</yellow> <white>%modality%</white> <dark_gray>·</dark_gray> <gray>Ping:</gray> <green>%player_ping%ms</green>"
+  footer:
+    - "<dark_gray>────────────────────────────────────────────</dark_gray>"
+    - "<gray>Tienda VIP:</gray> <gold><bold>store.drakescraft.cl</bold></gold> <dark_gray>·</dark_gray> <gray>Discord:</gray> <aqua>discord.gg/rv3vtXZTk7</aqua>"
+    - "<gray>En línea:</gray> <green>%server_online%</green> <dark_gray>/</dark_gray> <gray>TPS:</gray> <green>%server_tps%</green>"
+
+# Configuración del Scoreboard Lateral por Modalidad
+scoreboard:
+  update-interval-ticks: 10 # 0.5 segundos
+  title: "<gradient:#f4c95d:#d8b65a><bold>DRAKESCRAFT</bold></gradient>"
+
+  modalities:
+    slimefun:
+      lines:
+        - "<dark_gray>┌───────────────</dark_gray>"
+        - "<gold>✦ Perfil:</gold> <white>%player_name%</white>"
+        - "<gold>✦ Rango:</gold> <yellow>%vault_rank%</yellow>"
+        - "<dark_gray>├───────────────</dark_gray>"
+        - "<aqua>⚡ Slimefun SF:</aqua>"
+        - "  <gray>Progreso:</gray> <green>%slimefun_researches%</green>"
+        - "  <gray>Energía Red:</gray> <yellow>%slimefun_energy% J</yellow>"
+        - "<dark_gray>├───────────────</dark_gray>"
+        - "<green>✦ Dracmas:</green> <white>$%vault_eco_balance%</white>"
+        - "<green>✦ Kills:</green> <white>%statistic_player_kills%</white>"
+        - "<dark_gray>└───────────────</dark_gray>"
+        - "<gray><italic>mc.drakescraft.cl</italic></gray>"
+
+    clasico:
+      lines:
+        - "<dark_gray>┌───────────────</dark_gray>"
+        - "<gold>✦ Perfil:</gold> <white>%player_name%</white>"
+        - "<gold>✦ Rango:</gold> <yellow>%vault_rank%</yellow>"
+        - "<dark_gray>├───────────────</dark_gray>"
+        - "<yellow>🗡️ Vanilla Survival:</yellow>"
+        - "  <gray>Monedas:</gray> <green>$%vault_eco_balance%</green>"
+        - "  <gray>Claims:</gray> <white>%griefprevention_claims%</white>"
+        - "  <gray>Hogares:</gray> <white>%essentials_homes%</white>"
+        - "<dark_gray>└───────────────</dark_gray>"
+        - "<gray><italic>mc.drakescraft.cl</italic></gray>"
+
+    oneblock:
+      lines:
+        - "<dark_gray>┌───────────────</dark_gray>"
+        - "<gold>✦ Jugador:</gold> <white>%player_name%</white>"
+        - "<gold>✦ Rango:</gold> <yellow>%vault_rank%</yellow>"
+        - "<dark_gray>├───────────────</dark_gray>"
+        - "<light_purple>⛏️ OneBlock:</light_purple>"
+        - "  <gray>Fase:</gray> <yellow>%aoneblock_phase%</yellow>"
+        - "  <gray>Bloques:</gray> <green>%aoneblock_blocks%</green>"
+        - "  <gray>Nivel Isla:</gray> <aqua>%bentobox_level%</aqua>"
+        - "<dark_gray>└───────────────</dark_gray>"
+        - "<gray><italic>mc.drakescraft.cl</italic></gray>"
+
+    skyblock:
+      lines:
+        - "<dark_gray>┌───────────────</dark_gray>"
+        - "<gold>✦ Jugador:</gold> <white>%player_name%</white>"
+        - "<gold>✦ Rango:</gold> <yellow>%vault_rank%</yellow>"
+        - "<dark_gray>├───────────────</dark_gray>"
+        - "<aqua>🏝️ SkyBlock:</aqua>"
+        - "  <gray>Nivel Isla:</gray> <aqua>%bentobox_level%</aqua>"
+        - "  <gray>Miembros:</gray> <white>%bentobox_members%</white>"
+        - "<dark_gray>└───────────────</dark_gray>"
+        - "<gray><italic>mc.drakescraft.cl</italic></gray>"
+
+    laboratorio:
+      lines:
+        - "<dark_gray>┌───────────────</dark_gray>"
+        - "<gold>✦ Arquitecto:</gold> <white>%player_name%</white>"
+        - "<gold>✦ Rango:</gold> <yellow>%vault_rank%</yellow>"
+        - "<dark_gray>├───────────────</dark_gray>"
+        - "<gold>🧪 Laboratorio Creativo:</gold>"
+        - "  <gray>Modo:</gray> <green>Creativo Ilimitado</green>"
+        - "  <gray>Economía:</gray> <red>[Deshabilitada]</red>"
+        - "  <gray>Redstone Guard:</gray> <aqua>Protegido</aqua>"
+        - "<dark_gray>└───────────────</dark_gray>"
+        - "<gray><italic>mc.drakescraft.cl</italic></gray>"
