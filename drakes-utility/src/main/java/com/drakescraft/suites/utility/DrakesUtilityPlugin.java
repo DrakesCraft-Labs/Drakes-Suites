@@ -22,7 +22,7 @@ public class DrakesUtilityPlugin extends JavaPlugin {
         // Registro de módulos de utilidad y almacenamiento absorbidos
         this.moduleManager.registerModule(new com.drakescraft.suites.utility.backpacks.BackpacksModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.utility.enderchests.ColoredEnderChestsModule(this));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "chest_terminal", "ChestTerminal Digital Access"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.utility.chestterminal.ChestTerminalModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.utility.sfcalc.SFCalcModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "slimehud", "SlimeHUD Holographic Overlay"));
         this.moduleManager.registerModule(new com.drakescraft.suites.utility.soundmuffler.SoundMufflerModule(this));

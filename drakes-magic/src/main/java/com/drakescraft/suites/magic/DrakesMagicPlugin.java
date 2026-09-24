@@ -23,7 +23,7 @@ public class DrakesMagicPlugin extends JavaPlugin {
         this.moduleManager.registerModule(new GenericSuiteModule(this, "alchimia_vitae", "AlchimiaVitae Transmutations"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "crystamae", "Crystamae Resonance"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "relics_cthonia", "Relics of Cthonia Underworld"));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "soul_jars", "Soul Containment Jars"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.magic.souljars.SoulJarsModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "netheopoiesis", "Netheopoiesis Flora"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "transcendence", "TranscEndence Dimensional Arcana"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "spiritsunchained", "SpiritsUnchained Ancestral Evocation"));
