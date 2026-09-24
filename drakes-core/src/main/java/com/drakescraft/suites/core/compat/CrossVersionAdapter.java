@@ -69,8 +69,16 @@ public final class CrossVersionAdapter {
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return;
 
-        meta.displayName(parseComponent(displayName));
+        setItemName(meta, displayName);
         item.setItemMeta(meta);
+    }
+
+    /**
+     * Aplica nombre visible directamente a un ItemMeta.
+     */
+    public static void setItemName(ItemMeta meta, String displayName) {
+        if (meta == null || displayName == null) return;
+        meta.displayName(parseComponent(displayName));
     }
 
     /**
@@ -81,13 +89,22 @@ public final class CrossVersionAdapter {
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return;
 
+        setItemLore(meta, loreLines);
+        item.setItemMeta(meta);
+    }
+
+    /**
+     * Aplica lore directamente a un ItemMeta.
+     */
+    public static void setItemLore(ItemMeta meta, List<String> loreLines) {
+        if (meta == null || loreLines == null) return;
         List<Component> components = new ArrayList<>(loreLines.size());
         for (String line : loreLines) {
             components.add(parseComponent(line));
         }
         meta.lore(components);
-        item.setItemMeta(meta);
     }
+
 
     /**
      * Aplica CustomModelData al item de forma retrocompatible.

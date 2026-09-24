@@ -45,16 +45,7 @@
             <artifactId>dough-core</artifactId>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>DyedBackpacks-drake</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>ColoredEnderChests-drake</artifactId>
-            <scope>compile</scope>
-        </dependency>
+
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>ChestTerminal-drake</artifactId>
