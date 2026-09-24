@@ -196,14 +196,31 @@ El motor unificado `SuiteTickerEngine` en `DrakesCore`:
 
 ---
 
-## ⚠️ 7. DIRECTIVA CANÓNICA DE DESARROLLO PERMANENTE
+## 🔄 7. Ciclo de Vida Dual y Flujo de Trabajo (¿Cómo se Trabaja en el Ecosistema?)
 
-> ### 🛑 LEY SUPREMA PARA DESARROLLADORES Y AGENTES SRE (ANTIGRAVITY / CODEX / CLAUDE):
-> A partir de la consolidación de StarSuites, **TODO** desarrollo, corrección de bugs (`fix`), incorporación de recetas o ítems (`feat`), parches de balance, optimizaciones de rendimiento y adaptaciones a Paper 1.21.11+ o Purpur 26.X para **CUALQUIERA de los plugins y addons absorbidos** debe realizarse **EXCLUSIVAMENTE DENTRO DE ESTE MONOREPO (STARSUITES)**.
-> 
-> * **NO tocar repositorios individuales antiguos:** Los 180+ micro-repositorios en `DrakesCraft-Labs` quedan formalmente archivados (*Read-Only*).
-> * **Compilación Reactor Unificada:** Todo el proyecto compila en bloque con un único comando: `mvn clean package`.
-> * **Aislamiento por Módulos:** Cada cambio debe documentarse en su respectivo `modules/<modulo>.yml` y clase modular `AbstractSuiteModule`.
+Para entender la arquitectura y evitar cualquier confusión técnica entre desarrolladores, colaboradores (como Chagui68) y agentes de IA (Antigravity · Codex · Claude), el desarrollo opera bajo un **modelo de dos niveles**:
+
+### 🎯 Nivel 1: Producción Viva en Dallas (Temporada Actual)
+* **Realidad Operativa:** El servidor en producción corre actualmente con los JARs individuales (`MultiverseNets-v3.3.jar`, `Supreme.jar`, `PlayerVaultZ.jar`, etc.).
+* **Regla de Oro Anti-Wipe:** **Está estrictamente prohibido reemplazar los 167 plugins vivos por las 8 suites consolidadas a mitad de temporada.** Hacerlo reiniciaría estructuras y arriesgaría los inventarios de los jugadores activos.
+* **Flujo de Hotfixes en Vivo:** Cuando un bug crítico ocurre en el servidor actual (como el fallo de recetas o filtros):
+  1. Se corrige en el repositorio del plugin (ej. `MultiverseNets`).
+  2. Se ejecutan sus pruebas unitarias (`mvn clean test`).
+  3. Se compila su JAR individual (`MultiverseNets-v3.3.jar`) y se despliega directamente a producción mediante `desplegar_via_panel.py`.
+
+---
+
+### 🏛️ Nivel 2: Monorepo StarSuites (Staging & Próxima Temporada)
+* **Objetivo:** La consolidación definitiva en los 8 JARs oficiales (`drakes-core` hasta `drakes-server` + `drakes-multiverse`) para el arranque limpio de la siguiente temporada.
+* **¿Cómo se ensamblan las Suites?:**
+  - **No necesitas clonar los 180 repositorios.** StarSuites utiliza el repositorio Maven de la organización (`drakescraft-labs-maven`) para resolver las dependencias de los subsistemas y empaquetarlos mediante `maven-shade-plugin`.
+  - Cada Suite define su kernel (`JavaPlugin`), su gestor de ciclo de vida (`SuiteModuleManager`) y sus archivos de configuración modulares desacoplados (`modules/<modulo>.yml`).
+* **¿Por qué una Suite puede verse como "un esqueleto"?:**
+  - Porque en esta fase de empaquetado, la suite orquesta y sombrea las librerías compiladas desde Maven. La lógica interna de cada módulo se gobierna y parametriza desde `src/main/resources/modules/<modulo>.yml`.
+* **Guía para Desarrolladores (Chagui y Staff):**
+  - Si vas a desarrollar o añadir funciones a un plugin concreto (ej. `MultiverseNets` o `MultiverseCreatures`), **solo clonas tu repositorio específico**.
+  - Al compilar y publicar en el repositorio Maven, StarSuites absorbe automáticamente la última versión en la siguiente compilación global (`mvn clean package`).
+  - Para la próxima temporada, los módulos cuyos micro-repositorios queden congelados permanentemente integrarán su código fuente directamente en `src/main/java` de cada suite.
 
 ---
 
