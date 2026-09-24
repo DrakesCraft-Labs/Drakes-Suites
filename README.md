@@ -113,10 +113,10 @@ The StarSuites ecosystem condenses 180+ repositories into **8 Official Mega-Suit
 | **Suite 2** | `drakes-bio.jar` | Bio-Genetics & Agriculture | GeneticChickengineering (Tiers 0 to 9 with cloning and gene-splicing), ExoticGarden, Cultivation, SlimyBees, MobCapturer, SlimyTreeTaps, Gastronomicon, FlowerPower, Drugfun, GlobalWarming. |
 | **Suite 3** | `drakes-magic.jar` | Arcana & Alchemy | AlchimiaVitae, Crystamae, RelicsOfCthonia, SoulJars, Netheopoiesis, TranscEndence, SpiritsUnchained, DemonicExpansion, ElementManipulation, MagicXpansion, SlimeChem, Coronalis, InfernalExpansion. |
 | **Suite 4** | `drakes-generators.jar` | Energy Matrix & Power | LiteXpansion, SMG (SimpleMaterialGenerators), UltimateGenerators2, EcoPower, SlimefunOreChunks, BetterNuclearReactor, Liquid (Hydrocarbons & Fuel Flow). |
-| **Suite 5** | `drakes-utility.jar` | Utilities & QoL | DyedBackpacks, ColoredEnderChests, ChestTerminal, SFCalc, SlimeHUD, SoundMuffler, SimpleUtils, SlimeFrame, ExtraTools, ExtraUtils, SFPortalGun, SmallSpace, JustEnoughGuide & SlimefunAdvancements, WorldEditSlimefun, GeyserHeads. |
+| **Suite 5** | `drakes-utility.jar` | Utilities & QoL | **Native Ported Modules:** `BackpacksModule` (DyedBackpacks, 96 variants, strict anti-dupe), `ColoredEnderChestsModule` (4096 synchronized frequencies), ChestTerminal, SFCalc, SlimeHUD, SoundMuffler, SimpleUtils, SlimeFrame, ExtraTools, ExtraUtils, SFPortalGun, SmallSpace, JustEnoughGuide, WorldEditSlimefun, GeyserHeads. |
 | **Suite 6** | `drakes-combat.jar` | Arsenal & Combat | DrakesBosses, SlimeTinker, SlimefunWarfare, ExtraGear, LuckyBlocks, Galaxyfun, MissileWarfare, SFMobDrops, SlimefunDisc, FNAmplifications, MilitaryArsenal, SlimefunNukes, ObsidianExpansion & ObsidianArmor, HardcoreSlimefun, CringleBosses. |
 | **Suite 7** | `drakes-server.jar` | Server Core (Star Engine) | **Odysseia -> Star Evolution**: Core server engine, Rust/Java bridge (`Star-Rust`), InvSwitcher (strict 5-modality isolation), PlayerVaultZ, AxGraves, BreweryX, BreweryMenu, Dynamic Market (`/sm`), RandomExpansion, Bump. |
-| **Suite Multiverse** | `drakes-multiverse.jar` | **Sovereign: Chagui68** | Consolidates `MultiverseCreatures` (mythological beasts, thematic bosses, celestial rituals) and `MultiverseNets` (standalone digital logistics network without Slimefun). |
+| **Suite Multiverse** | `drakes-multiverse.jar` | **Sovereign: Chagui68** | **Native Integration:** Consolidates `MultiverseNets` (complete standalone digital logistics engine without Slimefun, 109 unit tests on Paper 1.21.11 and Purpur 26.X) and `MultiverseCreatures` (mythological beasts, thematic bosses, celestial rituals). |
 
 ---
 
@@ -194,21 +194,44 @@ Addons no longer trigger independent Bukkit async timers that flood the primary 
 
 ---
 
-## 🛡️ 6. Backward Compatibility & Zero Data Loss Guarantee
+## 🛠️ 6. Compilation, Dual Maven Profiles & Cross-Version Architecture (1.21.11 ⇄ 26.X)
 
-- **Immutable PDC Signatures:** Key namespaces in `slimefun:slimefun_item` match upstream perfectly. Existing player items, blocks, and chests retain identical persistent data.
+To ensure each StarSuites JAR runs seamlessly without bytecode modification on both the live production environment (**Paper/Purpur 1.21.11**) and the next-gen platform (**Purpur 26.X / 26.2**), the monorepo provides a dual-profile architecture:
+
+### A. Maven Compilation Profiles
+* **`paper-21` (Active by Default):**
+  Targets `Paper 1.21.11-R0.1-SNAPSHOT` with `MockBukkit 4.110.0` and `--release 21`. Recommended for building production artifacts for the current live season.
+  ```bash
+  mvn clean test
+  ```
+* **`purpur-26` (Next-Gen Sandbox):**
+  Targets `Purpur 26.2.build.+` with Java 21/25 bytecode to validate forward-compatibility:
+  ```bash
+  mvn clean test -Ppurpur-26
+  ```
+
+### B. Compatibility Bridge Triad (`drakes-core`)
+1. **`CrossVersionAdapter`:** Safely bridges breaking changes between Adventure 4.x (Paper 1.21) and Adventure 5.x (Purpur 26.2, where `Component` is a sealed interface). Provides safe MiniMessage parsing, action bar dispatching, and `ItemMeta` (Data Components) modification without runtime exceptions.
+2. **`PurpurRuntimeProvider`:** Reflective, non-crashing detection for Purpur-specific features (custom mob goals, ridable entities, lag throttling). Falls back gracefully when running on Paper.
+3. **`SuiteItemPdcBridge`:** Strict preservation of `PersistentDataContainer` keys (`slimefun:slimefun_item`) with integrated anti-dupe integrity checks.
+
+---
+
+## 🛡️ 7. Backward Compatibility & Zero Data Loss Guarantee
+
+- **Immutable PDC Signatures:** Key namespaces in `slimefun:slimefun_item` match upstream perfectly (`NETWORKS_CABLE`, `INFINITY_SINGULARITY`, `COLORED_ENDER_CHEST_SMALL_0_0_0`, `DYED_BACKPACK_SMALL_RED`, etc.). Existing player items, blocks, and chests retain identical persistent data.
 - **Transactional SQLite WAL:** Guarantees atomic writes on server shutdown or crash, completely preventing item rollbacks or dupe exploits.
 
 ---
 
-## ⚠️ 7. Canonical Development Directive & Dual Lifecycle
+## ⚠️ 8. Canonical Development Directive & Dual Lifecycle
 
 To guarantee absolute operational stability and prevent technical misunderstandings between core developers, contributors (such as Chagui68), and autonomous SRE agents (Antigravity · Codex · Claude), development operates strictly under a **two-level architecture**:
 
 ### 🎯 Level 1: Live Production in Dallas (Current Active Season)
 * **Operational Reality:** The production server currently runs with individual standalone JARs (`MultiverseNets-v3.3.jar`, `Supreme.jar`, `PlayerVaultZ.jar`, etc.).
 * **Anti-Wipe Golden Rule:** **It is strictly forbidden to replace the 167 live individual plugins with the 8 consolidated suites mid-season.** Doing so risks player inventory loss, entity desync, and structure corruptions.
-* **Live Hotfix Workflow:** When a critical bug occurs on the live server (such as dynamic recipe wipes or container logistics bugs):
+* **Live Hotfix Workflow:** When a critical bug occurs on the live server:
   1. Fix the issue directly in the plugin's dedicated repository (e.g., `MultiverseNets`).
   2. Run local unit tests (`mvn clean test`).
   3. Compile its individual JAR (`MultiverseNets-v3.3.jar`) and deploy it to Dallas via `desplegar_via_panel.py`.
@@ -217,19 +240,16 @@ To guarantee absolute operational stability and prevent technical misunderstandi
 
 ### 🏛️ Level 2: StarSuites Monorepo (Staging & Next Season)
 * **Objective:** Complete consolidation into the 8 official suite JARs (`drakes-core` through `drakes-server` + `drakes-multiverse`) for a clean, unified launch next season.
-* **How Suites Are Assembled:**
-  - **Developers DO NOT need to clone 180 repositories.** StarSuites resolves modules dynamically through the organization's Maven repository (`drakescraft-labs-maven`) and packages them via `maven-shade-plugin`.
-  - Each Suite defines its kernel (`JavaPlugin`), its lifecycle engine (`SuiteModuleManager`), and granular decoupled YAML configurations (`modules/<module>.yml`).
-* **Why a Suite Module May Look Like a "Skeleton":**
-  - In this packaging stage, the suite orchestrates and shades compiled artifacts from Maven. Module logic is enabled, tuned, and governed via `src/main/resources/modules/<module>.yml`.
+* **Natively Ported Modules (Phase 4 Active):**
+  - **`drakes-utility`:** `BackpacksModule` (96 dyed backpack variants with anti-nesting dupe guard) and `ColoredEnderChestsModule` (4096 frequency-synchronized ender chests).
+  - **`drakes-multiverse`:** `MultiverseNets` by Chagui68 (109 unit tests passing on Paper 1.21.11 and Purpur 26.X).
 * **Developer Workflow Guide (Chagui & Staff):**
-  - If you need to develop features for a specific plugin (e.g., `MultiverseNets` or `MultiverseCreatures`), **you only clone that specific repository**.
+  - If you need to develop features for a specific plugin (e.g., `MultiverseNets` or `MultiverseCreatures`), you can work in your dedicated repository or contribute directly to the monorepo.
   - When you build and publish to the organization's Maven repository, StarSuites automatically pulls and bundles the latest version on the next global build (`mvn clean package`).
-  - For the next season, archived micro-repos will have their source trees permanently consolidated into each suite's `src/main/java`.
 
 ---
 
-## 🔒 8. Canonical Classification of Server Plugins
+## 🔒 9. Canonical Classification of Server Plugins
 
 On the live production server (**Dallas**), four distinct tiers of software coexist:
 
@@ -264,14 +284,15 @@ On the live production server (**Dallas**), four distinct tiers of software coex
 
 ---
 
-## 🚀 9. Roadmap to 26.X (2026/2027)
+## 🚀 10. Roadmap to 26.X (2026/2027)
 
 ```mermaid
 graph TD
-    A["Active Season (Dallas)<br/>Paper 1.21.11 + Live Individual JARs"] --> B["Staging Validation<br/>Clean Compilation of 8 StarSuites"]
-    B --> C["SRE Audit & Zero-Loss Testing<br/>PDC Key Matching & SQLite WAL Checks"]
-    C --> D["Season Cutover<br/>Atomic Clean Launch on Dallas"]
-    D --> E["Next-Gen Sandbox (Branch 26.x)<br/>Purpur 26.2 API & Upstream Bytecode Port"]
+    A["Phase 1: StarSuites Monorepo<br/>(Maven Reactor Multi-Module)"] --> B["Phase 2: Unified Ticker Engine<br/>(SuiteTickerEngine & modules/*.yml)"]
+    B --> C["Phase 3: Core Dependency Integration<br/>(Odysseia -> Star Evolution in drakes-server)"]
+    C --> D["Phase 4: Next-Gen 26.X Dual Sandbox<br/>(CrossVersionAdapter, PurpurRuntimeProvider, Backpacks, EnderChests, MultiverseNets)"]
+    D --> E["Phase 5: Port Tech & Bio Suites<br/>(Networks, GeneticChickens, DynaTech native)"]
+    E --> F["Phase 6: Clean Season Cutover<br/>(Atomic Deployment on Dallas)"]
 ```
 
 ---
