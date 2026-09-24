@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Radial Space Background -->
+    <radialGradient id="spaceBg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#030712"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#67e8f9"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+    <linearGradient id="mythicGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="45%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#854d0e"/>
+    </linearGradient>
+    <linearGradient id="deepScale" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="50%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <filter id="cyanGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Frame Base -->
+  <rect width="512" height="512" rx="64" fill="url(#spaceBg)"/>
+
+  <!-- Celestial Multiverse Ring / Mahoraga Wheel Halo -->
+  <g transform="translate(256, 210)" opacity="0.85">
+    <!-- Outer Runic Ring -->
+    <circle r="165" fill="none" stroke="url(#neonCyan)" stroke-width="3" stroke-dasharray="16 8" filter="url(#cyanGlow)"/>
+    <circle r="145" fill="none" stroke="url(#mythicGold)" stroke-width="2"/>
+    <!-- 8 Divine Wheel Spokes / Star Points -->
+    <g stroke="url(#mythicGold)" stroke-width="3" opacity="0.6">
+      <line x1="0" y1="-145" x2="0" y2="-175"/>
+      <line x1="0" y1="145" x2="0" y2="175"/>
+      <line x1="-145" y1="0" x2="-175" y2="0"/>
+      <line x1="145" y1="0" x2="175" y2="0"/>
+      <line x1="-102" y1="-102" x2="-124" y2="-124"/>
+      <line x1="102" y1="-102" x2="124" y2="-124"/>
+      <line x1="-102" y1="102" x2="-124" y2="124"/>
+      <line x1="102" y1="102" x2="124" y2="124"/>
+    </g>
+    <!-- Diamonds on ring -->
+    <polygon points="0,-175 6,-165 0,-155 -6,-165" fill="#67e8f9"/>
+    <polygon points="0,175 6,165 0,155 -6,165" fill="#67e8f9"/>
+    <polygon points="-175,0 -165,6 -155,0 -165,-6" fill="#67e8f9"/>
+    <polygon points="175,0 165,6 155,0 165,-6" fill="#67e8f9"/>
+  </g>
+
+  <!-- Octagonal Diamond Outer Shield -->
+  <polygon points="256,20 460,95 485,256 460,375 256,485 52,375 27,256 52,95" 
+           fill="none" stroke="url(#mythicGold)" stroke-width="4.5" stroke-linejoin="round"/>
+  <polygon points="256,32 445,102 468,256 445,365 256,470 67,365 44,256 67,102" 
+           fill="none" stroke="url(#neonCyan)" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- FRONTAL SYMMETRICAL DRAGON HEAD (Crisp Anatomical Geometry) -->
+  <g id="dragon-frontal" transform="translate(0, 10)">
+    <!-- Massive Sweeping Horns (Left & Right) -->
+    <!-- Left Horn -->
+    <path d="M230 140 C190 60 120 40 45 60 C85 85 145 125 185 180 Z" 
+          fill="url(#mythicGold)" stroke="#78350f" stroke-width="2" filter="url(#cyanGlow)"/>
+    <path d="M230 140 C195 75 140 60 70 72 C105 92 155 125 190 175 Z" fill="#fef08a" opacity="0.6"/>
+    <!-- Right Horn -->
+    <path d="M282 140 C322 60 392 40 467 60 C427 85 367 125 327 180 Z" 
+          fill="url(#mythicGold)" stroke="#78350f" stroke-width="2" filter="url(#cyanGlow)"/>
+    <path d="M282 140 C317 75 372 60 442 72 C407 92 357 125 322 175 Z" fill="#fef08a" opacity="0.6"/>
+
+    <!-- Inner Crown Horns -->
+    <path d="M242 120 C225 70 190 50 155 60 C185 80 215 110 228 145 Z" fill="url(#neonCyan)"/>
+    <path d="M270 120 C287 70 322 50 357 60 C327 80 297 110 284 145 Z" fill="url(#neonCyan)"/>
+
+    <!-- Central Forehead Crown Spikes -->
+    <polygon points="256,80 245,130 267,130" fill="url(#mythicGold)"/>
+    <polygon points="256,60 250,90 262,90" fill="#fef08a"/>
+
+    <!-- Dragon Skull / Forehead -->
+    <polygon points="256,125 215,160 230,205 256,220 282,205 297,160" 
+             fill="url(#deepScale)" stroke="url(#mythicGold)" stroke-width="2"/>
+    <polygon points="256,135 235,165 245,195 256,202 267,195 277,165" fill="#4338ca" opacity="0.8"/>
+
+    <!-- Cheek & Temporal Armor Plates -->
+    <!-- Left Cheek -->
+    <polygon points="215,160 170,185 180,225 225,215" fill="#1e1b4b" stroke="url(#neonCyan)" stroke-width="1.5"/>
+    <polygon points="170,185 130,205 145,235 180,225" fill="url(#mythicGold)"/> <!-- Outer Cheek Horn -->
+    <!-- Right Cheek -->
+    <polygon points="297,160 342,185 332,225 287,215" fill="#1e1b4b" stroke="url(#neonCyan)" stroke-width="1.5"/>
+    <polygon points="342,185 382,205 367,235 332,225" fill="url(#mythicGold)"/>
+
+    <!-- Piercing Glowing Eyes (Left & Right) -->
+    <!-- Left Eye -->
+    <polygon points="220,195 245,198 238,208 215,204" fill="#020617"/>
+    <polygon points="223,196 242,199 236,206 218,203" fill="#67e8f9" filter="url(#cyanGlow)"/>
+    <polygon points="227,197 238,199 234,204 224,202" fill="#ffffff"/>
+    <!-- Right Eye -->
+    <polygon points="292,195 267,198 274,208 297,204" fill="#020617"/>
+    <polygon points="289,196 270,199 276,206 294,203" fill="#67e8f9" filter="url(#cyanGlow)"/>
+    <polygon points="285,197 274,199 278,204 288,202" fill="#ffffff"/>
+
+    <!-- Nasal Bridge & Snout -->
+    <polygon points="256,220 235,225 240,270 256,285 272,270 277,225" 
+             fill="url(#deepScale)" stroke="url(#neonCyan)" stroke-width="1.5"/>
+    <!-- Central Ridge -->
+    <line x1="256" y1="220" x2="256" y2="285" stroke="url(#mythicGold)" stroke-width="2"/>
+
+    <!-- Nostrils -->
+    <polygon points="244,268 250,266 248,274 242,274" fill="#020617"/>
+    <polygon points="268,268 262,266 264,274 270,274" fill="#020617"/>
+
+    <!-- Upper Fangs & Snarl -->
+    <polygon points="240,270 244,285 248,272" fill="#f8fafc"/>
+    <polygon points="272,270 268,285 264,272" fill="#f8fafc"/>
+    <polygon points="250,278 256,290 262,278" fill="#f8fafc"/> <!-- Center Fang -->
+
+    <!-- Mandible / Lower Jaw with Chin Horns -->
+    <polygon points="240,288 230,310 256,345 282,310 272,288 256,296" 
+             fill="#0f172a" stroke="url(#mythicGold)" stroke-width="2"/>
+    <!-- Chin Spikes -->
+    <polygon points="256,345 250,380 256,390 262,380" fill="url(#mythicGold)"/>
+    <polygon points="238,325 220,355 242,340" fill="url(#neonCyan)"/>
+    <polygon points="274,325 292,355 270,340" fill="url(#neonCyan)"/>
+
+    <!-- Energy Glow from Mouth -->
+    <circle cx="256" cy="285" r="14" fill="#06b6d4" opacity="0.6" filter="url(#cyanGlow)"/>
+  </g>
+
+  <!-- BOTTOM BANNER (Single Line "DrakesCraft") -->
+  <g transform="translate(0, 405)">
+    <!-- Background Plate -->
+    <polygon points="35,32 65,5 447,5 477,32 447,60 65,60" fill="#000000" opacity="0.95"/>
+    <polygon points="40,32 68,8 444,8 472,32 444,57 68,57" fill="#090d16" 
+             stroke="url(#neonCyan)" stroke-width="2.5" stroke-linejoin="round"/>
+    
+    <!-- Gold Border Accents -->
+    <line x1="75" y1="8" x2="437" y2="8" stroke="url(#mythicGold)" stroke-width="2"/>
+    <line x1="75" y1="57" x2="437" y2="57" stroke="url(#mythicGold)" stroke-width="2"/>
+
+    <!-- Central Diamond -->
+    <polygon points="256,48 261,53 256,58 251,53" fill="#67e8f9"/>
+
+    <!-- TEXT: DRAKESCRAFT (SINGLE LINE, CLEAN & EPIC) -->
+    <text x="256" y="40" 
+          text-anchor="middle" 
+          font-family="'Montserrat', 'Arial Black', 'Impact', sans-serif" 
+          font-size="33" 
+          font-weight="900" 
+          letter-spacing="5" 
+          fill="#000000" 
+          stroke="#000000" 
+          stroke-width="5" 
+          stroke-linejoin="round">DRAKESCRAFT</text>
+    <text x="256" y="40" 
+          text-anchor="middle" 
+          font-family="'Montserrat', 'Arial Black', 'Impact', sans-serif" 
+          font-size="33" 
+          font-weight="900" 
+          letter-spacing="5" 
+          fill="#ffffff">DRAKESCRAFT</text>
+  </g>
+</svg>
