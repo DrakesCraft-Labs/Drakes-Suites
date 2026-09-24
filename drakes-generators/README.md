@@ -15,6 +15,14 @@
 > 
 > *Los repositorios independientes antiguos quedan formalmente archivados en modo Read-Only.*
 
+## 🔋 Módulos Nativos Implementados
+
+### 1. `OreChunksModule` (`com.drakescraft.suites.generators.orechunks`)
+Consolida el addon histórico `SlimefunOreChunks`:
+* **11 Tipos de Minerales Canónicos:** Fragmentos concentrados de Hierro, Oro, Cobre, Estaño, Plata, Aluminio, Plomo, Zinc, Magnesio, Níquel y Cobalto.
+* **Preservación Absoluta de PDC:** Claves idénticas a Slimefun (`IRON_ORE_CHUNK`, `GOLD_ORE_CHUNK`, etc.) con texturas y perfiles de cabeza persistentes.
+* **Integración Geológica:** Drops opcionales al minar menas de piedra o deepslate con porcentaje configurable y compatibilidad con Geo-Miner.
+
 ---
 
 ## ⚙️ Configuración Modular (`modules/*.yml`)

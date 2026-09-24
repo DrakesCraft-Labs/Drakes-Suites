@@ -25,8 +25,8 @@ public class DrakesUtilityPlugin extends JavaPlugin {
         this.moduleManager.registerModule(new GenericSuiteModule(this, "chest_terminal", "ChestTerminal Digital Access"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "sfcalc", "SFCalc Recipe Calculator"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "slimehud", "SlimeHUD Holographic Overlay"));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "soundmuffler", "SoundMuffler Noise Dampener"));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "simpleutils", "SimpleUtils Utility Blocks"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.utility.soundmuffler.SoundMufflerModule(this));
+        this.moduleManager.registerModule(new com.drakescraft.suites.utility.simpleutils.SimpleUtilsModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "slimeframe", "SlimeFrame Item Displays"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "extratools", "ExtraTools 3x3 Mining & Multi-Harvest Tools"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "extrautils", "ExtraUtils Compression & QoL Blocks"));

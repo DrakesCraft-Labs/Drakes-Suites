@@ -105,6 +105,22 @@ public final class CrossVersionAdapter {
         meta.lore(components);
     }
 
+    public static void setDisplayName(ItemMeta meta, String displayName) {
+        setItemName(meta, displayName);
+    }
+
+    public static void setDisplayName(ItemStack item, String displayName) {
+        setItemName(item, displayName);
+    }
+
+    public static void setLore(ItemMeta meta, List<String> loreLines) {
+        setItemLore(meta, loreLines);
+    }
+
+    public static void setLore(ItemStack item, List<String> loreLines) {
+        setItemLore(item, loreLines);
+    }
+
 
     /**
      * Aplica CustomModelData al item de forma retrocompatible.

@@ -33,6 +33,18 @@ Consolida el addon histórico `ColoredEnderChests`:
 * **Dos Tamaños:** Pequeño (27 slots) y Grande (54 slots) con identificadores canónicos `COLORED_ENDER_CHEST_SMALL_c1_c2_c3` y `COLORED_ENDER_CHEST_BIG_c1_c2_c3`.
 * **Sincronización Interdimensional:** Inventarios persistentes sincronizados entre Overworld, Nether y End con audio espacial vanilla (`BLOCK_ENDER_CHEST_OPEN` / `CLOSE`).
 
+### 3. `SoundMufflerModule` (`com.drakescraft.suites.utility.soundmuffler`)
+Consolida el addon histórico `SoundMuffler`:
+* **Amortiguación de Ruidos de Maquinaria:** Silencia o atenúa ruidos en un radio de 8 bloques configurable.
+* **Interfaz Gráfica Interactiva:** Menú de ajuste granular de volumen (0% a 100%) e interruptor de encendido/apagado.
+* **PDC Canónico:** `SOUND_MUFFLER` con material base `WHITE_CONCRETE`.
+
+### 4. `SimpleUtilsModule` (`com.drakescraft.suites.utility.simpleutils`)
+Consolida el addon histórico `SimpleUtils`:
+* **Simple Elevator (`SIMPLE_ELEVATOR`):** Elevadores por salto (ascenso) y agachado (descenso) entre bloques de cuarzo alineados.
+* **Simple Workbench (`SIMPLE_WORKBENCH`):** Mesa de crafteo unificada y portátil.
+* **Simple Wrench (`SIMPLE_WRENCH`):** Llave inglesa para desmontaje y mantenimiento rápido de máquinas.
+
 ---
 
 ## ⚙️ Configuración Modular (`modules/*.yml`)

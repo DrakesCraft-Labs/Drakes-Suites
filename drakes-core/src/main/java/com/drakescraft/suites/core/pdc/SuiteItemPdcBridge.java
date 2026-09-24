@@ -50,6 +50,28 @@ public final class SuiteItemPdcBridge {
     }
 
     /**
+     * Comprueba si un item tiene un ID especifico de Slimefun en su PDC.
+     */
+    public static boolean hasSlimefunId(ItemStack item, String expectedId) {
+        if (item == null || expectedId == null) {
+            return false;
+        }
+        String id = getSlimefunId(item);
+        return expectedId.equalsIgnoreCase(id);
+    }
+
+    /**
+     * Asigna el ID canonico de Slimefun directamente a un ItemMeta.
+     */
+    public static boolean setSlimefunId(ItemMeta meta, String slimefunId) {
+        if (meta == null || slimefunId == null || slimefunId.trim().isEmpty()) {
+            return false;
+        }
+        meta.getPersistentDataContainer().set(SLIMEFUN_ITEM_KEY, PersistentDataType.STRING, slimefunId.trim());
+        return true;
+    }
+
+    /**
      * Asigna el ID canonico de Slimefun al PDC del item de forma segura.
      */
     public static boolean setSlimefunId(ItemStack item, String slimefunId) {
@@ -60,7 +82,7 @@ public final class SuiteItemPdcBridge {
         if (meta == null) {
             return false;
         }
-        meta.getPersistentDataContainer().set(SLIMEFUN_ITEM_KEY, PersistentDataType.STRING, slimefunId.trim());
+        setSlimefunId(meta, slimefunId);
         item.setItemMeta(meta);
         return true;
     }

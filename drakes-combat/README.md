@@ -16,6 +16,14 @@
 > 
 > *Los repositorios independientes antiguos quedan formalmente archivados en modo Read-Only.*
 
+## 🛡️ Módulos Nativos Implementados
+
+### 1. `MobDropsModule` (`com.drakescraft.suites.combat.mobdrops`)
+Consolida el addon histórico `SFMobDrops`:
+* **Tablas de Botín Dinámicas:** Configuración de drops por tipo de entidad con rangos de cantidad y probabilidades porcentuales ($0.01\%$ a $100\%$).
+* **Preservación Absoluta de PDC:** Genera ítems con Slimefun ID (`IRON_DUST`, `COPPER_DUST`, `SULFUR`, `MAGNESIUM_DUST`, etc.) y compatibilidad con drops de mobs personalizados.
+* **Integración con Panteones de Dioses:** Diseñado para coexistir armónicamente con `DrakesBosses` para drops míticos.
+
 ---
 
 ## ⚙️ Configuración Modular (`modules/*.yml`)

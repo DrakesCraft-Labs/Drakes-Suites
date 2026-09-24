@@ -15,6 +15,14 @@
 > 
 > *Los repositorios independientes antiguos quedan formalmente archivados en modo Read-Only.*
 
+## 🌿 Módulos Nativos Implementados
+
+### 1. `TreeTapsModule` (`com.drakescraft.suites.bio.treetaps`)
+Consolida el addon histórico `SlimyTreeTaps`:
+* **Extracción de Resina y Ámbar:** Cosecha directa en troncos de madera vivos con herramientas graduadas (`TREE_TAP`, `REINFORCED_TREE_TAP`, `DIAMOND_TREE_TAP` y `TREE_SCRAPER`).
+* **Preservación Absoluta de PDC:** Claves idénticas a Slimefun (`STICKY_RESIN`, `RUBBER`, `RAW_PLASTIC`, `AMBER`, `AMBER_BLOCK`).
+* **Mecánica Orgánica:** Descortezado dinámico de troncos con retroalimentación acústica y desgaste de herramientas.
+
 ---
 
 ## ⚙️ Configuración Modular (`modules/*.yml`)
