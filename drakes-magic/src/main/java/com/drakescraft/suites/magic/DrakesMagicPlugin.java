@@ -21,7 +21,7 @@ public class DrakesMagicPlugin extends JavaPlugin {
         this.moduleManager = new SuiteModuleManager(this);
         // Registro de módulos mágicos absorbidos
         this.moduleManager.registerModule(new com.drakescraft.suites.magic.alchimiavitae.AlchimiaVitaeModule(this));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "crystamae", "Crystamae Resonance"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.magic.crystamae.CrystamaeModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.magic.relics.RelicsCthoniaModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.magic.souljars.SoulJarsModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "netheopoiesis", "Netheopoiesis Flora"));
