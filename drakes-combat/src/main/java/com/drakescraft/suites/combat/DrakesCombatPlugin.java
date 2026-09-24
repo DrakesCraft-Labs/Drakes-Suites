@@ -22,12 +22,12 @@ public class DrakesCombatPlugin extends JavaPlugin {
         // Registro de módulos bélicos y de combate absorbidos
         this.moduleManager.registerModule(new GenericSuiteModule(this, "slimetinker", "SlimeTinker Custom Tools & Traits"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "warfare", "SlimefunWarfare Ballistics & Exoskeletons"));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "extragear", "ExtraGear & Modular Armors"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.combat.extragear.ExtraGearModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "luckyblocks", "LuckyBlocks SF Mechanics"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "galaxyfun", "Galaxyfun Exo-Space Combat"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "missilewarfare", "MissileWarfare Ballistics"));
         this.moduleManager.registerModule(new com.drakescraft.suites.combat.mobdrops.MobDropsModule(this));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "slimefundisc", "SlimefunDisc Acoustic Resonance"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.combat.slimefundisc.SlimefunDiscModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "fn_amplifications", "FNAmplifications Ballistics & Tactical Scopes"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "military_arsenal", "MilitaryArsenal Heavy Weaponry & Turrets"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "slimefun_nukes", "SlimefunNukes Tactical Warheads & Deterrence"));

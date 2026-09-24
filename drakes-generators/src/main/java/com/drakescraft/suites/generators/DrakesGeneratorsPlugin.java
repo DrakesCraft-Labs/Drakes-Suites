@@ -23,7 +23,7 @@ public class DrakesGeneratorsPlugin extends JavaPlugin {
         this.moduleManager.registerModule(new GenericSuiteModule(this, "litexpansion", "LiteXpansion Void Reactors"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "smg", "SMG Material Generators"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "ultimate_generators", "UltimateGenerators2 Power Grids"));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "ecopower", "EcoPower Clean Energy"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.generators.ecopower.EcoPowerModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.generators.orechunks.OreChunksModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "better_reactors", "BetterNuclearReactor Fission & Cryocooling"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "liquid", "Liquid Hydrocarbons & Fluid Dynamics"));
