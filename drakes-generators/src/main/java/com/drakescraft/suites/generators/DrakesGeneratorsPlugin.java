@@ -19,8 +19,7 @@ public class DrakesGeneratorsPlugin extends JavaPlugin {
         saveDefaultConfig();
 
         this.moduleManager = new SuiteModuleManager(this);
-        // Registro de módulos de generación energética absorbidos
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "litexpansion", "LiteXpansion Void Reactors"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.generators.litexpansion.LiteXpansionModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.generators.smg.SMGModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "ultimate_generators", "UltimateGenerators2 Power Grids"));
         this.moduleManager.registerModule(new com.drakescraft.suites.generators.ecopower.EcoPowerModule(this));
