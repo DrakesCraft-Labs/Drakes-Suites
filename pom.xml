@@ -43,6 +43,7 @@
         <junit.version>6.1.2</junit.version>
         <mockbukkit.version>4.110.0</mockbukkit.version>
         <surefire.version>3.5.6</surefire.version>
+        <plugin.api.version>1.21</plugin.api.version>
     </properties>
 
     <repositories>

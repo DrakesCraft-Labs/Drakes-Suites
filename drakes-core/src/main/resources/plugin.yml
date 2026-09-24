@@ -1,9 +1,9 @@
 name: DrakesCore
 version: '${project.version}'
 main: com.drakescraft.suites.core.DrakesCorePlugin
-api-version: '26.2'
+api-version: '${plugin.api.version}'
 author: DrakesCraft-Labs
-description: Kernel del Ecosistema DrakesCraft: Core Engine, API, Modular Loader y Ticker Centralizado.
+description: "Kernel del Ecosistema DrakesCraft: Core Engine, API, Modular Loader y Ticker Centralizado."
 
 commands:
   drakessuites:
