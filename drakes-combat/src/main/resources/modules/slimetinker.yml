@@ -1,6 +1,19 @@
-# Configuración modular: SlimeTinker
+# ==============================================================================
+# ⚔️ DRAKESCOMBAT — MÓDULO SLIMETINKER (26.X)
+# ==============================================================================
 enabled: true
+
+# Configuración de ensamblaje de herramientas modulares
 max-modifiers-per-tool: 5
 trait-activation-chance: 0.85
 allow-infinity-materials: true
+
+# Adaptación canónica de armaduras contra Jefes Divinos (AGENTS.md Secc. 6.A)
+# Penalización acumulativa por combate estático/AFK
 anti-afk-decay-rate: 0.05
+enable-true-damage-adaptation: true
+
+# Tickers y rendimiento
+performance:
+  effect-tick-interval: 2
+  async-durability-check: true

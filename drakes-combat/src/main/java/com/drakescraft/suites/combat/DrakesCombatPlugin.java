@@ -20,7 +20,7 @@ public class DrakesCombatPlugin extends JavaPlugin {
 
         this.moduleManager = new SuiteModuleManager(this);
         // Registro de módulos bélicos y de combate absorbidos
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "slimetinker", "SlimeTinker Custom Tools & Traits"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.combat.tinker.SlimeTinkerModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.combat.warfare.WarfareModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.combat.extragear.ExtraGearModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "luckyblocks", "LuckyBlocks SF Mechanics"));
