@@ -1,11 +1,21 @@
-# DrakesBio - ExoticGarden
+# DrakesBio - ExoticGarden Module Configuration
 enabled: true
+
+bonemeal-growth: true
+crook-leaf-drop-chance: 25
+
 performance:
   growth-tick-delay: 20
+
 anti-dupe:
   harvest-lock: true
-logging:
-  log-file: "exotic_garden-audit.log"
+  prevent-unnatural-leaf-drops: true
+  prevent-infinite-saturation: true
+
 features:
   kitchen-recipes: true
   custom-plants: true
+  magical-essence: true
+
+logging:
+  log-file: "exotic_garden-audit.log"
