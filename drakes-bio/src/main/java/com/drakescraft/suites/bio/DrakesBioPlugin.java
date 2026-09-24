@@ -27,7 +27,7 @@ public class DrakesBioPlugin extends JavaPlugin {
         this.moduleManager.registerModule(new com.drakescraft.suites.bio.mobcapturer.MobCapturerModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.bio.treetaps.TreeTapsModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "gastronomicon", "Gastronomicon Advanced Culinary"));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "flowerpower", "FlowerPower Botanical Acceleration"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.bio.flowerpower.FlowerPowerModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "drugfun", "Drugfun Phytochemical & Botanical Synthesis"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "globalwarming", "GlobalWarming Eco-Thermodynamics & Carbon Capture"));
 
