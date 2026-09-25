@@ -37,6 +37,22 @@ public final class SupremeCompressionEngine {
         return inputAmount >= requiredAmount && requiredAmount > 0;
     }
 
+    /**
+     * Calcula la densidad de compresión necesaria para matrices Supreme de alto nivel (Tiers 1 a 10).
+     */
+    public long calculateCompressionDensity(int tier) {
+        int boundedTier = Math.clamp(tier, 1, tierLimit);
+        return (long) Math.pow(4, boundedTier + 3); // Base 4^4 = 256 hasta 4^13 para Tier 10
+    }
+
+    /**
+     * Determina el número de singularidades base requeridas para forjar una Matriz de Singularidad Supreme.
+     */
+    public int calculateSingularityMatrixCost(int tier) {
+        int boundedTier = Math.clamp(tier, 1, tierLimit);
+        return Math.max(1, boundedTier * 2);
+    }
+
     public int getTierLimit() {
         return tierLimit;
     }

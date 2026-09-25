@@ -31,7 +31,20 @@ public class InfinitySingularityEngine {
         registerSingularity("LAPIS", 12000, 600000L);
         registerSingularity("QUARTZ", 8000, 800000L);
         registerSingularity("COPPER", 15000, 400000L);
+        registerSingularity("MAGNESIUM", 15000, 500000L);
+        registerSingularity("SILVER", 15000, 500000L);
+        registerSingularity("ALUMINUM", 15000, 450000L);
+        registerSingularity("TIN", 15000, 400000L);
+        registerSingularity("ZINC", 15000, 400000L);
+        registerSingularity("LEAD", 15000, 500000L);
+        registerSingularity("COAL", 15000, 300000L);
         registerSingularity("NETHER_STAR", 64, 10000000L);
+        // Endgame Pinnacles (Tier 10 & Olympus Convergences)
+        registerSingularity("COSMIC", 1000, 25000000L);
+        registerSingularity("OBSIDIAN", 20000, 8000000L);
+        registerSingularity("SOUL", 10000, 6000000L);
+        registerSingularity("INFINITY", 500, 50000000L);
+        registerSingularity("DIVINE", 100, 100000000L);
     }
 
     public synchronized void registerSingularity(String id, int requiredAmount, long energyJ) {

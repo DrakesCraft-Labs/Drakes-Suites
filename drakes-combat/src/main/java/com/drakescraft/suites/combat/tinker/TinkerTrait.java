@@ -10,7 +10,9 @@ public enum TinkerTrait {
     DIVINE_SLAYER("Asesino de Dioses", 0.35, "Incrementa daño contra entidades divinas de DrakesBosses"),
     MOMENTUM("Inercia Cósmica", 0.10, "Aumenta la velocidad de ataque por cada golpe consecutivo"),
     REINFORCED("Reforzado Primordial", 0.30, "Probabilidad de no consumir durabilidad"),
-    COSMIC_DECAY("Desintegración Cósmica", 0.40, "Aplica daño sostenido irreducible");
+    COSMIC_DECAY("Desintegración Cósmica", 0.40, "Aplica daño sostenido irreducible"),
+    SINGULARITY_INFUSED("Singularidad Infundida", 0.50, "Aplica daño verdadero masivo consumiendo densidad cuántica"),
+    PRIMORDIAL_WRATH("Ira Primordial", 0.60, "Quiebra invulnerabilidades infinitas y absorbe esencias divinas de Tier 10");
 
     private final String displayName;
     private final double baseFactor;
