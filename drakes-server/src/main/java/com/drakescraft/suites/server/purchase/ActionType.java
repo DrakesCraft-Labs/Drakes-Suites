@@ -1,0 +1,9 @@
+package com.drakescraft.suites.server.purchase;
+
+/** Supported, auditable store-delivery action types. */
+public enum ActionType {
+    LUCKPERMS_TEMPORARY, LUCKPERMS_PERMANENT, ECONOMY, KIT,
+    PROTECTION_STONE, TEMPORARY_PERMISSION, SFMASTER_PASS, SFMASTER_GUIDE, SLIMEFUN_RESEARCH, POWER,
+    WEAPON, AURA, COSMETIC, NOTIFICATION, ANNOUNCEMENT, MANUAL,
+    CONSOLE_COMMAND
+}

@@ -4,9 +4,9 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.metamechanists.odysseia.modalities.Modality;
-import org.metamechanists.odysseia.purchase.ActionType;
-import org.metamechanists.odysseia.vaults.BackpackDetector;
+import com.drakescraft.suites.server.modalities.Modality;
+import com.drakescraft.suites.server.purchase.ActionType;
+import com.drakescraft.suites.server.vaults.BackpackDetector;
 import org.mockbukkit.mockbukkit.MockBukkit;
 import org.mockbukkit.mockbukkit.ServerMock;
 import org.bukkit.ChatColor;
@@ -88,8 +88,8 @@ class StarServerSmokeTest {
 
         // Ítem normal
         ItemStack normalItem = new ItemStack(Material.DIAMOND, 10);
-        assertFalse(BackpackDetector.esMochila(normalItem), "Diamante normal no es mochila");
-        assertFalse(detector.contieneMochila(normalItem), "Diamante normal no contiene mochila");
+        assertFalse(BackpackDetector.isBackpack(normalItem), "Diamante normal no es mochila");
+        assertFalse(detector.containsBackpack(normalItem), "Diamante normal no contiene mochila");
 
         // Ítem con formato de lore de mochila Slimefun
         ItemStack mockSfBackpack = new ItemStack(Material.CHEST);
@@ -98,8 +98,8 @@ class StarServerSmokeTest {
         meta.setLore(List.of(ChatColor.GRAY + "ID: SF_BACKPACK_9999"));
         mockSfBackpack.setItemMeta(meta);
 
-        assertTrue(BackpackDetector.esMochila(mockSfBackpack), "Mochila con lore Slimefun debe ser detectada como mochila");
-        assertTrue(detector.contieneMochila(mockSfBackpack), "Detector debe interceptar la mochila como contenedor prohibido en boveda");
+        assertTrue(BackpackDetector.isBackpack(mockSfBackpack), "Mochila con lore Slimefun debe ser detectada como mochila");
+        assertTrue(detector.containsBackpack(mockSfBackpack), "Detector debe interceptar la mochila como contenedor prohibido en boveda");
     }
 
     @Test

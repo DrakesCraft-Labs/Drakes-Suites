@@ -11,83 +11,56 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LiveServerYamlConfigSmokeTest {
 
-    private static final File BACKUP_DIR = new File("/home/jack/Documentos/Desarrollo/Repositorios/star-server-backup/drakescraft/plugins");
+    private static final File MODULES_DIR = new File("src/main/resources/modules");
 
     @Test
-    @DisplayName("Smoke Test: Los 13 YAMLs en vivo de Odysseia/Star cargan y validan sin errores")
+    @DisplayName("Smoke Test: Los YAMLs versionados de DrakesServer cargan y validan sin errores")
     void testLiveOdysseiaYamls() {
-        File odysseiaDir = new File(BACKUP_DIR, "Odysseia");
-        assertTrue(odysseiaDir.exists() && odysseiaDir.isDirectory(), "Directorio de Odysseia en vivo debe existir");
+        assertTrue(MODULES_DIR.isDirectory(), "Directorio versionado de módulos debe existir");
 
         String[] requiredYamls = {
-            "config.yml",
-            "daily-rewards.yml",
-            "kit-claims.yml",
-            "muertes.yml",
-            "purchases.yml",
-            "sfmaster_blocks.yml",
-            "papa-trader.yml",
-            "global-playtime.yml",
-            "cosmetics.yml",
-            "chat-warnings.yml",
-            "papa-canjes.yml"
+            "star.yml", "odysseia.yml", "invswitcher.yml", "playervaultz.yml",
+            "axgraves.yml", "breweryx.yml", "market.yml", "display.yml",
+            "brewery_menu.yml", "random_expansion.yml", "bump.yml"
         };
 
         for (String yamlName : requiredYamls) {
-            File yamlFile = new File(odysseiaDir, yamlName);
-            assertTrue(yamlFile.exists(), "Archivo en vivo requerido debe existir: " + yamlName);
+            File yamlFile = new File(MODULES_DIR, yamlName);
+            assertTrue(yamlFile.exists(), "Archivo versionado requerido debe existir: " + yamlName);
 
             YamlConfiguration config = YamlConfiguration.loadConfiguration(yamlFile);
             assertNotNull(config, "Configuración no debe ser nula al parsear: " + yamlName);
 
             // Validar que no haya excepciones silenciosas o contenido vacío si el archivo tiene tamaño > 0
             if (yamlFile.length() > 100) {
-                assertFalse(config.getKeys(false).isEmpty(), "YAML en vivo no debe estar vacío: " + yamlName);
+                assertFalse(config.getKeys(false).isEmpty(), "YAML versionado no debe estar vacío: " + yamlName);
             }
         }
     }
 
     @Test
-    @DisplayName("Smoke Test: Validacion estructural profunda de config.yml y daily-rewards.yml en vivo")
+    @DisplayName("Smoke Test: Validación estructural profunda de Star e InvSwitcher")
     void testOdysseiaConfigDeepIntegrity() {
-        File configFile = new File(BACKUP_DIR, "Odysseia/config.yml");
+        File configFile = new File(MODULES_DIR, "star.yml");
         YamlConfiguration config = YamlConfiguration.loadConfiguration(configFile);
 
-        // Verificar secciones clave de Odysseia/Star
-        assertNotNull(config.getConfigurationSection("modalities") != null || config.contains("settings") || config.contains("dragon"),
-                "config.yml debe contener las ramas maestras de configuracion");
+        assertTrue(config.isBoolean("enabled") && config.contains("engine") && config.contains("anti-dupe"),
+                "star.yml debe contener motor y protecciones antidupe");
 
-        File rewardsFile = new File(BACKUP_DIR, "Odysseia/daily-rewards.yml");
-        YamlConfiguration rewards = YamlConfiguration.loadConfiguration(rewardsFile);
-        assertNotNull(rewards.getConfigurationSection("rewards") != null || rewards.contains("days") || rewards.contains("streak"),
-                "daily-rewards.yml debe contener recompensas diarias estructuradas");
+        File invSwitcherFile = new File(MODULES_DIR, "invswitcher.yml");
+        YamlConfiguration invSwitcher = YamlConfiguration.loadConfiguration(invSwitcherFile);
+        assertTrue(invSwitcher.isList("modalities") && invSwitcher.getBoolean("strict-enderchest-separation"),
+                "invswitcher.yml debe preservar aislamiento de modalidades");
     }
 
     @Test
-    @DisplayName("Smoke Test: YAMLs de plugins complementarios del servidor en vivo cargan con exito")
+    @DisplayName("Smoke Test: YAMLs de módulos complementarios cargan con éxito")
     void testComplementaryPluginsLiveYamls() {
-        String[] complementaryPlugins = {
-            "AxGraves",
-            "PlayerVaultZ",
-            "BentoBox",
-            "AlchimiaVitae",
-            "CrystamaeHistoria",
-            "Cultivation",
-            "Netheopoiesis",
-            "WorldwideChat"
-        };
-
-        for (String pluginName : complementaryPlugins) {
-            File pDir = new File(BACKUP_DIR, pluginName);
-            if (pDir.exists()) {
-                File[] ymls = pDir.listFiles((dir, name) -> name.endsWith(".yml"));
-                if (ymls != null) {
-                    for (File yml : ymls) {
-                        YamlConfiguration cfg = YamlConfiguration.loadConfiguration(yml);
-                        assertNotNull(cfg, "Error al parsear YAML de " + pluginName + ": " + yml.getName());
-                    }
-                }
-            }
+        File[] yamls = MODULES_DIR.listFiles((dir, name) -> name.endsWith(".yml"));
+        assertNotNull(yamls, "Los módulos versionados deben poder enumerarse");
+        for (File yaml : yamls) {
+            YamlConfiguration config = YamlConfiguration.loadConfiguration(yaml);
+            assertNotNull(config, "Error al parsear YAML de módulo: " + yaml.getName());
         }
     }
 }
