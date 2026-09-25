@@ -4,4 +4,4 @@ main: com.drakescraft.suites.tech.DrakesTechPlugin
 api-version: '26.2'
 author: DrakesCraft-Labs
 description: Mega-Suite de Logistica Digital, Redes, Almacenamiento Cuantico e Industria Pesada.
-depend: [DrakesCore]
+depend: [DrakesCore, Slimefun]
