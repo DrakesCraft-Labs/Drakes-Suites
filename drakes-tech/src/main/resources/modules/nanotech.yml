@@ -1,11 +1,40 @@
-# DrakesTech - Nanotech Processors
+# ==============================================================================
+#  DRAKES-TECH: Módulo Nanotech (Drakes Nanotechnology & Stark Engineering)
+# ==============================================================================
 enabled: true
-performance:
-  simd-acceleration: true
-anti-dupe:
-  atomic-nanobot-checks: true
-logging:
-  log-file: "nanotech-audit.log"
-features:
-  carbon-synthesis: true
-  hyper-processor-speed: 2.5
+
+hero-suits-enabled: true
+weapons-enabled: true
+cosmic-exposure-enabled: true
+
+effects:
+  max-particles-per-attack: 180
+  repulsor-range: 28
+  repulsor-damage: 10.0
+
+cosmic-exposure:
+  enabled: true
+  warning-seconds: 4
+  critical-seconds: 12
+  disintegration-seconds: 20
+
+safety:
+  damage-players: false
+  break-blocks: false
+  max-entities-per-effect: 48
+  protected-region-buffer: 24
+  protected-message: "<gold>DrakesNanotech <dark_gray>· <red>You are inside or near a protected region. <gray>This ability cannot be used here."
+
+snap:
+  radius: 42
+  cooldown-seconds: 600
+  fraction: 0.5
+  max-targets: 48
+
+god-prison:
+  region-blocks-per-cell: 4096
+  cell-cycle-seconds: 15
+
+automation-ai:
+  infinity-minimum-seconds: 259200
+  maximum-seconds: 604800
