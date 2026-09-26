@@ -3,34 +3,34 @@
 # ==============================================================================
 enabled: true
 
-# Control y requisitos de singularidades atómicas
+# Control y requisitos de singularidades atómicas (Restaurados a balance clásico / canon 1.0x)
 singularities:
   iron:
-    required: 10000
+    required: 2000
     energy: 500000
   gold:
-    required: 8000
+    required: 2000
     energy: 750000
   diamond:
-    required: 4000
+    required: 500
     energy: 1500000
   netherite:
-    required: 1000
+    required: 200
     energy: 5000000
   emerald:
-    required: 3000
+    required: 500
     energy: 1200000
   redstone:
-    required: 12000
+    required: 1500
     energy: 600000
   lapis:
-    required: 12000
+    required: 1500
     energy: 600000
   quartz:
-    required: 8000
+    required: 1500
     energy: 800000
   copper:
-    required: 15000
+    required: 3000
     energy: 400000
   nether_star:
     required: 64

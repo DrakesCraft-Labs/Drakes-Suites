@@ -22,28 +22,28 @@ public class InfinitySingularityEngine {
     }
 
     private void registerDefaultSingularities() {
-        registerSingularity("IRON", 10000, 500000L);
-        registerSingularity("GOLD", 8000, 750000L);
-        registerSingularity("DIAMOND", 4000, 1500000L);
-        registerSingularity("NETHERITE", 1000, 5000000L);
-        registerSingularity("EMERALD", 3000, 1200000L);
-        registerSingularity("REDSTONE", 12000, 600000L);
-        registerSingularity("LAPIS", 12000, 600000L);
-        registerSingularity("QUARTZ", 8000, 800000L);
-        registerSingularity("COPPER", 15000, 400000L);
-        registerSingularity("MAGNESIUM", 15000, 500000L);
-        registerSingularity("SILVER", 15000, 500000L);
-        registerSingularity("ALUMINUM", 15000, 450000L);
-        registerSingularity("TIN", 15000, 400000L);
-        registerSingularity("ZINC", 15000, 400000L);
-        registerSingularity("LEAD", 15000, 500000L);
-        registerSingularity("COAL", 15000, 300000L);
+        registerSingularity("IRON", 2000, 500000L);
+        registerSingularity("GOLD", 2000, 750000L);
+        registerSingularity("DIAMOND", 500, 1500000L);
+        registerSingularity("NETHERITE", 200, 5000000L);
+        registerSingularity("EMERALD", 500, 1200000L);
+        registerSingularity("REDSTONE", 1500, 600000L);
+        registerSingularity("LAPIS", 1500, 600000L);
+        registerSingularity("QUARTZ", 1500, 800000L);
+        registerSingularity("COPPER", 3000, 400000L);
+        registerSingularity("MAGNESIUM", 3000, 500000L);
+        registerSingularity("SILVER", 3000, 500000L);
+        registerSingularity("ALUMINUM", 3000, 450000L);
+        registerSingularity("TIN", 3000, 400000L);
+        registerSingularity("ZINC", 3000, 400000L);
+        registerSingularity("LEAD", 3000, 500000L);
+        registerSingularity("COAL", 1500, 300000L);
         registerSingularity("NETHER_STAR", 64, 10000000L);
         // Endgame Pinnacles (Tier 10 & Olympus Convergences)
         registerSingularity("COSMIC", 1000, 25000000L);
         registerSingularity("OBSIDIAN", 20000, 8000000L);
         registerSingularity("SOUL", 10000, 6000000L);
-        registerSingularity("INFINITY", 500, 50000000L);
+        registerSingularity("INFINITY", 100, 50000000L);
         registerSingularity("DIVINE", 100, 100000000L);
     }
 

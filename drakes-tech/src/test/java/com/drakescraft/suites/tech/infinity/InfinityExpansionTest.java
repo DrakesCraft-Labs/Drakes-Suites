@@ -43,18 +43,18 @@ class InfinityExpansionTest {
         InfinitySingularityEngine engine = new InfinitySingularityEngine(true);
 
         assertTrue(engine.isRegistered("NETHERITE"));
-        assertEquals(1000, engine.getRequiredAmount("NETHERITE"));
+        assertEquals(200, engine.getRequiredAmount("NETHERITE"));
         assertEquals(5000000L, engine.getRequiredEnergy("NETHERITE"));
 
         // Validar operación legítima
-        assertTrue(engine.validateCompression("NETHERITE", 1000, 5000000L));
+        assertTrue(engine.validateCompression("NETHERITE", 200, 5000000L));
         assertTrue(engine.validateCompression("NETHERITE", 1500, 6000000L));
 
         // Rechazar con falta de ítems
-        assertFalse(engine.validateCompression("NETHERITE", 999, 5000000L));
+        assertFalse(engine.validateCompression("NETHERITE", 199, 5000000L));
 
         // Rechazar con falta de energía
-        assertFalse(engine.validateCompression("NETHERITE", 1000, 4999999L));
+        assertFalse(engine.validateCompression("NETHERITE", 200, 4999999L));
 
         // Rechazar cantidades negativas o inexistentes
         assertFalse(engine.validateCompression("NETHERITE", -10, 5000000L));
