@@ -1,0 +1,14 @@
+enabled: true
+
+gui:
+  title: "<gradient:#e53935:#d32f2f><bold>Papelera de Reciclaje</bold></gradient> <dark_gray>(Cierra para destruir)</dark_gray>"
+  rows: 4 # 36 slots
+
+sounds:
+  open: true
+  destroy: true
+
+messages:
+  no-permission: "<red>No tienes permiso para usar la papelera.</red>"
+  destroyed: "<gray>[<gradient:#e53935:#d32f2f>Papelera</gradient>] <red>{count}</red> <gray>objeto(s) destruido(s) definitivamente.</gray>"
+  only-players: "<red>Solo los jugadores en línea pueden abrir la papelera.</red>"

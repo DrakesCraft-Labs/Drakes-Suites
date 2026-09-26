@@ -3,5 +3,17 @@ version: '${project.version}'
 main: com.drakescraft.suites.utility.DrakesUtilityPlugin
 api-version: '26.2'
 author: DrakesCraft-Labs
-description: Mega-Suite de Utilidades, Mochilas Tintadas, EnderChests y Herramientas QoL.
+description: Mega-Suite de Utilidades, Mochilas Tintadas, EnderChests, Papelera Virtual y Herramientas QoL.
 depend: [DrakesCore]
+
+commands:
+  trash:
+    description: Abre la papelera virtual para descartar items permanentemente.
+    usage: /trash
+    aliases: [disposal, basura, papelera, basurero]
+    permission: drakes.utility.trash
+
+permissions:
+  drakes.utility.trash:
+    description: Permite abrir la papelera virtual.
+    default: true

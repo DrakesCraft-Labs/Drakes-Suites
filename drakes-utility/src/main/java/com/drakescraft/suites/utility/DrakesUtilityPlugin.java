@@ -27,6 +27,7 @@ public class DrakesUtilityPlugin extends JavaPlugin {
         this.moduleManager.registerModule(new com.drakescraft.suites.utility.slimehud.SlimeHUDModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.utility.soundmuffler.SoundMufflerModule(this));
         this.moduleManager.registerModule(new com.drakescraft.suites.utility.simpleutils.SimpleUtilsModule(this));
+        this.moduleManager.registerModule(new com.drakescraft.suites.utility.trash.TrashModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "slimeframe", "SlimeFrame Item Displays"));
         this.moduleManager.registerModule(new com.drakescraft.suites.utility.extratools.ExtraToolsModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "extrautils", "ExtraUtils Compression & QoL Blocks"));
