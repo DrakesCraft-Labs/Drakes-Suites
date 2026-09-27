@@ -111,8 +111,8 @@ public class BackpacksModule extends AbstractSuiteModule implements Listener {
     private ItemStack createSkinnedHead(BackpackColor color) {
         try {
             // Intentar usar dough PlayerHead si está en classpath
-            return dev.drake.dough.skins.PlayerHead.getItemStack(
-                    dev.drake.dough.skins.PlayerSkin.fromHashCode(color.getTextureHash())
+            return io.github.bakedlibs.dough.skins.PlayerHead.getItemStack(
+                    io.github.bakedlibs.dough.skins.PlayerSkin.fromHashCode(color.getTextureHash())
             );
         } catch (Throwable t) {
             // Fallback seguro a cabeza estándar o lana de color
