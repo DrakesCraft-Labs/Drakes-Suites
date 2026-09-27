@@ -36,13 +36,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>slimefun-core</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>dough-core</artifactId>
+            <groupId>com.github.Slimefun</groupId>
+            <artifactId>Slimefun4</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

@@ -92,7 +92,7 @@ public final class BackpackDetector {
             return;
         }
         reflectionInitialized = true;
-        for (String base : List.of("com.github.drakescraft_labs.slimefun4", "io.github.thebusybiscuit.slimefun4")) {
+        for (String base : List.of("io.github.thebusybiscuit.slimefun4")) {
             try {
                 Class<?> slimefunItem = Class.forName(base + ".api.items.SlimefunItem");
                 backpackClass = Class.forName(base + ".implementation.items.backpacks.SlimefunBackpack");

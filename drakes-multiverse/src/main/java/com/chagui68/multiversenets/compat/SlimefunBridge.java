@@ -45,8 +45,6 @@ public final class SlimefunBridge {
      * ambos y el upstream original, y el primero que resuelva gana.
      */
     private static final String[] API_ROOTS = {
-            "com.github.drakescraft_labs.slimefun4.legacy.api",
-            "com.github.drakescraft_labs.slimefun4.legacy.Slimefun.api",
             "io.github.thebusybiscuit.slimefun4.legacy.api",
             "io.github.thebusybiscuit.slimefun4.legacy.Slimefun.api",
             "me.mrCookieSlime.Slimefun.api",

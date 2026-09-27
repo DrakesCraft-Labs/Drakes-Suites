@@ -1,9 +1,9 @@
 package com.drakescraft.suites.tech.nanotech.content;
 
-import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -15,12 +15,12 @@ import java.util.Map;
 /** Registers the declarative catalog into the real Drakes Slimefun registry. */
 public final class NanotechContent {
     private final org.bukkit.plugin.java.JavaPlugin plugin;
-    private final com.github.drakescraft_labs.slimefun4.api.SlimefunAddon addon;
+    private final io.github.thebusybiscuit.slimefun4.api.SlimefunAddon addon;
     private final Map<String, SlimefunItemStack> items = new HashMap<>();
     private final ItemGroup group;
     private final AddonItemResolver addons;
 
-    public NanotechContent(org.bukkit.plugin.java.JavaPlugin plugin, com.github.drakescraft_labs.slimefun4.api.SlimefunAddon addon) {
+    public NanotechContent(org.bukkit.plugin.java.JavaPlugin plugin, io.github.thebusybiscuit.slimefun4.api.SlimefunAddon addon) {
         this.plugin = plugin;
         this.addon = addon;
         this.addons = new AddonItemResolver(plugin);

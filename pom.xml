@@ -34,8 +34,7 @@
         <mc.version>26.2</mc.version>
         <purpur.version>26.2.build.+</purpur.version>
         <paper.version>1.21.11-R0.1-SNAPSHOT</paper.version>
-        <slimefun.drake.version>11.0-Drake-1.21.11-SNAPSHOT</slimefun.drake.version>
-        <dough.version>1.3.1-DRAKE-v11-SNAPSHOT</dough.version>
+        <slimefun.version>RC-37</slimefun.version>
         <sefilib.version>0.3.1-DRAKE-SNAPSHOT</sefilib.version>
         <infinitylib.version>1.3.11-DRAKE-SNAPSHOT</infinitylib.version>
         <lombok.version>1.18.46</lombok.version>
@@ -88,15 +87,9 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>com.github.drakescraft_labs</groupId>
-                <artifactId>slimefun-core</artifactId>
-                <version>${slimefun.drake.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.github.drakescraft_labs</groupId>
-                <artifactId>dough-core</artifactId>
-                <version>${dough.version}</version>
+                <groupId>com.github.Slimefun</groupId>
+                <artifactId>Slimefun4</artifactId>
+                <version>${slimefun.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
