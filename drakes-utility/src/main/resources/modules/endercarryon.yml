@@ -1,0 +1,7 @@
+# DrakesUtility - EnderCarryOn Module Configuration
+enabled: true
+allow-entities: true
+slow-down-player: true
+anti-dupe:
+  inventory-lock: true
+  drop-prevention: true

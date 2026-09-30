@@ -36,6 +36,7 @@ public class DrakesUtilityPlugin extends JavaPlugin {
         this.moduleManager.registerModule(new GenericSuiteModule(this, "guidetools", "JustEnoughGuide & SlimefunAdvancements Visuals"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "worldedit_sf", "WorldEditSlimefun Schematic & Paste Engine"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "geyser_heads", "GeyserHeads Bedrock Texture Mapping"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.utility.endercarryon.EnderCarryOnModule(this));
 
         this.moduleManager.enableAll();
 
