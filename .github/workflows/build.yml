@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Compilar Reactor Drakes-Suites (8 Suites)
+    name: Compilar Reactor Drakes-Suites (StarSuites Monorepo)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,3 +23,12 @@ jobs:
 
       - name: Compilar y Ejecutar Tests del Monorepo
         run: mvn -B -ntp clean package
+
+      - name: Subir Artefactos JARs Compilados
+        uses: actions/upload-artifact@v4
+        with:
+          name: starsuites-jars
+          path: |
+            */target/*.jar
+            !*/target/original-*.jar
+          retention-days: 14
