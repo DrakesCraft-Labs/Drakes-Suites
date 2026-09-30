@@ -31,12 +31,14 @@ public class DrakesUtilityPlugin extends JavaPlugin {
         this.moduleManager.registerModule(new GenericSuiteModule(this, "slimeframe", "SlimeFrame Item Displays"));
         this.moduleManager.registerModule(new com.drakescraft.suites.utility.extratools.ExtraToolsModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "extrautils", "ExtraUtils Compression & QoL Blocks"));
-        this.moduleManager.registerModule(new GenericSuiteModule(this, "portalgun", "SFPortalGun Quantum Entanglement Teleporters"));
+        this.moduleManager.registerModule(new com.drakescraft.suites.utility.portalgun.PortalGunModule(this));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "smallspace", "SmallSpace Compact Dimensional Pocket Capsules"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "guidetools", "JustEnoughGuide & SlimefunAdvancements Visuals"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "worldedit_sf", "WorldEditSlimefun Schematic & Paste Engine"));
         this.moduleManager.registerModule(new GenericSuiteModule(this, "geyser_heads", "GeyserHeads Bedrock Texture Mapping"));
         this.moduleManager.registerModule(new com.drakescraft.suites.utility.endercarryon.EnderCarryOnModule(this));
+        this.moduleManager.registerModule(new com.drakescraft.suites.utility.vanillapatpat.VanillaPatPatModule(this));
+        this.moduleManager.registerModule(new com.drakescraft.suites.utility.notenoughaddons.NotEnoughAddonsModule(this));
 
         this.moduleManager.enableAll();
 

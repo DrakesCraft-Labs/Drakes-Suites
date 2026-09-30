@@ -1,0 +1,19 @@
+# ======================================================
+# VanillaPatPat Module Configuration (DrakesUtility)
+# Standard Universal English Canon
+# ======================================================
+
+enabled: true
+
+# Cooldown between pats in milliseconds
+cooldown-ms: 500
+
+# Sound played when petting
+sound: "ENTITY_CAT_PURR"
+
+# Particle effect spawned above mob head
+particle: "HEART"
+particle-count: 3
+
+# Actionbar message sent to player
+message: "You patted {name}!"

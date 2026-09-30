@@ -1,12 +1,12 @@
-# DrakesUtility - SFPortalGun Quantum Entanglement Teleporters
+# ======================================================
+# PortalGun Module Configuration (DrakesUtility)
+# Standard Universal English Canon
+# ======================================================
+
 enabled: true
-performance:
-  portal-mesh-spatial-hash: true
-anti-dupe:
-  velocity-conservation-sanity: true
-  anti-infinite-loop-teleport: true
-logging:
-  audit-file: "portalgun-audit.log"
-features:
-  dual-portals: true
-  cross-world-entanglement: false
+
+# Particle rendering interval in ticks
+particle-interval-ticks: 10
+
+# Portal gun projectile velocity multiplier
+projectile-speed: 2.0
