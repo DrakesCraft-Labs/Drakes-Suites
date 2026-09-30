@@ -329,6 +329,10 @@ public final class Items {
         }
         lore.add(Component.text("Right click to open terminal", NamedTextColor.DARK_GRAY)
                 .decoration(TextDecoration.ITALIC, false));
+        lore.add(Component.text("Shift+Right click to open node & machine monitor", NamedTextColor.DARK_GRAY)
+                .decoration(TextDecoration.ITALIC, false));
+        lore.add(Component.text("✦ Quantum Cross-Dimensional Link Active", NamedTextColor.LIGHT_PURPLE)
+                .decoration(TextDecoration.ITALIC, false));
         meta.lore(lore);
         item.setItemMeta(meta);
     }

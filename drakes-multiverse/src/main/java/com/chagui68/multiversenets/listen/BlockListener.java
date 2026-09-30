@@ -261,7 +261,7 @@ public class BlockListener implements Listener {
         }
 
         if (blob == null) {
-            if (heldType == DeviceType.MVN_WIRELESS_TERMINAL && !event.getPlayer().isSneaking()) {
+            if (heldType == DeviceType.MVN_WIRELESS_TERMINAL) {
                 useWirelessInAir(event);
             }
             return;
@@ -528,19 +528,22 @@ public class BlockListener implements Listener {
             event.getPlayer().sendMessage(Text.msg("Unbound: shift+click a controller.", NamedTextColor.YELLOW));
             return;
         }
-        // Requisito de alcance del remote de NetworksV6: el chunk del controlador debe estar
-        // cargado y la red viva; sin eso no hay nada que abrir.
-        if (!bind.getWorld().isChunkLoaded(bind.getBlockX() >> 4, bind.getBlockZ() >> 4)) {
-            event.getPlayer().sendMessage(Text.msg("The bound network is not loaded.", NamedTextColor.RED));
-            return;
-        }
         Network net = manager.networkByController(bind);
+        if (net == null && bind.getWorld() != null) {
+            if (bind.getWorld().isChunkLoaded(bind.getBlockX() >> 4, bind.getBlockZ() >> 4)) {
+                net = manager.networkAt(bind.getBlock());
+            }
+        }
         if (net == null) {
-            event.getPlayer().sendMessage(Text.msg("That network no longer exists.", NamedTextColor.RED));
+            event.getPlayer().sendMessage(Text.msg("The bound network is inactive or not loaded.", NamedTextColor.RED));
             return;
         }
         event.setCancelled(true);
-        new TerminalMenu(plugin, event.getPlayer(), net).openMenu();
+        if (event.getPlayer().isSneaking()) {
+            new MonitorMenu(plugin, event.getPlayer(), net, null).openMenu();
+        } else {
+            new TerminalMenu(plugin, event.getPlayer(), net).openMenu();
+        }
     }
 
     private void openTerminal(Player player, Block nodeBlock) {
