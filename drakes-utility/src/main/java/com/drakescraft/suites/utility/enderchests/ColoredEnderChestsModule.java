@@ -6,6 +6,7 @@ import com.drakescraft.suites.core.pdc.SuiteItemPdcBridge;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -125,15 +126,55 @@ public class ColoredEnderChestsModule extends AbstractSuiteModule implements Lis
         return sfId != null && sfId.startsWith("COLORED_ENDER_CHEST_");
     }
 
-    public String getFrequencyKey(boolean big, int c1, int c2, int c3) {
-        return getFrequencyKey(null, big, c1, c2, c3);
+    /**
+     * Resuelve la modalidad lógica de un mundo.
+     * Dimensiones dentro de la misma modalidad (ej. world, world_nether, world_the_end)
+     * se mapean a la misma modalidad canónica ('survival').
+     * Modalidades aisladas (bskyblock, aoneblock, caveblock) poseen namespaces estrictamente separados.
+     */
+    public static String resolveModality(World world) {
+        if (world == null) return "survival";
+        String name = world.getName().toLowerCase(Locale.ROOT);
+
+        if (name.startsWith("bskyblock") || name.startsWith("skyblock")) {
+            return "bskyblock";
+        }
+        if (name.startsWith("aoneblock") || name.startsWith("oneblock")) {
+            return "aoneblock";
+        }
+        if (name.startsWith("caveblock") || name.startsWith("acid")) {
+            return "caveblock";
+        }
+        if (name.startsWith("laboratorio") || name.startsWith("creative")) {
+            return "laboratorio";
+        }
+
+        for (String suffix : new String[] { "_the_end", "_the_nether", "_nether", "_end" }) {
+            if (name.endsWith(suffix)) {
+                String base = name.substring(0, name.length() - suffix.length());
+                if (base.equals("world")) return "survival";
+                return base;
+            }
+        }
+
+        if (name.equals("world")) return "survival";
+        return name;
+    }
+
+    public String getFrequencyKey(String modality, UUID owner, boolean big, int c1, int c2, int c3) {
+        String mod = (modality != null && !modality.isEmpty()) ? modality.toLowerCase(Locale.ROOT) : "survival";
+        if (owner != null) {
+            return mod + "_" + owner + "_" + (big ? "BIG_" : "SMALL_") + c1 + "_" + c2 + "_" + c3;
+        }
+        return mod + "_" + (big ? "BIG_" : "SMALL_") + c1 + "_" + c2 + "_" + c3;
     }
 
     public String getFrequencyKey(UUID owner, boolean big, int c1, int c2, int c3) {
-        if (owner != null) {
-            return owner + "_" + (big ? "BIG_" : "SMALL_") + c1 + "_" + c2 + "_" + c3;
-        }
-        return (big ? "BIG_" : "SMALL_") + c1 + "_" + c2 + "_" + c3;
+        return getFrequencyKey("survival", owner, big, c1, c2, c3);
+    }
+
+    public String getFrequencyKey(boolean big, int c1, int c2, int c3) {
+        return getFrequencyKey("survival", null, big, c1, c2, c3);
     }
 
     @EventHandler(priority = EventPriority.HIGH)
@@ -265,6 +306,10 @@ public class ColoredEnderChestsModule extends AbstractSuiteModule implements Lis
     }
 
     public void openEnderChest(Player player, boolean big, int c1, int c2, int c3, UUID owner) {
+        openEnderChest(player, player != null ? player.getWorld() : null, big, c1, c2, c3, owner);
+    }
+
+    public void openEnderChest(Player player, World world, boolean big, int c1, int c2, int c3, UUID owner) {
         if (owner != null && !player.getUniqueId().equals(owner) && !player.hasPermission("drakesutility.enderchest.bypass")) {
             CrossVersionAdapter.sendMessage(player, "<red>§l[ColoredEnderChests] §cEste cofre es privado de otro jugador.");
             try {
@@ -273,10 +318,11 @@ public class ColoredEnderChestsModule extends AbstractSuiteModule implements Lis
             return;
         }
 
-        String freqKey = getFrequencyKey(owner, big, c1, c2, c3);
+        String modality = resolveModality(world != null ? world : (player != null ? player.getWorld() : null));
+        String freqKey = getFrequencyKey(modality, owner, big, c1, c2, c3);
         int slots = big ? 54 : 27;
 
-        String title = "<dark_purple>EnderChest <gold>#" + c1 + "-" + c2 + "-" + c3 + " <gray>(" + (big ? "Grande" : "Pequeño") + (owner != null ? " - Privado" : "") + ")</gray></gold></dark_purple>";
+        String title = "<dark_purple>EnderChest <gold>#" + c1 + "-" + c2 + "-" + c3 + " <gray>(" + (big ? "Grande" : "Pequeño") + (owner != null ? " - Privado" : "") + ") [" + modality.toUpperCase(Locale.ROOT) + "]</gray></gold></dark_purple>";
         Inventory inv = Bukkit.createInventory(null, slots, CrossVersionAdapter.parseComponent(title));
 
         ItemStack[] saved = frequencyStorage.get(freqKey);

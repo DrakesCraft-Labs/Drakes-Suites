@@ -117,4 +117,57 @@ class ColoredEnderChestsModuleTest {
         assertEquals(8, retrieved.getAmount());
         playerA.closeInventory();
     }
+
+    @Test
+    @DisplayName("Cross-dimension dentro de modalidad comparte inventario pero modalidades aisladas no se traspasan")
+    void testCrossDimensionAndModalityIsolation() {
+        ColoredEnderChestsModule module = (ColoredEnderChestsModule) plugin.getModuleManager().getModule("colored_enderchests");
+        assertNotNull(module);
+
+        org.bukkit.World overworld = server.getWorld("world");
+        org.bukkit.World nether = server.addSimpleWorld("world_nether");
+        org.bukkit.World skyblock = server.addSimpleWorld("bskyblock_world");
+        org.bukkit.World oneblock = server.addSimpleWorld("aoneblock_world");
+
+        PlayerMock player = server.addPlayer("Explorer");
+
+        // 1. En Overworld (Survival), coloca 32 lingotes de Netherite en canal 3-4-5
+        module.openEnderChest(player, overworld, false, 3, 4, 5, null);
+        player.getOpenInventory().getTopInventory().setItem(0, new ItemStack(Material.NETHERITE_INGOT, 32));
+        player.closeInventory();
+
+        // 2. En Nether (Survival - dimensión conectada), abre la misma frecuencia
+        // DEBE tener los 32 lingotes de Netherite (cantera interdimensional / sync activa)
+        module.openEnderChest(player, nether, false, 3, 4, 5, null);
+        ItemStack netherItem = player.getOpenInventory().getTopInventory().getItem(0);
+        assertNotNull(netherItem, "Cantera en Nether debe compartir inventario con Overworld en modalidad Survival");
+        assertEquals(Material.NETHERITE_INGOT, netherItem.getType());
+        assertEquals(32, netherItem.getAmount());
+        player.closeInventory();
+
+        // 3. En SkyBlock (bskyblock_world), abre la misma frecuencia 3-4-5
+        // DEBE ESTAR COMPLETAMENTE VACÍO (aislamiento estricto por modalidad)
+        module.openEnderChest(player, skyblock, false, 3, 4, 5, null);
+        ItemStack skyblockItem = player.getOpenInventory().getTopInventory().getItem(0);
+        assertNull(skyblockItem, "SkyBlock no debe acceder al inventario de Survival bajo ninguna circunstancia");
+
+        // Guarda 16 Esmeraldas en SkyBlock
+        player.getOpenInventory().getTopInventory().setItem(0, new ItemStack(Material.EMERALD, 16));
+        player.closeInventory();
+
+        // 4. En OneBlock (aoneblock_world), abre la misma frecuencia 3-4-5
+        // DEBE ESTAR VACÍO (no accede ni a Survival ni a SkyBlock)
+        module.openEnderChest(player, oneblock, false, 3, 4, 5, null);
+        ItemStack oneblockItem = player.getOpenInventory().getTopInventory().getItem(0);
+        assertNull(oneblockItem, "OneBlock debe estar aislado de SkyBlock y de Survival");
+        player.closeInventory();
+
+        // 5. Re-verificar Survival: el Overworld sigue teniendo sus 32 Netherite intactos
+        module.openEnderChest(player, overworld, false, 3, 4, 5, null);
+        ItemStack finalSurvivalItem = player.getOpenInventory().getTopInventory().getItem(0);
+        assertNotNull(finalSurvivalItem);
+        assertEquals(Material.NETHERITE_INGOT, finalSurvivalItem.getType());
+        assertEquals(32, finalSurvivalItem.getAmount());
+        player.closeInventory();
+    }
 }
