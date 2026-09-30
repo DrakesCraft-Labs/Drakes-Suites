@@ -43,6 +43,8 @@ public class ColoredEnderChestsModule extends AbstractSuiteModule implements Lis
     private static final String KEY_C1 = "enderchest_c1";
     private static final String KEY_C2 = "enderchest_c2";
     private static final String KEY_C3 = "enderchest_c3";
+    private static final String KEY_OWNER = "enderchest_owner";
+    private static final String KEY_IS_PRIVATE = "enderchest_private";
 
     private static final String[] COLOR_NAMES = {
             "Blanco", "Naranja", "Magenta", "Celeste", "Amarillo", "Lima", "Rosa", "Gris Oscuro",
@@ -124,6 +126,13 @@ public class ColoredEnderChestsModule extends AbstractSuiteModule implements Lis
     }
 
     public String getFrequencyKey(boolean big, int c1, int c2, int c3) {
+        return getFrequencyKey(null, big, c1, c2, c3);
+    }
+
+    public String getFrequencyKey(UUID owner, boolean big, int c1, int c2, int c3) {
+        if (owner != null) {
+            return owner + "_" + (big ? "BIG_" : "SMALL_") + c1 + "_" + c2 + "_" + c3;
+        }
         return (big ? "BIG_" : "SMALL_") + c1 + "_" + c2 + "_" + c3;
     }
 
@@ -152,6 +161,8 @@ public class ColoredEnderChestsModule extends AbstractSuiteModule implements Lis
         Integer c1 = SuiteItemPdcBridge.getCustomInt(item, NAMESPACE, KEY_C1);
         Integer c2 = SuiteItemPdcBridge.getCustomInt(item, NAMESPACE, KEY_C2);
         Integer c3 = SuiteItemPdcBridge.getCustomInt(item, NAMESPACE, KEY_C3);
+        String ownerStr = SuiteItemPdcBridge.getCustomString(item, NAMESPACE, KEY_OWNER);
+        Integer isPrivateInt = SuiteItemPdcBridge.getCustomInt(item, NAMESPACE, KEY_IS_PRIVATE);
 
         boolean big = (isBigInt != null && isBigInt == 1);
         if (c1 == null || c2 == null || c3 == null) {
@@ -171,14 +182,101 @@ public class ColoredEnderChestsModule extends AbstractSuiteModule implements Lis
         if (c2 == null) c2 = 0;
         if (c3 == null) c3 = 0;
 
-        openEnderChest(player, big, c1, c2, c3);
+        UUID owner = null;
+        if (ownerStr != null && !ownerStr.isEmpty()) {
+            try {
+                owner = UUID.fromString(ownerStr);
+            } catch (IllegalArgumentException ignored) {}
+        }
+        boolean isPrivate = (isPrivateInt != null && isPrivateInt == 1) || owner != null;
+
+        // Soporte de Bloqueo con Diamante en mano secundaria (Offhand)
+        ItemStack offhand = player.getInventory().getItemInOffHand();
+        boolean hasDiamond = (offhand != null && offhand.getType() == Material.DIAMOND);
+
+        if (hasDiamond) {
+            if (!isPrivate) {
+                // Bloquear a modo privado con Diamante
+                if (player.getGameMode() != org.bukkit.GameMode.CREATIVE) {
+                    offhand.setAmount(offhand.getAmount() - 1);
+                }
+                SuiteItemPdcBridge.setCustomString(item, NAMESPACE, KEY_OWNER, player.getUniqueId().toString());
+                SuiteItemPdcBridge.setCustomInt(item, NAMESPACE, KEY_IS_PRIVATE, 1);
+
+                ItemMeta meta = item.getItemMeta();
+                if (meta != null) {
+                    List<String> lore = meta.hasLore() ? new ArrayList<>(meta.getLore()) : new ArrayList<>();
+                    lore.add("<aqua>★ Bloqueado a: <yellow>" + player.getName() + "</yellow> ★</aqua>");
+                    CrossVersionAdapter.setItemLore(meta, lore);
+                    item.setItemMeta(meta);
+                }
+
+                CrossVersionAdapter.sendMessage(player, "<aqua>§l[ColoredEnderChests] §a¡Cofre asegurado en modo PRIVADO con Diamante!</aqua>");
+                CrossVersionAdapter.sendMessage(player, "<gray>Solo tú puedes acceder a esta frecuencia privada. Agáchate con un diamante para devolverlo a público.</gray>");
+                try {
+                    player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.8f);
+                } catch (Throwable ignored) {}
+                return;
+            } else {
+                // Ya es privado
+                if (owner != null && owner.equals(player.getUniqueId())) {
+                    if (player.isSneaking()) {
+                        // Desbloquear a público
+                        SuiteItemPdcBridge.setCustomString(item, NAMESPACE, KEY_OWNER, "");
+                        SuiteItemPdcBridge.setCustomInt(item, NAMESPACE, KEY_IS_PRIVATE, 0);
+
+                        ItemMeta meta = item.getItemMeta();
+                        if (meta != null && meta.hasLore()) {
+                            List<String> lore = new ArrayList<>(meta.getLore());
+                            lore.removeIf(l -> l.contains("Bloqueado a:"));
+                            CrossVersionAdapter.setItemLore(meta, lore);
+                            item.setItemMeta(meta);
+                        }
+
+                        if (player.getGameMode() != org.bukkit.GameMode.CREATIVE) {
+                            player.getInventory().addItem(new ItemStack(Material.DIAMOND)).values()
+                                    .forEach(rem -> player.getWorld().dropItemNaturally(player.getLocation(), rem));
+                        }
+
+                        CrossVersionAdapter.sendMessage(player, "<aqua>§l[ColoredEnderChests] §eCofre restaurado a modo PÚBLICO. Diamante devuelto.</aqua>");
+                        try {
+                            player.playSound(player.getLocation(), Sound.BLOCK_CHEST_LOCKED, 1.0f, 1.0f);
+                        } catch (Throwable ignored) {}
+                        return;
+                    } else {
+                        CrossVersionAdapter.sendMessage(player, "<aqua>§l[ColoredEnderChests] §eEste cofre ya es tu cofre privado. Agáchate con un diamante para desbloquearlo.</aqua>");
+                        return;
+                    }
+                } else {
+                    CrossVersionAdapter.sendMessage(player, "<red>§l[ColoredEnderChests] §cEste cofre es privado de otro jugador.");
+                    try {
+                        player.playSound(player.getLocation(), Sound.BLOCK_CHEST_LOCKED, 1.0f, 0.5f);
+                    } catch (Throwable ignored) {}
+                    return;
+                }
+            }
+        }
+
+        openEnderChest(player, big, c1, c2, c3, isPrivate ? owner : null);
     }
 
     public void openEnderChest(Player player, boolean big, int c1, int c2, int c3) {
-        String freqKey = getFrequencyKey(big, c1, c2, c3);
+        openEnderChest(player, big, c1, c2, c3, null);
+    }
+
+    public void openEnderChest(Player player, boolean big, int c1, int c2, int c3, UUID owner) {
+        if (owner != null && !player.getUniqueId().equals(owner) && !player.hasPermission("drakesutility.enderchest.bypass")) {
+            CrossVersionAdapter.sendMessage(player, "<red>§l[ColoredEnderChests] §cEste cofre es privado de otro jugador.");
+            try {
+                player.playSound(player.getLocation(), Sound.BLOCK_CHEST_LOCKED, 1.0f, 0.5f);
+            } catch (Throwable ignored) {}
+            return;
+        }
+
+        String freqKey = getFrequencyKey(owner, big, c1, c2, c3);
         int slots = big ? 54 : 27;
 
-        String title = "<dark_purple>EnderChest <gold>#" + c1 + "-" + c2 + "-" + c3 + " <gray>(" + (big ? "Grande" : "Pequeño") + ")</gray></gold></dark_purple>";
+        String title = "<dark_purple>EnderChest <gold>#" + c1 + "-" + c2 + "-" + c3 + " <gray>(" + (big ? "Grande" : "Pequeño") + (owner != null ? " - Privado" : "") + ")</gray></gold></dark_purple>";
         Inventory inv = Bukkit.createInventory(null, slots, CrossVersionAdapter.parseComponent(title));
 
         ItemStack[] saved = frequencyStorage.get(freqKey);

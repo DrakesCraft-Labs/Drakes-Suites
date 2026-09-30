@@ -82,4 +82,39 @@ class ColoredEnderChestsModuleTest {
         assertEquals(Material.DIAMOND, stored[0].getType());
         assertEquals(16, stored[0].getAmount());
     }
+
+    @Test
+    @DisplayName("ColoredEnderChestsModule soporta frecuencias privadas con diamante y aisla inventarios")
+    void testPrivateDiamondLockAndAccessIsolation() {
+        ColoredEnderChestsModule module = (ColoredEnderChestsModule) plugin.getModuleManager().getModule("colored_enderchests");
+        assertNotNull(module);
+
+        PlayerMock playerA = server.addPlayer("PlayerA");
+        PlayerMock playerB = server.addPlayer("PlayerB");
+
+        // Player A abre cofre privado 7-7-7
+        module.openEnderChest(playerA, false, 7, 7, 7, playerA.getUniqueId());
+        ItemStack secretLoot = new ItemStack(Material.NETHERITE_INGOT, 8);
+        playerA.getOpenInventory().getTopInventory().setItem(0, secretLoot);
+        playerA.closeInventory();
+
+        // Player B abre la frecuencia 7-7-7 en modo público
+        module.openEnderChest(playerB, false, 7, 7, 7, null);
+        assertNull(playerB.getOpenInventory().getTopInventory().getItem(0), "Player B en canal público no debe ver el botín privado de Player A");
+        playerB.closeInventory();
+
+        // Player B intenta abrir directamente la frecuencia privada de Player A sin permisos
+        module.openEnderChest(playerB, false, 7, 7, 7, playerA.getUniqueId());
+        // El cofre no debe abrirse para Player B
+        assertTrue(playerB.getOpenInventory().getTopInventory() == null || playerB.getOpenInventory().getTopInventory().getType() == org.bukkit.event.inventory.InventoryType.CRAFTING,
+                "Player B no debe poder abrir el cofre privado de Player A");
+
+        // Verificar que Player A recupera sus ítems privados
+        module.openEnderChest(playerA, false, 7, 7, 7, playerA.getUniqueId());
+        ItemStack retrieved = playerA.getOpenInventory().getTopInventory().getItem(0);
+        assertNotNull(retrieved);
+        assertEquals(Material.NETHERITE_INGOT, retrieved.getType());
+        assertEquals(8, retrieved.getAmount());
+        playerA.closeInventory();
+    }
 }
