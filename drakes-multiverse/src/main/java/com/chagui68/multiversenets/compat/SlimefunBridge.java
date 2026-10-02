@@ -39,12 +39,12 @@ import java.util.logging.Logger;
 public final class SlimefunBridge {
 
     /**
-     * Prefijos completos del paquete de la API legacy. El jar vivo de Slimefun-Drake en DrakesCraft
-     * (1.2.DEV v11.0-Drake-1.21.11) expone {@code ...slimefun4.legacy.api.BlockStorage}, sin el
-     * segmento {@code .Slimefun}; el arbol de fuentes actual del fork lo tiene con el. Se prueban
-     * ambos y el upstream original, y el primero que resuelva gana.
+     * Complete roots for legacy APIs. The Drakes Slimefun artifact relocates the legacy API under
+     * {@code com.github.drakescraft_labs.slimefun4.legacy.api}; upstream and older layouts remain
+     * here so this optional bridge stays usable outside DrakesCraft as well.
      */
     private static final String[] API_ROOTS = {
+            "com.github.drakescraft_labs.slimefun4.legacy.api",
             "io.github.thebusybiscuit.slimefun4.legacy.api",
             "io.github.thebusybiscuit.slimefun4.legacy.Slimefun.api",
             "me.mrCookieSlime.Slimefun.api",
