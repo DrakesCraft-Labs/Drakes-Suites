@@ -16,7 +16,9 @@ public class DrakesMagicPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        saveDefaultConfig();
+        if (getResource("config.yml") != null) {
+            saveDefaultConfig();
+        }
 
         this.moduleManager = new SuiteModuleManager(this);
         // Registro de módulos mágicos absorbidos
