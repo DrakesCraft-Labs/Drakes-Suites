@@ -52,7 +52,9 @@ public class FlyingBubble {
         while (it.hasNext()) {
             UUID uuid = it.next();
             Player p = Bukkit.getPlayer(uuid);
-            if (p != null && !bubbledEntities.contains(p)) {
+            if (p == null) {
+                it.remove();
+            } else if (!bubbledEntities.contains(p)) {
                 it.remove();
                 checkPlayer(p.getUniqueId());
             }
