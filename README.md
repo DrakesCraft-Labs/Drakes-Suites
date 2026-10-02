@@ -81,7 +81,8 @@ The transition from a chaotic ecosystem of **180+ standalone micro-plugins** int
    Every single PersistentDataContainer (PDC) identifier (`slimefun:slimefun_item`) has been preserved with byte-for-byte fidelity (e.g., `NETWORKS_CABLE`, `INFINITY_SINGULARITY`, `GCE_CHICKEN_T9`, `SLIMETINKER_TINKERS_WORKBENCH`). Existing player inventories, quantum vaults, and base infrastructures migrate with **zero loss**.
 6. **Transactional SQLite WAL State Storage:**  
    Critical state, transaction auditing, anti-dupe nonces, and inventory snapshots write to concurrent SQLite WAL (Write-Ahead Logging) storage, removing disk I/O freezes from the server main thread.
-7. **Star Engine Evolution (Odysseia $ightarrow$ Star):**  
+7. **Star Engine Evolution (Odysseia $
+ightarrow$ Star):**  
    Kernel unification integrating 5-modality airtight inventory isolation (`InvSwitcher`), Tebex idempotent purchase verification, live server telemetry, dynamic economy algorithms (SII), and safety guards in a single binary.
 
 ---
@@ -305,3 +306,11 @@ graph TD
 **[🇪🇸 Leer Documentación en Español (README_ES.md)](./README_ES.md)**
 
 </div>
+
+---
+
+## 📄 License & Intellectual Property
+
+Copyright © 2026 [**JackStar6677-1**](https://github.com/JackStar6677-1) · [**DrakesCraft Labs**](https://github.com/DrakesCraft-Labs). All Rights Reserved.
+
+This software is **Source-Available** for public inspection and technical audit. Redistribution, commercial repackaging, or unauthorized derivative distribution without explicit written permission from the author is strictly prohibited.
