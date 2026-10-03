@@ -115,26 +115,62 @@ public final class NanotechContent {
 
     /** Raises control complexity from basic SF electronics to real Infinity circuitry. */
     private ItemStack controlIngredient(int tier) {
+        return addons.require(controlPurpose(tier), controlCandidates(tier));
+    }
+
+    private static String controlPurpose(int tier) {
         return switch (tier) {
-            case 0 -> addons.require("salvaged controls", "BASIC_CIRCUIT_BOARD");
-            case 1, 2 -> addons.require("advanced controls", "ADVANCED_CIRCUIT_BOARD");
-            case 3 -> addons.require("Supreme control substrate", "SUPREME_CARD_ELECTRIC_MOTOR", "ADVANCED_CIRCUIT_BOARD");
-            case 4 -> addons.require("networked control substrate", "NETWORK_CONTROLLER", "NETWORK_BRIDGE", "ADVANCED_CIRCUIT_BOARD");
-            case 5 -> addons.require("infinite control substrate", "INFINITE_CIRCUIT", "INFINITE_MACHINE_CIRCUIT", "NETWORK_CONTROLLER");
-            default -> addons.require("universal control substrate", "INFINITE_MACHINE_CIRCUIT", "INFINITY_MATRIX", "INFINITE_CIRCUIT");
+            case 0 -> "salvaged controls";
+            case 1, 2 -> "advanced controls";
+            case 3 -> "Supreme control substrate";
+            case 4 -> "networked control substrate";
+            case 5 -> "infinite control substrate";
+            default -> "universal control substrate";
+        };
+    }
+
+    /**
+     * Candidate IDs in preference order. Every tier ends with a core Slimefun item so the module
+     * still registers when Infinity/Networks/Supreme are not installed (Season 2 staging, 26.x).
+     */
+    static String[] controlCandidates(int tier) {
+        return switch (tier) {
+            case 0 -> new String[]{"BASIC_CIRCUIT_BOARD"};
+            case 1, 2 -> new String[]{"ADVANCED_CIRCUIT_BOARD"};
+            case 3 -> new String[]{"SUPREME_CARD_ELECTRIC_MOTOR", "ADVANCED_CIRCUIT_BOARD"};
+            case 4 -> new String[]{"NETWORK_CONTROLLER", "NETWORK_BRIDGE", "ADVANCED_CIRCUIT_BOARD"};
+            case 5 -> new String[]{"INFINITE_CIRCUIT", "INFINITE_MACHINE_CIRCUIT", "NETWORK_CONTROLLER", "ANDROID_MEMORY_CORE"};
+            default -> new String[]{"INFINITE_MACHINE_CIRCUIT", "INFINITY_MATRIX", "INFINITE_CIRCUIT", "ANDROID_MEMORY_CORE"};
         };
     }
 
     /** Forces players to build Slimefun power infrastructure, including Supreme Ventus progression. */
     private ItemStack powerIngredient(int tier) {
+        return addons.require(powerPurpose(tier), powerCandidates(tier));
+    }
+
+    private static String powerPurpose(int tier) {
         return switch (tier) {
-            case 0 -> addons.require("salvaged drive", "ELECTRIC_MOTOR");
-            case 1 -> addons.require("ARC regulation", "ENERGY_REGULATOR", "SMALL_CAPACITOR");
-            case 2 -> addons.require("nanotech logistics", "CARGO_MOTOR", "ENERGIZED_CAPACITOR");
-            case 3 -> addons.require("Ventus power", "SUPREME_BASIC_VENTUS_GENERATOR", "SUPREME_CETRUS_VENTUS", "ENERGIZED_CAPACITOR");
-            case 4 -> addons.require("sovereign network power", "NETWORK_CAPACITOR_2", "SUPREME_VENTUS_GENERATOR", "CARBONADO_EDGED_CAPACITOR");
-            case 5 -> addons.require("cosmic power", "INFINITY_CAPACITOR", "NETWORK_CAPACITOR_4", "SUPREME_SUPREME_CAPACITOR");
-            default -> addons.require("universal power", "INFINITY_REACTOR", "INFINITY_CAPACITOR", "SUPREME_SUPREME_GENERATOR");
+            case 0 -> "salvaged drive";
+            case 1 -> "ARC regulation";
+            case 2 -> "nanotech logistics";
+            case 3 -> "Ventus power";
+            case 4 -> "sovereign network power";
+            case 5 -> "cosmic power";
+            default -> "universal power";
+        };
+    }
+
+    /** Same contract as {@link #controlCandidates(int)}: the last candidate is always core Slimefun. */
+    static String[] powerCandidates(int tier) {
+        return switch (tier) {
+            case 0 -> new String[]{"ELECTRIC_MOTOR"};
+            case 1 -> new String[]{"ENERGY_REGULATOR", "SMALL_CAPACITOR"};
+            case 2 -> new String[]{"CARGO_MOTOR", "ENERGIZED_CAPACITOR"};
+            case 3 -> new String[]{"SUPREME_BASIC_VENTUS_GENERATOR", "SUPREME_CETRUS_VENTUS", "ENERGIZED_CAPACITOR"};
+            case 4 -> new String[]{"NETWORK_CAPACITOR_2", "SUPREME_VENTUS_GENERATOR", "CARBONADO_EDGED_CAPACITOR"};
+            case 5 -> new String[]{"INFINITY_CAPACITOR", "NETWORK_CAPACITOR_4", "SUPREME_SUPREME_CAPACITOR", "CARBONADO_EDGED_CAPACITOR"};
+            default -> new String[]{"INFINITY_REACTOR", "INFINITY_CAPACITOR", "SUPREME_SUPREME_GENERATOR", "NETHERSTAR_REACTOR"};
         };
     }
 
